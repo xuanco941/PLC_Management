@@ -41,11 +41,11 @@ namespace PLC_Management.Models.EmployeeModel
             Employee employee = new Employee();
             while (sqlDataReader.Read())
             {
-                employee.ID = (int)sqlDataReader["ID"];
-                employee.FullName = (string)sqlDataReader["FullName"];
-                employee.Username = (string)sqlDataReader["Username"];
-                employee.Password = (string)sqlDataReader["Password"];
-                employee.IsAdmin = (bool)sqlDataReader["IsAdmin"];
+                employee.ID = (int)sqlDataReader["Employee_ID"];
+                employee.FullName = (string)sqlDataReader["Employee_FullName"];
+                employee.Username = (string)sqlDataReader["Employee_Username"];
+                employee.Password = (string)sqlDataReader["Employee_Password"];
+                employee.IsAdmin = (bool)sqlDataReader["Employee_IsAdmin"];
             }
             sqlConnection.Close();
             return employee;
@@ -61,8 +61,8 @@ namespace PLC_Management.Models.EmployeeModel
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                Employee employee = new Employee((int)sqlDataReader["ID"], (string)sqlDataReader["FullName"],
-                    (string)sqlDataReader["Username"], (string)sqlDataReader["Password"], (bool)sqlDataReader["IsAdmin"]);
+                Employee employee = new Employee((int)sqlDataReader["Employee_ID"], (string)sqlDataReader["Employee_FullName"],
+                    (string)sqlDataReader["Employee_Username"], (string)sqlDataReader["Employee_Password"], (bool)sqlDataReader["Employee_IsAdmin"]);
                 list.Add(employee);
             }
             sqlConnection.Close();

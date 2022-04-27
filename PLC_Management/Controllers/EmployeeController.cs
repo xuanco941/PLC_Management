@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
             {
                 return RedirectToAction("Index", "Dashboard");
             }
-            ViewBag.isAdmin = Rules.IsAdmin(ID);
+            ViewBag.IsAdmin = Rules.IsAdmin(ID);
 
 
             EmployeeBusiness employeeBusiness = new EmployeeBusiness();
@@ -70,15 +70,15 @@ namespace WebApplication1.Controllers
             {
                 strRequestBody = await reader.ReadToEndAsync();
             }
-            Employee? nhanVienModel = JsonConvert.DeserializeObject<Employee>(strRequestBody);
+            Employee? employee = JsonConvert.DeserializeObject<Employee>(strRequestBody);
             EmployeeBusiness capNhatNhanVienModel = new EmployeeBusiness();
-            if (capNhatNhanVienModel.UpdateEmployee(nhanVienModel) == true)
+            if (capNhatNhanVienModel.UpdateEmployee(employee) == true)
             {
-                return Json(nhanVienModel);
+                return Json(employee);
             }
             else
             {
-                return Json(nhanVienModel);
+                return Json(employee);
             }
         }
 
@@ -87,8 +87,8 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> GetDataAUser()
         {
             // check admin
-            int MaNV = Convert.ToInt32(HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN));
-            if (Rules.IsAdmin(MaNV) == false)
+            int ID = Convert.ToInt32(HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN));
+            if (Rules.IsAdmin(ID) == false)
             {
                 return RedirectToAction("Index", "Dashboard");
             }

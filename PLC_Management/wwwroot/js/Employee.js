@@ -13,20 +13,20 @@ window.onload = () => {
     const btn_update = Array.from(document.querySelectorAll(".btn_update"));
     btn_update.forEach((btn) => {
         btn.addEventListener('click', () => {
-            let MaNV = parseInt(btn.getAttribute("data-id"));
-            dataID = MaNV;
+            let ID = parseInt(btn.getAttribute("data-id"));
+            dataID = ID;
             fetch("./employee/getdataauser", {
                 method: "post",
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify({ MaNV: MaNV })
+                body: JSON.stringify({ ID: ID })
             }).then(res => res.json())
                 .then((dataUser) => {
 
-                    fullnameUpdate.value = dataUser.hoTen;
-                    usernameUpdate.value = dataUser.taiKhoan;
-                    passwordUpdate.value = dataUser.matKhau;
+                    fullnameUpdate.value = dataUser.fullName;
+                    usernameUpdate.value = dataUser.username;
+                    passwordUpdate.value = dataUser.password;
                     if (dataUser.isAdmin == true) {
                         isAdminUpdateTrue.checked = true;
                     } else {
@@ -74,11 +74,11 @@ const exampleModalCenterUpdate = document.querySelector('#exampleModalCenterUpda
 const trElements = Array.from(document.querySelectorAll(".tb_elm"));
 // Cap nhat thong tin
 btnSave.addEventListener("click", (event) => {
-    let hoTen = fullnameUpdate.value;
-    let taiKhoan = usernameUpdate.value;
-    let matKhau = passwordUpdate.value;
-    let isAdmin = isAdminUpdateTrue.checked == true ? true : false;
-    let nhanVienModel = { maNV: dataID, hoTen, taiKhoan, matKhau, isAdmin };
+    let FullName = fullnameUpdate.value;
+    let Username = usernameUpdate.value;
+    let Password = passwordUpdate.value;
+    let IsAdmin = isAdminUpdateTrue.checked == true ? true : false;
+    let employee = { ID: dataID, FullName, Username, Password, IsAdmin };
 
     // lay record nhan vien
     let trElm = trElements.filter((e) => {
@@ -90,13 +90,13 @@ btnSave.addEventListener("click", (event) => {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(nhanVienModel)
+        body: JSON.stringify(employee)
     }).then(res => res.json())
         .then((dataUser) => {
-            trElm[0].children[0].textContent = dataUser.maNV;
-            trElm[0].children[1].textContent = dataUser.hoTen;
-            trElm[0].children[2].textContent = dataUser.taiKhoan;
-            trElm[0].children[3].textContent = dataUser.matKhau;
+            trElm[0].children[0].textContent = dataUser.id;
+            trElm[0].children[1].textContent = dataUser.fullName;
+            trElm[0].children[2].textContent = dataUser.username;
+            trElm[0].children[3].textContent = dataUser.password;
             trElm[0].children[4].textContent = dataUser.isAdmin == true ? 'Có' : 'Không';
         })
     event.preventDefault();
