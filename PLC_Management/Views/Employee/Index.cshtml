@@ -1,0 +1,173 @@
+﻿@using PLC_Management.Models.EmployeeModel
+@{
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/Employee.css" />
+<div class="row">
+    <div class="col-12" style="margin-top:25px;">
+        <a href="" class="title_dashboard">
+            <h1 style="text-align: center; padding-bottom: 25px; padding-top: 10px;">
+                Tài Khoản Thành Viên
+            </h1>
+        </a>
+    </div>
+    <div class="col-12">
+        <!--Table-->
+        <table class="table table-striped " id="table">
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>Mã NV</th>
+                    <th>Họ Và Tên</th>
+                    <th>Tài Khoản</th>
+                    <th>Mật Khẩu</th>
+                    <th>Quyền Quản Trị</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+
+
+            <tbody>
+                @foreach (Employee employee in ViewBag.employees)
+                {
+                    <tr data-id=@employee.ID class="table-secondary tb_elm">
+                        <td scope="row">@employee.ID</td>
+                        <td>@employee.FullName</td>
+                        <td class="elm_unique" >@employee.Username</td>
+                        <td>@employee.Password</td>
+                        <td>
+                            @{
+                                string isAdmin = "";
+                                if (employee.IsAdmin == true)
+                                {
+                                    isAdmin = "Có";
+                                }
+                                else
+                                {
+                                    isAdmin = "Không";
+                                }
+                            }
+                            @isAdmin
+                        </td>
+                        <th class="box_option">
+                            <button type="button" data-id="@employee.ID" style="padding-left:23px;padding-right:23px;" class="btn btn_update btn-primary" data-toggle="modal" data-target="#exampleModalCenterUpdate">
+                                Sửa
+                            </button>
+                        </th>
+                        <th>
+                            <form asp-action="DeleteEmployee" asp-route-id="@employee.ID" method="post">
+                                <button style="padding-left:23px;padding-right:23px;" type="submit" class="btn btn-danger">Xóa</button>
+                            </form>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+
+
+
+
+            <!--Table body-->
+
+        </table>
+
+
+    </div>
+</div>
+<!-- Button trigger modal Thêm -->
+<div class="box_option">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+        Thêm tài khoản
+    </button>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal Thêm -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form asp-controller="Employee" asp-action="InsertEmployee" method="post" class="modal-content" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Thêm thành viên</h5>
+            </div>
+            <div class="modal-body">
+                <div class="item_modal">
+                    <label for="fullname">Họ và Tên</label>
+                    <input name="fullname" required id="fullname" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
+                    <label for="username">Tài khoản</label>
+                    <input name="username" required id="username" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
+                    <label for="password">Mật khẩu</label>
+                    <input name="password" required id="password" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
+                    <label for="isAdmin">Quyền Admin</label>
+                    <div class="grRadio">
+                        <input class="isAdmin" type="radio" value="1" name="isAdmin"> Có
+                        <input style="margin-left: 30px;" class="isAdmin" type="radio" checked value="0" name="isAdmin"> Không
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="btnInsert" class="btn btn-success">Thêm thành viên</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal Sửa -->
+<div class="modal fade" id="exampleModalCenterUpdate" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form asp-controller="Employee" asp-action="UpdateEmployee" method="post" id="formUpdate" class="modal-content" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Sửa thông tin tài khoản</h5>
+            </div>
+            <div class="modal-body">
+                <div class="item_modal">
+                    <label for="fullname">Họ và Tên</label>
+                    <input name="fullname" required id="fullnameUpdate" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
+                    <label for="username">Tài khoản</label>
+                    <input name="username" required id="usernameUpdate" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
+                    <label for="password">Mật khẩu</label>
+                    <input name="password" required id="passwordUpdate" autocomplete="off" type="text">
+                </div>
+                <div class="item_modal">
+                    <label for="isAdmin">Quyền Admin</label>
+                    <div class="grRadio">
+                        <input id="isAdminUpdateTrue" class="isAdmin" type="radio" value="1" name="isAdmin"> Có
+                        <input id="isAdminUpdateFalse" style="margin-left: 30px;" class="isAdmin" type="radio" checked value="0" name="isAdmin"> Không
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSave" class="btn btn-primary" data-dismiss="modal">Lưu lại</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/js/Employee.js"></script>
+

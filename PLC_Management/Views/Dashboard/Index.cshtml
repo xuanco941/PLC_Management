@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/Dashboard.css" />
+
+<div class="row">
+    <div class="col-12" style="margin-top:25px;">
+        <h1 style="text-align: center;">
+            Kết Quả Thu Thập
+        </h1>
+    </div>
+    <div class="col-12">
+        <!--Table-->
+        <table class="table table-striped " id="table">
+
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>Mã KQ</th>
+                    <th>Điện Áp</th>
+                    <th>Dòng Điện</th>
+                    <th>Điện Áp Giải Block</th>
+                    <th>Công Suất Nóng</th>
+                    <th>Công Suất Lạnh</th>
+                    <th>Nhiệt Độ Nóng Khi Ngắt</th>
+                    <th>Nhiệt Độ Lạnh</th>
+                    <th>Thời Gian Test</th>
+                    <th>Nhân Viên</th>
+                    <th>Ngày</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+
+
+
+@*            <tbody>
+                @{
+                    int i = 0;
+                }
+                @foreach (ViewResultsModel result in ViewBag.listResults)
+                {
+                    if (i % 2 == 0)
+                    {
+                        <tr class="table-info">
+                            <th scope="row">@result.MaKetQua</th>
+                            <td>@result.DienAp</td>
+                            <td>@result.DongDien</td>
+                            <td>@result.DienApGiaiBlock</td>
+                            <td>@result.CongSuatNong</td>
+                            <td>@result.CongSuatLanh</td>
+                            <td>@result.NhietDoNongKhiNgat</td>
+                            <td>@result.NhietDoLanh</td>
+                            <td>@result.ThoiGianTest</td>
+                            <td>@result.FullNameEmployee</td>
+                            <td>@result.Ngay</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <th scope="row">@result.MaKetQua</th>
+                            <td>@result.DienAp</td>
+                            <td>@result.DongDien</td>
+                            <td>@result.DienApGiaiBlock</td>
+                            <td>@result.CongSuatNong</td>
+                            <td>@result.CongSuatLanh</td>
+                            <td>@result.NhietDoNongKhiNgat</td>
+                            <td>@result.NhietDoLanh</td>
+                            <td>@result.ThoiGianTest</td>
+                            <td>@result.FullNameEmployee</td>
+                            <td>@result.Ngay</td>
+                        </tr>
+                    }
+                    i++;
+                }
+                
+            </tbody>*@
+            <!--Table body-->
+
+
+
+
+
+        </table>
+
+        <!--Table-->
+
+
+
+
+        <div class="bottomPlace"
+             style="width:100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: end;">
+            <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
+        </div>
+
+    </div>
+</div>
+<script src="./js/table2excel.js"></script>
+<script>
+    const table2excel = new Table2Excel();
+    document.querySelector("#btn-export").addEventListener("click", () => {
+        table2excel.export(document.querySelector("#table"));
+    })
+</script>

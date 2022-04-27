@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./lib/lib_new_version/bootstrap_min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/SideNav.css">
+    <title>LeanWay</title>
+</head>
+
+<body>
+    <div class="sidenav showAnimation-Sidenav" id="sidenav">
+        <div class="menu_sidenav">
+
+            <div class="head_menu_sidenav">
+                <a href="">
+                    <h2>Theo dõi máy</h2>
+                </a>
+            </div>
+            <div class="body_menu">
+                <a class="item_menu" href="/dashboard">Bảng điều khiển</a>
+                @if (ViewBag.isAdmin == true)
+                {
+                    <a class="item_menu" href="/employee">Tài khoản thành viên</a>
+                }
+            </div>
+
+        </div>
+        <div class="user">
+            <div class="user_info">
+                <span class="name_user">@HttpContextAccessor.HttpContext.Session.GetString("SESSION_USER_FULLNAME")</span>
+            </div>
+
+            <a type="button" class="btn btn_logout btn-danger" href="/login/logout">
+                Đăng xuất
+            </a>
+        </div>
+    </div>
+
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+
+    <script src="~/lib/lib_new_version/jquery3_2_1.js"></script>
+    <script src="~/lib/lib_new_version/popper.js"></script>
+    <script src="~/lib/lib_new_version/bootstrap_min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>
+
+
+
+
+
