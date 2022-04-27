@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace PLC_Management
+namespace PLC_Management.Models.EmployeeModel
 {
     public class Rules
     {

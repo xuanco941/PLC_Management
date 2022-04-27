@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/Record.css" />
+
+<div class="row">
+    <div class="col-12" style="margin-top:25px;">
+        <h1 style="text-align: center;">
+            Kết Quả Thu Thập
+        </h1>
+    </div>
+    <div class="col-12">
+
+
+        <!--Table-->
+        <table class="table table-striped " id="table">
+
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Parameter Name</th>
+                    <th>ID</th>
+                    <th>Unit</th>
+                    <th>Date Time</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+
+
+
+            <tbody>
+            @*    @{
+                    int i = 0;
+                }
+                @foreach (ViewResultsModel result in ViewBag.listResults)
+                {
+                    if (i % 2 == 0)
+                    {*@
+                        <tr class="table-info">
+                            <th scope="row">.MaKetQua</th>
+                            <td>.DienAp</td>
+                            <td>.DongDien</td>
+                            <td>.DienApGiaiBlock</td>
+                            <td>.CongSuatNong</td>
+                            <td>.CongSuatLanh</td>
+                            <td>.NhietDoNongKhiNgat</td>
+                            
+                        </tr>
+                  @*  }
+                    else
+                    {
+                        <tr>
+                            <th scope="row">@result.MaKetQua</th>
+                            <td>@result.DienAp</td>
+                            <td>@result.DongDien</td>
+                            <td>@result.DienApGiaiBlock</td>
+                            <td>@result.CongSuatNong</td>
+                            <td>@result.CongSuatLanh</td>
+                            <td>@result.NhietDoNongKhiNgat</td>
+                            <td>@result.NhietDoLanh</td>
+                            <td>@result.ThoiGianTest</td>
+                            <td>@result.FullNameEmployee</td>
+                            <td>@result.Ngay</td>
+                        </tr>
+                    }
+                    i++;
+                }*@
+                
+            </tbody>
+            <!--Table body-->
+
+
+
+
+
+        </table>
+
+        <!--Table-->
+
+
+
+
+        <div class="bottomPlace"
+             style="width:100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: end;">
+            <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
+        </div>
+
+    </div>
+</div>
+<script src="./js/table2excel.js"></script>
+<script>
+    const table2excel = new Table2Excel();
+    document.querySelector("#btn-export").addEventListener("click", () => {
+        table2excel.export(document.querySelector("#table"));
+    })
+</script>

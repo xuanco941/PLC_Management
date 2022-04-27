@@ -10,7 +10,7 @@ public class LoginController : Controller
     {
         if (HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN) != null)
         {
-            return RedirectToAction("Index","Dashboard");
+            return RedirectToAction("Index", "Dashboard");
         }
         else
         {
@@ -26,12 +26,25 @@ public class LoginController : Controller
         string password = form["password"].ToString().Trim();
         Employee employee = new Employee(username, password);
         EmployeeBusiness employeeBusiness = new EmployeeBusiness();
-        
+
         if (employeeBusiness.AuthLogin(employee) == true)
         {
             //set session
             HttpContext.Session.SetInt32(Common.SESSION_USER_LOGIN, employee.ID);
             HttpContext.Session.SetString(Common.SESSION_USER_FULLNAME, employee.FullName);
+
+            int isAdmin;
+            if (Rules.IsAdmin(employee.ID) == true)
+            {
+                isAdmin = 1;
+            }
+            else
+            {
+                isAdmin = 0;
+            }
+
+            //session check admin
+            HttpContext.Session.SetInt32(Common.SESSION_ISADMIN, isAdmin);
 
             return RedirectToAction("Index", "Dashboard");
         }
@@ -45,8 +58,10 @@ public class LoginController : Controller
     //dang xuat
     public IActionResult Logout()
     {
-            HttpContext.Session.Remove(Common.SESSION_USER_LOGIN);
-            return RedirectToAction("Index");
+        HttpContext.Session.Remove(Common.SESSION_USER_LOGIN);
+        HttpContext.Session.Remove(Common.SESSION_ISADMIN);
+        HttpContext.Session.Remove(Common.SESSION_USER_FULLNAME);
+        return RedirectToAction("Index");
     }
-    
+
 }

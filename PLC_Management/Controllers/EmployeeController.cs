@@ -15,8 +15,6 @@ namespace WebApplication1.Controllers
             {
                 return RedirectToAction("Index", "Dashboard");
             }
-            ViewBag.IsAdmin = Rules.IsAdmin(ID);
-
 
             EmployeeBusiness employeeBusiness = new EmployeeBusiness();
             ViewBag.employees = employeeBusiness.GetAllEmployees();

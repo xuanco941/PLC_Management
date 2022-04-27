@@ -21,6 +21,8 @@ namespace PLC_Management.Models.EmployeeModel
                 string _FullName = sqlDataReader.GetString(1);
                 employee.ID = _ID;
                 employee.FullName = _FullName;
+                //bool _IsAdmin = sqlDataReader.GetBoolean(4);
+                //employee.IsAdmin = _IsAdmin;
                 sqlConnection.Close();
                 return true;
             }
