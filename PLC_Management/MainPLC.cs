@@ -3,7 +3,7 @@ using PROFINET_STEP_7.Types;
 
 namespace PLC_Management
 {
-    public class RunPLC
+    public class MainPLC
     {
         private static PLC plc;
         private static ExceptionCode errCode;

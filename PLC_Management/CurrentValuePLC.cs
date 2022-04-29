@@ -2,9 +2,9 @@
 {
     public class CurrentValuePLC
     {
-        public static double pH;
-        public static double COD;
-        public static double TSS;
-        public static double Temp;
+        public static double pH { get; set; } = 0;
+        public static double COD { get; set; } = 0;
+        public static double TSS { get; set; } = 0;
+        public static double Temp { get; set; } = 0;
     }
 }

@@ -24,25 +24,25 @@
                     <tr>
                         <th scope="row">pH</th>
                         <td>6 : 9</td>
-                        <td>8.28</td>
+                        <td id="pH">@ViewBag.ph</td>
                         <td></td>
                     </tr>
                     <tr>
                         <th scope="row">Temp</th>
                         <td> &lt; 40 </td>
-                        <td>28.46</td>
+                        <td id="Temp">@ViewBag.Temp</td>
                         <td>&#186;C</td>
                     </tr>
                     <tr>
                         <th scope="row">TSS</th>
                         <td>&lt; 50</td>
-                        <td>---</td>
+                        <td id="TSS">@ViewBag.TSS</td>
                         <td>mg/L</td>
                     </tr>
                     <tr>
                         <th scope="row">COD</th>
                         <td>&lt; 75</td>
-                        <td>---</td>
+                        <td id="COD">@ViewBag.COD</td>
                         <td>mg/L</td>
                     </tr>
                 </tbody>
@@ -125,3 +125,4 @@
         </div>
     </div>
 </div>
+<script src="~/js/Dashboard.js"></script>

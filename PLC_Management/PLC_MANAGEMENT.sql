@@ -99,6 +99,27 @@ Delete FROM Employee WHERE Employee.Employee_ID = @ID;
 end
 GO
 
+--Tim kiem Activity theo khoang ngay
+CREATE PROC FindActivityDayToDay @Time1 DateTime , @Time2 DateTime
+as begin
+SELECT * FROM Activity WHERE 
+Activity_Time BETWEEN
+@Time1 AND
+ @Time2;
+end
+GO
+
+--Tim kiem Result theo khoang ngay
+CREATE PROC FindResultDayToDay @Time1 DateTime , @Time2 DateTime
+as begin
+SELECT * FROM Result WHERE 
+Result_DateTime BETWEEN
+@Time1 AND
+ @Time2;
+end
+GO
+
+
 
 exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
 GO
@@ -117,5 +138,3 @@ select * from Flow
 select * from Activity
 select * from Result
 
---SELECT * FROM Activity
---WHERE Activity_Time >= '1970' AND Activity_Time <= '2022'

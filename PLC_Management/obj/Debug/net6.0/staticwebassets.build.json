@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qgn/yEG2VVMV8CfM9WfXgQWPVWQDmnL/F3sCMJWN/s8=",
+  "Hash": "A0j6tnJH/604k66jYun3oaQ6gAWuGQw6Pd5OPuby8gs=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\users.svg"
+    },
+    {
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\Dashboard.js",
+      "SourceId": "PLC_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "BasePath": "_content/PLC_Management",
+      "RelativePath": "js/Dashboard.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Dashboard.js"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\Employee.js",
