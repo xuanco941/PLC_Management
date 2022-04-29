@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/Record.css" />
+
+<div class="row">
+    <div class="col-12" style="margin-top:25px;">
+        <h1 style="text-align: center;">
+            Kết Quả Thu Thập
+        </h1>
+    </div>
+
+    <div class="search col-12">
+        <label for="tungay">Tu ngay</label>
+        <input id="tungay" type="date" style="margin-right:40px;" />
+
+        <label for="toingay">Toi ngay</label>
+        <input id="toingay" type="date" style="margin-right:40px;" />
+
+        <button class="btn-primary btn">Loc</button>
+    </div>
+
+
+
+    <div class="col-12">
+
+        <!--Table-->
+        <table class="table table-primary " id="table">
+
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Hanh dong</th>
+                    <th>Ngay</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+
+
+
+            <tbody>
+                @*    @{
+                    int i = 0;
+                    }
+                    @foreach (ViewResultsModel result in ViewBag.listResults)
+                    {
+                    if (i % 2 == 0)
+                    {*@
+                <tr class="table-info">
+                    <th scope="row">1</th>
+                    <td>Ngắt kết nối tới máy PLC</td>
+                    <td>Friday, 29 May 2015 05:50:06</td>
+                </tr>
+               
+                @*  }
+                    else
+                    {
+                    <tr>
+                    <th scope="row">@result.MaKetQua</th>
+                    <td>@result.DienAp</td>
+                    <td>@result.DongDien</td>
+                    <td>@result.DienApGiaiBlock</td>
+                    <td>@result.CongSuatNong</td>
+                    <td>@result.CongSuatLanh</td>
+                    <td>@result.NhietDoNongKhiNgat</td>
+                    <td>@result.NhietDoLanh</td>
+                    <td>@result.ThoiGianTest</td>
+                    <td>@result.FullNameEmployee</td>
+                    <td>@result.Ngay</td>
+                    </tr>
+                    }
+                    i++;
+                    }*@
+
+            </tbody>
+            <!--Table body-->
+
+
+
+
+
+        </table>
+    </div>
+</div>

@@ -14,10 +14,10 @@ GO
 
 CREATE TABLE Activity(
 Activity_ID INT IDENTITY(1,1) PRIMARY KEY,
-Activity_Time DATETIME DEFAULT GETDATE(),
 Activity_Name NVARCHAR(1000),
-Employee_ID INT,
-FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
+Activity_Time DATETIME DEFAULT GETDATE()
+--Employee_ID INT,
+--FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 )
 GO
 
@@ -34,10 +34,10 @@ Result_ID INT IDENTITY(1,1) PRIMARY KEY,
 Result_Parameter_Name NVARCHAR(300),
 Result_Parameter_ID VARCHAR(25),
 Result_Parameter_Unit NVARCHAR(30),
-Result_Value REAL,
+Result_Value REAL ,
 Result_Status BIT DEFAULT 0,
-Result_DateTime DATETIME DEFAULT GETDATE(),
-FOREIGN KEY (Result_Parameter_ID) REFERENCES Parameter(Parameter_ID)
+Result_DateTime DATETIME DEFAULT GETDATE()
+--FOREIGN KEY (Result_Parameter_ID) REFERENCES Parameter(Parameter_ID)
 )
 GO
 
@@ -86,4 +86,8 @@ as begin
 Delete FROM Employee WHERE Employee.Employee_ID = @ID;
 end
 GO
+
+
+exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
+
 

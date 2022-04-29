@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/WorkPlace/C-Sharp/Working/PLC_Management/PLC_Management/Views/Activity/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WorkPlace/C-Sharp/Working/PLC_Management/PLC_Management/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -27,8 +31,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WorkPlace/C-Sharp/Working/PLC_Management/PLC_Management/Views/Record/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkXEluZGV4LmNzaHRtbA==
+[D:/WorkPlace/C-Sharp/Working/PLC_Management/PLC_Management/Views/Result/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdWx0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WorkPlace/C-Sharp/Working/PLC_Management/PLC_Management/Views/Shared/Error.cshtml]

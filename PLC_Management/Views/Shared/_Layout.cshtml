@@ -24,7 +24,8 @@
             </div>
             <div class="body_menu">
                 <a class="item_menu" href="/dashboard">Bảng điều khiển</a>
-                <a class="item_menu" href="/record">Tìm kiếm bản ghi</a>
+                <a class="item_menu" href="/result">Tìm kiếm bản ghi</a>
+                <a class="item_menu" href="/activity">Lịch sử hoạt động</a>
                 @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
                 {
                     <a class="item_menu" href="/employee">Tài khoản thành viên</a>
