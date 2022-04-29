@@ -13,6 +13,7 @@ namespace PLC_Management
 
         public const string SESSION_ISADMIN = "SESSION_ISADMIN";
 
+        public static string? Message;
         //[TempData]
         //public static string Message { get; set; } = "";
     }

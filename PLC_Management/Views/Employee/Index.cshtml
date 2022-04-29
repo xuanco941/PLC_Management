@@ -1,6 +1,10 @@
 ﻿@using PLC_Management.Models.EmployeeModel
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     Layout = "_Layout";
+}
+@{
+    int? IDMain = @HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_USER_LOGIN);
 }
 
 <link rel="stylesheet" href="~/css/Employee.css" />
@@ -37,7 +41,7 @@
                     <tr data-id=@employee.ID class="table-secondary tb_elm">
                         <td scope="row">@employee.ID</td>
                         <td>@employee.FullName</td>
-                        <td class="elm_unique" >@employee.Username</td>
+                        <td class="elm_unique">@employee.Username</td>
                         <td>@employee.Password</td>
                         <td>
                             @{
@@ -53,15 +57,19 @@
                             }
                             @isAdmin
                         </td>
+
                         <th class="box_option">
-                            <button type="button" data-id="@employee.ID" style="padding-left:23px;padding-right:23px;" class="btn btn_update btn-primary" data-toggle="modal" data-target="#exampleModalCenterUpdate">
+                            <button type="button" data-id-main=@IDMain data-id="@employee.ID" style="padding-left:23px;padding-right:23px;" class="btn btn_update btn-primary" data-toggle="modal" data-target="#exampleModalCenterUpdate">
                                 Sửa
                             </button>
                         </th>
                         <th>
-                            <form asp-action="DeleteEmployee" asp-route-id="@employee.ID" method="post">
-                                <button style="padding-left:23px;padding-right:23px;" type="submit" class="btn btn-danger">Xóa</button>
-                            </form>
+                            @if (IDMain != employee.ID)
+                            {
+                                <form asp-action="DeleteEmployee" asp-route-id="@employee.ID" method="post">
+                                    <button style="padding-left:23px;padding-right:23px;" type="submit" class="btn btn-danger">Xóa</button>
+                                </form>
+                            }
                         </th>
                     </tr>
                 }

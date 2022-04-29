@@ -14,7 +14,7 @@ GO
 
 CREATE TABLE Activity(
 Activity_ID INT IDENTITY(1,1) PRIMARY KEY,
-Activity_Name NVARCHAR(1000),
+Activity_Name NVARCHAR(2000),
 Activity_Time DATETIME DEFAULT GETDATE()
 --Employee_ID INT,
 --FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
@@ -29,18 +29,30 @@ Parameter_Unit NVARCHAR(30)
 )
 GO
 
+--CREATE TABLE Cabinet(
+	
+--)
+GO
+CREATE TABLE Flow(
+Flow_ID INT IDENTITY(1,1) PRIMARY KEY,
+Flow_Name nvarchar(200),
+Flow_Value REAL ,
+Flow_Unit nvarchar(20)
+)
+
+GO
+
 CREATE TABLE Result(
 Result_ID INT IDENTITY(1,1) PRIMARY KEY,
 Result_Parameter_Name NVARCHAR(300),
 Result_Parameter_ID VARCHAR(25),
 Result_Parameter_Unit NVARCHAR(30),
 Result_Value REAL ,
-Result_Status BIT DEFAULT 0,
+Result_Status BIT DEFAULT 1,
 Result_DateTime DATETIME DEFAULT GETDATE()
 --FOREIGN KEY (Result_Parameter_ID) REFERENCES Parameter(Parameter_ID)
 )
 GO
-
 
 /* Procedure */
 --Tìm kiếm nhân viên theo tên tài khoản
@@ -89,5 +101,21 @@ GO
 
 
 exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
+GO
+Insert into Parameter values ('pH','pH','6/9',''),('Temp','Temp','<40','&#176;C'),('TSS','TSS','<50','mg/L'),('COD','COD','<75','mg/L');
+GO
+Insert into Flow values('Luu luong vao',9.9,'m3/h'),('Tong luu luong vao',20,'m3'),('Luu luong ra',5.5,'m3/h'),('Luu luong ra',17,'m3')
+GO
+Insert into Activity(Activity_Name) values('ngat ket noi plc');
+GO
+INSERT INTO Result(Result_Parameter_ID,Result_Parameter_Name,Result_Parameter_Unit,Result_Value) values('pH','pH','6/9',7.8)
 
 
+select * from Employee
+select * from Parameter
+select * from Flow
+select * from Activity
+select * from Result
+
+--SELECT * FROM Activity
+--WHERE Activity_Time >= '1970' AND Activity_Time <= '2022'
