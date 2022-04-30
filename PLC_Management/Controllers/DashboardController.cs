@@ -6,24 +6,23 @@ namespace PLC_Management.Controllers
     {
         public IActionResult Index()
         {
-
-
-            ViewBag.pH = CurrentValuePLC.pH;
-            ViewBag.COD = CurrentValuePLC.COD;
-            ViewBag.TSS = CurrentValuePLC.TSS;
-            ViewBag.Temp = CurrentValuePLC.Temp;
             return View();
         }
 
         public IActionResult UpdateDataPLC()
         {
-            CurrentValuePLC.pH = CurrentValuePLC.pH + 2;
+            CurrentValuePLC.pH = CurrentValuePLC.pH + 2.09;
+            CurrentValuePLC.COD = CurrentValuePLC.COD + 1.5;
+            CurrentValuePLC.TSS = CurrentValuePLC.TSS + 3.1;
+            CurrentValuePLC.Temp = CurrentValuePLC.Temp + 1.3;
+
             return Json(new
             {
-                ph = CurrentValuePLC.pH,
-                COD = CurrentValuePLC.COD,
-                TSS = CurrentValuePLC.TSS,
-                Temp = CurrentValuePLC.Temp +1
+                ph = Math.Round(CurrentValuePLC.pH,4, MidpointRounding.AwayFromZero),
+                COD = Math.Round(CurrentValuePLC.COD, 4, MidpointRounding.AwayFromZero),
+                TSS = Math.Round(CurrentValuePLC.TSS, 4, MidpointRounding.AwayFromZero),
+                Temp = Math.Round(CurrentValuePLC.Temp, 4, MidpointRounding.AwayFromZero),
+                message = CurrentValuePLC.message
             });
         }
     }

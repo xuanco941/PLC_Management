@@ -6,9 +6,10 @@
 h2{
     padding-bottom: 10px;
 }
-.row_menu{
+.row_menu {
     width: 100%;
     margin-top: 25px;
+    background-color: #f9f9c5;
 }
 .tabLeft{
     padding: 5px;
@@ -41,13 +42,20 @@ td,th{
     text-align: center;
     height: 70px;
 }
-.box_number{
-    min-width: 40px;
+.box_number:hover{
+    cursor:pointer;
+}
+.box_number {
+    min-width: calc(100%/8);
     height: 100%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .box_number_father{
     display: flex;
+    height:60px;
     width: 100%;
     justify-content: space-around;
     background-color: gainsboro;
@@ -67,12 +75,20 @@ td,th{
     height: 50px;
     align-items: center;
 }
-
+.luuLuong{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
 
 .box_luuLuongvao,.box_luuLuongra{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    justify-content:center;
+    align-items:center;
+    width:100%;
 }
 .footer_box{
     display: flex;
@@ -84,7 +100,20 @@ td,th{
     justify-content: center;
 }
 
-@media (max-width: 1139px) { 
+#message_error_luuluong, #message_error_tulaymau, #message_error_error{
+    font-weight:700;
+}
+
+input{
+    text-align:center;
+}
+
+#pH,#Temp,#COD,#TSS {
+    font-size:17px;
+    font-weight:600;
+}
+
+@media (max-width: 1139px) {
     .tabRight{
         border: 1px solid rgba(0, 0, 0, 0.3);
     }

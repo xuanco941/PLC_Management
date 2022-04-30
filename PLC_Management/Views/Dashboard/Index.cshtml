@@ -6,7 +6,8 @@
 
 <div class="grid_menu">
     <div class="row row_menu">
-        <div class="col-12 col-xl-7 tabLeft">
+        <div class="col-12 text-danger" id="message_error_parameter"></div>
+        <div class="col-12 col-xl-6 tabLeft">
             <h2 style="text-align: center;">
                 Thông số chất lượng
             </h2>
@@ -22,41 +23,44 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">pH</th>
-                        <td>6 : 9</td>
-                        <td id="pH">@ViewBag.ph</td>
+                        <td scope="row">pH</td>
+                        <td>5:9</td>
+                        <td id="pH">0</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">Temp</th>
+                        <td scope="row">Temp</td>
                         <td> &lt; 40 </td>
-                        <td id="Temp">@ViewBag.Temp</td>
+                        <td id="Temp">0</td>
                         <td>&#186;C</td>
                     </tr>
                     <tr>
-                        <th scope="row">TSS</th>
-                        <td>&lt; 50</td>
-                        <td id="TSS">@ViewBag.TSS</td>
+                        <td scope="row">TSS</td>
+                        <td>100</td>
+                        <td id="TSS">0</td>
                         <td>mg/L</td>
                     </tr>
                     <tr>
-                        <th scope="row">COD</th>
-                        <td>&lt; 75</td>
-                        <td id="COD">@ViewBag.COD</td>
+                        <td scope="row">COD</td>
+                        <td>150</td>
+                        <td id="COD">0</td>
                         <td>mg/L</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-12 col-xl-5 tabRight">
+        <div class="col-12 col-xl-6 tabRight">
             <div class="tuLayMau">
                 <h2 style="text-align: center;">
                     Tủ lấy mẫu
                 </h2>
-                <div class="box_reset">
-                    <label for="reset" style="font-size: 20px; margin-right: 7px;">Reset</label>
-                    <button class="btn btn-success" style="width: 70px;">On</button>
-                </div>
+
+
+                <div class="text-danger" id="message_error_tulaymau"></div>
+
+
+
+                <h4>Chọn vị trí chai lấy mẫu </h4>
                 <div class="box_number_father">
                     <span class="box_number">1</span>
                     <span class="box_number">2</span>
@@ -66,17 +70,18 @@
                     <span class="box_number">6</span>
                     <span class="box_number">7</span>
                     <span class="box_number">8</span>
-                    <span class="box_number" style="background-color: red; color: aliceblue;">9</span>
+                </div>
+                <div class="box_number_father">
+                    <span class="box_number">9</span>
                     <span class="box_number">10</span>
                     <span class="box_number">11</span>
                     <span class="box_number">12</span>
-                </div>
-
-                <div class="box_number_father">
                     <span class="box_number">13</span>
                     <span class="box_number">14</span>
                     <span class="box_number">15</span>
                     <span class="box_number">16</span>
+                </div>
+                <div class="box_number_father">
                     <span class="box_number">17</span>
                     <span class="box_number">18</span>
                     <span class="box_number">19</span>
@@ -87,39 +92,65 @@
                     <span class="box_number">24</span>
                 </div>
 
-                <div class="footer_box">
-                    <div class="footer_box_item">
-                        <span style="margin-right: 20px;">Đổi vị trí lọ: 23</span>
-                        <span>T&#186;in: 0.00 &#186;C</span>
-                    </div>
-                    <div class="footer_box_item">
-                        <span style="margin-right: 20px;">Lấy mẫu vào: 21</span>
-                        <span>T&#186;out: 0.00 &#186;C</span>
-                    </div>
+                <div class="box_reset" style="margin-top:15px;">
+                    <button class="btn btn-success" style="margin-right:20px;">Bắt đầu</button>
+                    <button class="btn btn-primary">Lấy mẫu</button>
+                </div>
+                <div class="box_reset" style="margin-top:15px;">
+                    <input type="number" style="margin-right:5px;" />
+                    <button class="btn btn-success" style="margin-right:20px;">Lưu</button>
+                </div>
+                <div class="box_reset" style="margin-top:8px;">
+                    <input type="number" style="margin-right:5px;" />
+                    <button class="btn btn-danger" style="margin-right:20px;">Xóa</button>
                 </div>
 
+
+                @*               <div class="footer_box">
+                    <div class="footer_box_item">
+                    <span style="margin-right: 20px;">Đổi vị trí lọ: 23</span>
+                    <span>T&#186;in: 0.00 &#186;C</span>
+                    </div>
+                    <div class="footer_box_item">
+                    <span style="margin-right: 20px;">Lấy mẫu vào: 21</span>
+                    <span>T&#186;out: 0.00 &#186;C</span>
+                    </div>
+                    </div>*@
             </div>
+
+
+
             <div class="separate" style="background-color: black; width: 100%; height: 1px;"></div>
+
+
+
+
+
             <div class="luuLuong">
                 <h2 style="text-align: center;">
                     Lưu lượng
                 </h2>
+
+
+                <div class="text-danger" id="message_error_luuluong"></div>
+
+
                 <div class="box_luuLuongvao">
                     <label for="luuluongvao">Lưu lượng vào (m3/h)</label>
-                    <input type="text" id="luuluongvao" placeholder="m3/h">
+                    <input style="width:300px;" type="text" id="luuluongvao" placeholder="m3/h">
                     <label for="tongluuluongvao">Tổng lưu lượng vào (m3)</label>
-                    <input type="text" id="tongluuluongvao" placeholder="m3">
-                    <button class="btn btn-danger" style="margin-top:10px;">Xóa</button>
+                    <input style="width:300px;" type="text" id="tongluuluongvao" placeholder="m3">
                 </div>
+
                 <div style="width:100%;display: flex;justify-content: center;">
                     <div style="background-color: rgba(0, 0, 0, 0.3); width: 65%;height: 1px;"></div>
                 </div>
+
                 <div class="box_luuLuongra">
                     <label for="luuluongvao">Lưu lượng ra (m3/h)</label>
-                    <input type="text" id="luuluongvao" placeholder="m3/h">
+                    <input style="width:300px;" type="text" id="luuluongvao" placeholder="m3/h">
                     <label for="tongluuluongvao">Tổng lưu lượng ra (m3)</label>
-                    <input type="text" id="tongluuluongvao" placeholder="m3">
-                    <button class="btn btn-danger" style="margin-top:10px;">Xóa</button>
+                    <input style="width:300px;" type="text" id="tongluuluongvao" placeholder="m3">
                 </div>
             </div>
         </div>
