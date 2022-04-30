@@ -138,3 +138,5 @@ select * from Flow
 select * from Activity
 select * from Result
 
+exec FindActivityDayToDay '2022-01-30','2023-01-01'
+GO
