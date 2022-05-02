@@ -13,22 +13,22 @@
 
     <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
         <div class="col-12" style="margin-bottom:10px;">
-        <select>
-            <option value="find_by_day">Lọc theo ngày</option>
-        </select>
+            <select>
+                <option value="find_by_day">Lọc theo ngày</option>
+            </select>
+        </div>
+
+        <form class="search col-12" method="get">
+            <label for="tungay">Từ ngày </label>
+            <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
+
+            <label for="toingay">Tới ngày</label>
+            <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+
+            <button type="submit" class="btn-primary btn">Loc</button>
+        </form>
     </div>
 
-    <form class="search col-12" method="get">
-        <label for="tungay">Từ ngày </label>
-        <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
-
-        <label for="toingay">Tới ngày</label>
-        <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
-
-        <button type="submit" class="btn-primary btn">Loc</button>
-    </form>
-    </div>
-    
 
 
 
@@ -53,29 +53,29 @@
             <tbody>
                 @{
                     int i = 0;
-                    int j = i + 1;
                 }
-                    @foreach (Activity activity in ViewBag.listActivities)
-                    {
+                @foreach (Activity activity in ViewBag.listActivities)
+                {
+                    int j = i + 1;
                     if (i % 2 == 0)
                     {
-                <tr class="table-info">
-                    <th scope="row">@j</th>
-                    <td>@activity.Name</td>
-                    <td>@activity.Time</td>
-                </tr>
-               
-                  }
+                        <tr class="table-info">
+                            <th scope="row">@j</th>
+                            <td>@activity.Name</td>
+                            <td>@activity.Time</td>
+                        </tr>
+
+                    }
                     else
                     {
-                    <tr>
-                    <th scope="row">@j</th>
-                    <td>@activity.Name</td>
-                    <td>@activity.Time</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">@j</th>
+                            <td>@activity.Name</td>
+                            <td>@activity.Time</td>
+                        </tr>
                     }
                     i++;
-                    }
+                }
 
             </tbody>
             <!--Table body-->

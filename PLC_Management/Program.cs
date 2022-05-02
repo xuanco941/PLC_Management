@@ -1,5 +1,5 @@
 using PLC_Management.Middlewares;
-
+using PLC_Management.Models.ResultModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +9,8 @@ builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
 {
-    //session co thoi gian song la 30p
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    //session co thoi gian song la 365 ngay
+    options.IdleTimeout = TimeSpan.FromDays(365);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
@@ -45,4 +45,7 @@ app.MapControllerRoute(
 // dung middleware xac nhan da dang nhap chua
 app.UseMiddleware<AuthMiddlewares>();
 
+ResultActionStatic.Run();
+
 app.Run();
+

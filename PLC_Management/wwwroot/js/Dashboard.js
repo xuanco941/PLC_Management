@@ -1,4 +1,5 @@
-﻿const pH = document.querySelector("#pH");
+﻿
+const pH = document.querySelector("#pH");
 const TSS = document.querySelector("#TSS");
 const COD = document.querySelector("#COD");
 const Temp = document.querySelector("#Temp");
@@ -19,10 +20,6 @@ const updateData = () => {
 const dataInterval = setInterval(updateData, 1500);
 
 
-
-
-
-
 const box_number = Array.from(document.querySelectorAll(".box_number"));
 
 let soChai = 0;
@@ -40,3 +37,29 @@ box_number.forEach((btn) => {
         console.log(soChai);
     })
 })
+
+
+
+//btn
+const btn_batdau = document.querySelector("#btn_batdau");
+const btn_laymau = document.querySelector("#btn_laymau");
+const btn_luu = document.querySelector("#btn_luu");
+const btn_xoa = document.querySelector("#btn_xoa");
+
+btn_batdau.addEventListener('click', () => {
+    fetch('./dashboard/btn_batdau').then(res => res.json()).then(resData => console.log(resData.status));
+});
+
+btn_laymau.addEventListener('click', () => {
+    fetch('./dashboard/btn_laymau').then(res => res.json()).then(resData => console.log(resData.status));
+});
+
+btn_luu.addEventListener('click', () => {
+    fetch('./dashboard/btn_luu').then(res => res.json()).then(resData => console.log(resData.status));
+});
+
+btn_xoa.addEventListener('click', () => {
+    fetch('./dashboard/btn_xoa').then(res => res.json()).then(resData => console.log(resData.status))
+});
+
+

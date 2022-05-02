@@ -36,7 +36,7 @@ GO
 CREATE TABLE Flow(
 Flow_ID INT IDENTITY(1,1) PRIMARY KEY,
 Flow_Name nvarchar(200),
-Flow_Value REAL ,
+Flow_Value FLOAT ,
 Flow_Unit nvarchar(20)
 )
 
@@ -47,7 +47,7 @@ Result_ID INT IDENTITY(1,1) PRIMARY KEY,
 Result_Parameter_Name NVARCHAR(300),
 Result_Parameter_ID VARCHAR(25),
 Result_Parameter_Unit NVARCHAR(30),
-Result_Value REAL ,
+Result_Value FLOAT ,
 Result_Status BIT DEFAULT 1,
 Result_DateTime DATETIME DEFAULT GETDATE()
 --FOREIGN KEY (Result_Parameter_ID) REFERENCES Parameter(Parameter_ID)
@@ -105,7 +105,7 @@ as begin
 SELECT * FROM Activity WHERE 
 Activity_Time BETWEEN
 @Time1 AND
- @Time2;
+ @Time2 order by Activity.Activity_ID DESC
 end
 GO
 
@@ -115,7 +115,14 @@ as begin
 SELECT * FROM Result WHERE 
 Result_DateTime BETWEEN
 @Time1 AND
- @Time2;
+ @Time2 order by Result.Result_ID DESC
+end
+GO
+
+-- Them result
+CREATE PROC AddResult @Result_Parameter_Name nvarchar(300),@Result_Parameter_ID varchar(25),@Result_Parameter_Unit nvarchar(30),@Result_Value FLOAT
+as begin
+INSERT INTO Result(Result_Parameter_Name,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values(@Result_Parameter_Name,@Result_Parameter_ID,@Result_Parameter_Unit,@Result_Value)
 end
 GO
 
@@ -123,13 +130,13 @@ GO
 
 exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
 GO
-Insert into Parameter values ('pH','pH','6/9',''),('Temp','Temp','<40','&#176;C'),('TSS','TSS','<50','mg/L'),('COD','COD','<75','mg/L');
+Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','<40',N'độ C'),('TSS','TSS','<100','mg/L'),('COD','COD','<150','mg/L');
 GO
 Insert into Flow values('Luu luong vao',9.9,'m3/h'),('Tong luu luong vao',20,'m3'),('Luu luong ra',5.5,'m3/h'),('Luu luong ra',17,'m3')
 GO
 Insert into Activity(Activity_Name) values('ngat ket noi plc');
 GO
-INSERT INTO Result(Result_Parameter_ID,Result_Parameter_Name,Result_Parameter_Unit,Result_Value) values('pH','pH','6/9',7.8)
+INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('pH','pH','6/9',7.8)
 
 
 select * from Employee
@@ -138,5 +145,5 @@ select * from Flow
 select * from Activity
 select * from Result
 
-exec FindActivityDayToDay '2022-01-30','2023-01-01'
+exec FindActivityDayToDay '2022-5-3','2023-5-3'
 GO

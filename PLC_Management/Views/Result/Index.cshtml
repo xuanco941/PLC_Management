@@ -1,4 +1,6 @@
-﻿@{
+﻿@using PLC_Management.Models.ResultModel
+
+@{
     Layout = "_Layout";
 }
 
@@ -11,14 +13,22 @@
         </h1>
     </div>
 
-    <div class="search col-12">
-        <label for="tungay">Tu ngay</label>
-        <input id="tungay" type="date" style="margin-right:40px;" />
-        
-        <label for="toingay">Toi ngay</label>
-        <input id="toingay" type="date"  style="margin-right:40px;"/>
-        
-        <button class="btn-primary btn">Loc</button>
+    <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
+        <div class="col-12" style="margin-bottom:10px;">
+            <select>
+                <option value="find_by_day">Lọc theo ngày</option>
+            </select>
+        </div>
+
+        <form class="search col-12" method="get">
+            <label for="tungay">Từ ngày </label>
+            <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
+
+            <label for="toingay">Tới ngày</label>
+            <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+
+            <button type="submit" class="btn-primary btn">Lọc</button>
+        </form>
     </div>
 
 
@@ -46,62 +56,39 @@
 
 
             <tbody>
-                @*    @{
+                @{
                     int i = 0;
-                    }
-                    @foreach (ViewResultsModel result in ViewBag.listResults)
-                    {
+                }
+                @foreach (Result result in ViewBag.listResults)
+                {
+                    int j = i + 1;
                     if (i % 2 == 0)
-                    {*@
-                <tr class="table-info">
-                    <th scope="row">1</th>
-                    <td>pH</td>
-                    <td>pH</td>
-                    <td>50-70</td>
-                    <td>Friday, 29 May 2015 05:50:06</td>
-                    <td>44.3</td>
-                    <td>Unknown</td>
+                    {
+                        <tr class="table-info">
+                            <th scope="row">@j</th>
+                            <td>@result.Parameter_Name</td>
+                            <td>@result.Parameter_ID</td>
+                            <td>@result.Parameter_Unit</td>
+                            <td>@result.Datetime</td>
+                            <td>@result.Value</td>
+                            <td>Unknown</td>
 
-                </tr>
-                <tr >
-                    <th scope="row">2</th>
-                    <td>pH</td>
-                    <td>pH</td>
-                    <td>50-70</td>
-                    <td>Friday, 29 May 2015 05:50:06</td>
-                    <td>44.3</td>
-                    <td>Unknown</td>
-
-                </tr>
-                      <tr class="table-info">
-                    <th scope="row">1</th>
-                    <td>pH</td>
-                    <td>pH</td>
-                    <td>50-70</td>
-                    <td>Friday, 29 May 2015 05:50:06</td>
-                    <td>44.3</td>
-                    <td>Unknown</td>
-
-                </tr>
-                @*  }
+                        </tr>
+                    }
                     else
                     {
-                    <tr>
-                    <th scope="row">@result.MaKetQua</th>
-                    <td>@result.DienAp</td>
-                    <td>@result.DongDien</td>
-                    <td>@result.DienApGiaiBlock</td>
-                    <td>@result.CongSuatNong</td>
-                    <td>@result.CongSuatLanh</td>
-                    <td>@result.NhietDoNongKhiNgat</td>
-                    <td>@result.NhietDoLanh</td>
-                    <td>@result.ThoiGianTest</td>
-                    <td>@result.FullNameEmployee</td>
-                    <td>@result.Ngay</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">@j</th>
+                            <td>@result.Parameter_Name</td>
+                            <td>@result.Parameter_ID</td>
+                            <td>@result.Parameter_Unit</td>
+                            <td>@result.Datetime</td>
+                            <td>@result.Value</td>
+                            <td>Unknown</td>
+                        </tr>
                     }
                     i++;
-                    }*@
+                }
 
             </tbody>
             <!--Table body-->

@@ -9,7 +9,7 @@ namespace PLC_Management.Models.ActivityModel
             List<Activity> list = new List<Activity>();
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
-            string sql = "select * from Activity";
+            string sql = "select * from Activity order by Activity.Activity_ID DESC";
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
@@ -27,14 +27,14 @@ namespace PLC_Management.Models.ActivityModel
             List<Activity> list = new List<Activity>();
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
-            string sql = $"exec FindActivityDayToDay {tungay}, {toingay}";
+            string sql = $"exec FindActivityDayToDay '{tungay}', '{toingay}'";
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             //loi
             SqlDataReader sqlDataReader = command.ExecuteReader();
             while (sqlDataReader.Read())
             {
                 Activity activity = new Activity((int)sqlDataReader["Activity_ID"], (string)sqlDataReader["Activity_Name"],
-                    (string)sqlDataReader["Activity_Time"]);
+                    sqlDataReader["Activity_Time"].ToString());
                 list.Add(activity);
             }
             sqlConnection.Close();

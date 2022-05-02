@@ -25,5 +25,46 @@ namespace PLC_Management.Controllers
                 message = CurrentValuePLC.message
             });
         }
+
+
+        public IActionResult Btn_batdau()
+        {
+
+            CurrentValuePLC.btn_batdau = !CurrentValuePLC.btn_batdau;
+
+            return Json(new
+            {
+                status = CurrentValuePLC.btn_batdau
+            });
+        }
+
+        public IActionResult Btn_laymau()
+        {
+            CurrentValuePLC.btn_laymau = !CurrentValuePLC.btn_laymau;
+            return Json(new
+            {
+                status = CurrentValuePLC.btn_laymau
+            });
+        }
+
+        public IActionResult Btn_luu()
+        {
+            CurrentValuePLC.btn_luu = !CurrentValuePLC.btn_luu;
+            return Json(new
+            {
+                status = CurrentValuePLC.btn_luu
+            });
+        }
+
+        public IActionResult Btn_xoa()
+        {
+            CurrentValuePLC.btn_xoa = !CurrentValuePLC.btn_xoa;
+            return Json(new
+            {
+                status = CurrentValuePLC.btn_xoa
+            });
+        }
+
+
     }
 }
