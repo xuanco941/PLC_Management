@@ -118,6 +118,24 @@ Result_DateTime BETWEEN
  @Time2 order by Result.Result_ID DESC
 end
 GO
+--count by day
+CREATE PROC CountResultDayToDay @Time1 DateTime , @Time2 DateTime
+as begin
+SELECT count(*) FROM Result WHERE 
+Result_DateTime BETWEEN
+@Time1 AND
+ @Time2
+end
+GO
+
+CREATE PROC CountActivityDayToDay @Time1 DateTime , @Time2 DateTime
+as begin
+SELECT count(*) FROM Activity WHERE 
+Activity_Time BETWEEN
+@Time1 AND
+ @Time2
+end
+GO
 
 -- Them result
 CREATE PROC AddResult @Result_Parameter_Name nvarchar(300),@Result_Parameter_ID varchar(25),@Result_Parameter_Unit nvarchar(30),@Result_Value FLOAT
@@ -139,8 +157,27 @@ SELECT * FROM (
  ) a WHERE a.row > @startfrom and a.row <= @endto
  GO
 
+ --phan trang theo ngay
+ create proc paginationActivityByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as
+SELECT * FROM( SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Activity_ID desc) as row FROM Activity 
+ ) a WHERE a.row > @startfrom and a.row <= @endto) as clone WHERE 
+clone.Activity_Time BETWEEN
+@Time1 AND
+ @Time2
+ GO
+  create proc paginationResultByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as
+SELECT * FROM( SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result 
+ ) a WHERE a.row > @startfrom and a.row <= @endto) as clone WHERE 
+clone.Result_DateTime BETWEEN
+@Time1 AND
+ @Time2
+ GO
+ --exec paginationActivityByDay 0,5,'2022-5-3','2023-5-3'
 
 
+GO
 exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
 GO
 Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','<40',N'độ C'),('TSS','TSS','<100','mg/L'),('COD','COD','<150','mg/L');
@@ -158,7 +195,6 @@ select * from Flow
 select * from Activity
 select * from Result
 
-exec FindActivityDayToDay '2022-5-3','2023-5-3'
 GO
 
 exec paginationActivity 0,20

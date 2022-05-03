@@ -11,11 +11,7 @@ namespace PLC_Management.Controllers
 
         public IActionResult UpdateDataPLC()
         {
-            //CurrentValuePLC.pH = CurrentValuePLC.pH + 2.09;
-            //CurrentValuePLC.COD = CurrentValuePLC.COD + 1.5;
-            //CurrentValuePLC.TSS = CurrentValuePLC.TSS + 3.1;
-            //CurrentValuePLC.Temp = CurrentValuePLC.Temp + 1.3;
-            MainPLC.GetData();
+            //MainPLC.GetData();
             return Json(new
             {
                 ph = Math.Round(CurrentValuePLC.pH,4, MidpointRounding.AwayFromZero),

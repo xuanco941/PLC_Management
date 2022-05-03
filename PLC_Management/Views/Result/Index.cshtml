@@ -31,7 +31,7 @@
         </form>
     </div>
 
-
+    @ViewBag.sumResult
 
     <div class="col-12">
 
@@ -98,26 +98,18 @@
         <!--Table-->
         <nav aria-label="...">
             <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link">Trang trước</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active">
-                    <a class="page-link">
-                        2
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Trang sau</a>
-                </li>
+                @for (int j = 1; j <= @ViewBag.countPage; j++)
+                {
+                    string link = @ViewBag.host + j;
+                    <li class="page-item"><a class="page-link" href="./@link">@j</a></li>
+                }
             </ul>
         </nav>
 
 
 
         <div class="bottomPlace"
-             style="width:100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: end;">
+             style="width:100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: end; margin-bottom:30px;">
             <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
         </div>
 

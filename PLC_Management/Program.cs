@@ -47,10 +47,10 @@ app.MapControllerRoute(
 app.UseMiddleware<AuthMiddlewares>();
 
 //ket noi , chay PLC
-MainPLC.Start();
+//MainPLC.Start();
 
 //luu ket qua moi 10s
-InsertResultInterval.Run();
+//InsertResultInterval.Run();
 
 app.Run();
 

@@ -25,7 +25,7 @@
             <label for="toingay">Tới ngày</label>
             <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
 
-            <button type="submit" class="btn-primary btn">Loc</button>
+            <button type="submit" class="btn-primary btn">Lọc</button>
         </form>
     </div>
 
@@ -91,26 +91,24 @@
 
 <nav aria-label="...">
     <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-            <a class="page-link">Trang trước</a>
-        </li>
-        @ViewBag.countPage
         @for (int j = 1; j <= @ViewBag.countPage; j++)
         {
             string link = @ViewBag.host + j;
             <li class="page-item"><a class="page-link" href="./@link">@j</a></li>
         }
-
-        <li class="page-item active">
-            <a class="page-link">
-                2
-            </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Trang sau</a>
-        </li>
     </ul>
 </nav>
 
+<div class="bottomPlace"
+     style="width:100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: end; margin-bottom:30px;">
+    <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
+</div>
+
+<script src="./js/table2excel.js"></script>
+<script>
+    const table2excel = new Table2Excel();
+    document.querySelector("#btn-export").addEventListener("click", () => {
+        table2excel.export(document.querySelector("#table"));
+    })
+</script>
 <script src="~/js/Activity.js"></script>
