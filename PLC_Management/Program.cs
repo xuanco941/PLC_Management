@@ -1,5 +1,6 @@
 using PLC_Management.Middlewares;
 using PLC_Management.Models.ResultModel;
+using PLC_Management;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,8 +46,11 @@ app.MapControllerRoute(
 // dung middleware xac nhan da dang nhap chua
 app.UseMiddleware<AuthMiddlewares>();
 
+//ket noi , chay PLC
+MainPLC.Start();
+
 //luu ket qua moi 10s
-//ResultActionStatic.Run();
+InsertResultInterval.Run();
 
 app.Run();
 

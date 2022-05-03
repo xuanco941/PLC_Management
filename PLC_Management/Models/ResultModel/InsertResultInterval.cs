@@ -3,7 +3,7 @@ using System.Timers;
 
 namespace PLC_Management.Models.ResultModel
 {
-    public class ResultActionStatic
+    public class InsertResultInterval
     {
         public static void Run()
         {

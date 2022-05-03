@@ -9,10 +9,10 @@ namespace PLC_Management
         private static ExceptionCode errCode;
         public static void Start()
         {
-            string ip = "";
+            string ip = "192.168.0.1";
             CPU_Type cpu = CPU_Type.S71200;
             Int16 rack = 0;
-            Int16 slot = 0;
+            Int16 slot = 1;
 
             plc = new PLC(cpu,ip,rack,slot);
             try
@@ -53,7 +53,11 @@ namespace PLC_Management
 
         public static void GetData()
         {
-            double SoThuc1 = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB7.DBD0"));
+            CurrentValuePLC.pH = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB7.DBD0"));
+            CurrentValuePLC.Temp = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB7.DBD4"));
+            CurrentValuePLC.TSS = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB7.DBD8"));
+            CurrentValuePLC.COD = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB7.DBD12"));
+
         }
     }
 }
