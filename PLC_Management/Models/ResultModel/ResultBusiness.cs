@@ -19,7 +19,8 @@ namespace PLC_Management.Models.ResultModel
             while (sqlDataReader.Read())
             {
                 double _value = (double)sqlDataReader["Result_Value"];
-                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetString(2), sqlDataReader.GetString(3), Math.Round(_value, 4, MidpointRounding.AwayFromZero), sqlDataReader.GetBoolean(5), sqlDataReader["Result_DateTime"].ToString()); list.Add(result);
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetString(2), sqlDataReader.GetString(3), Math.Round(_value, 4, MidpointRounding.AwayFromZero), sqlDataReader.GetBoolean(5), sqlDataReader["Result_DateTime"].ToString());
+                list.Add(result);
             }
             sqlConnection.Close();
             return list;
@@ -58,17 +59,8 @@ namespace PLC_Management.Models.ResultModel
             var IsAdmin = command.Parameters.AddWithValue("Result_Value", result.Value);
             command.Connection = sqlConnection;
 
-            try
-            {
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-            }
-            finally
-            {
-                sqlConnection.Close();
-            }
+            command.ExecuteNonQuery();
+            sqlConnection.Close();
         }
     }
 }

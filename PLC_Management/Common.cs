@@ -3,6 +3,7 @@ namespace PLC_Management
 {
     public class Common
     {
+
         public const string ConnectionString = @"Data Source=DESKTOP-P4IC2M8\SQLEXPRESS;Initial Catalog=PLC_MANAGEMENT;Integrated Security=True";
 
         public const string SESSION_USER_LOGIN = "SESSION_USER_LOGIN";
@@ -12,6 +13,8 @@ namespace PLC_Management
         public const string SESSION_USER_ISADMIN = "SESSION_USER_ISADMIN";
 
         public const string SESSION_ISADMIN = "SESSION_ISADMIN";
+
+        public const int NUMBER_ELM_ON_PAGE = 20;
 
         public static string? Message;
         //[TempData]

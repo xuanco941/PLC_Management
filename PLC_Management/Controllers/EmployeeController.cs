@@ -17,7 +17,15 @@ namespace WebApplication1.Controllers
             }
 
             EmployeeBusiness employeeBusiness = new EmployeeBusiness();
-            ViewBag.employees = employeeBusiness.GetAllEmployees();
+            try
+            {
+                ViewBag.employees = employeeBusiness.GetAllEmployees();
+            }
+            catch
+            {
+                //Lỗi
+            }
+
             return View();
         }
 
@@ -46,7 +54,7 @@ namespace WebApplication1.Controllers
             }
             else
             {
-                return Json("Loi");
+                return Json("Lỗii");
             }
 
 
@@ -76,6 +84,7 @@ namespace WebApplication1.Controllers
             }
             else
             {
+                //Lỗi
                 return Json(employee);
             }
         }
@@ -126,7 +135,7 @@ namespace WebApplication1.Controllers
             }
             else
             {
-                return Json("Loi");
+                return Json("Lỗi");
             }
         }
 

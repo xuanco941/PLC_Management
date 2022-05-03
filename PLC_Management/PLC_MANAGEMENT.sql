@@ -126,6 +126,19 @@ INSERT INTO Result(Result_Parameter_Name,Result_Parameter_ID,Result_Parameter_Un
 end
 GO
 
+--phan trang 
+create proc paginationActivity (@startfrom int ,@endto int) as
+SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Activity_ID desc) as row FROM Activity 
+ ) a WHERE a.row > @startfrom and a.row <= @endto
+ GO
+
+ create proc paginationResult (@startfrom int ,@endto int) as
+SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result 
+ ) a WHERE a.row > @startfrom and a.row <= @endto
+ GO
+
 
 
 exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
@@ -147,3 +160,5 @@ select * from Result
 
 exec FindActivityDayToDay '2022-5-3','2023-5-3'
 GO
+
+exec paginationActivity 0,20

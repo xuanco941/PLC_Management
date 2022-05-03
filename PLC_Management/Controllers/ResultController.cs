@@ -15,9 +15,16 @@ namespace PLC_Management.Controllers
 
             if (tungay == null && toingay == null)
             {
-                ViewBag.listResults = resultBusiness.GetAllResults();
                 tungay = today;
                 toingay = today;
+                try
+                {
+                    ViewBag.listResults = resultBusiness.GetAllResults();
+                }
+                catch
+                {
+                    //Lỗi
+                }
             }
             else
             {
@@ -26,7 +33,14 @@ namespace PLC_Management.Controllers
                 string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
 
-                ViewBag.listResults = resultBusiness.GetResultByDay(strDatime1, strDatime2);
+                try
+                {
+                    ViewBag.listResults = resultBusiness.GetResultByDay(strDatime1, strDatime2);
+                }
+                catch
+                {
+                    //Lỗi
+                }
             }
 
             ViewBag.tungay = tungay;

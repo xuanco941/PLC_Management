@@ -87,4 +87,30 @@
         </table>
     </div>
 </div>
+
+
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link">Trang trước</a>
+        </li>
+        @ViewBag.countPage
+        @for (int j = 1; j <= @ViewBag.countPage; j++)
+        {
+            string link = @ViewBag.host + j;
+            <li class="page-item"><a class="page-link" href="./@link">@j</a></li>
+        }
+
+        <li class="page-item active">
+            <a class="page-link">
+                2
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Trang sau</a>
+        </li>
+    </ul>
+</nav>
+
 <script src="~/js/Activity.js"></script>

@@ -10,7 +10,7 @@ namespace PLC_Management.Models.ResultModel
 
             // Create a timer and set a two second interval.
             var aTimer = new System.Timers.Timer();
-            aTimer.Interval = 5000;
+            aTimer.Interval = 10000;
 
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;

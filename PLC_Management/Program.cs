@@ -45,7 +45,8 @@ app.MapControllerRoute(
 // dung middleware xac nhan da dang nhap chua
 app.UseMiddleware<AuthMiddlewares>();
 
-ResultActionStatic.Run();
+//luu ket qua moi 10s
+//ResultActionStatic.Run();
 
 app.Run();
 
