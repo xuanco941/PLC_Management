@@ -118,6 +118,14 @@ Result_DateTime BETWEEN
  @Time2 order by Result.Result_ID DESC
 end
 GO
+CREATE PROC FindResultDayToDayByParameter @Time1 DateTime , @Time2 DateTime,@pH varchar(25), @Temp varchar(25), @TSS varchar(25),@COD varchar(25)
+as begin
+SELECT * FROM Result WHERE( 
+Result_DateTime BETWEEN
+@Time1 AND
+ @Time2) and (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD) order by Result.Result_ID DESC
+end
+GO
 --count by day
 CREATE PROC CountResultDayToDay @Time1 DateTime , @Time2 DateTime
 as begin
@@ -137,6 +145,12 @@ Activity_Time BETWEEN
 end
 GO
 
+--Dem result theo ngay, theo parameter
+CREATE PROC CountResultByParameterAndDay @Time1 DateTime, @Time2 DateTime, @pH varchar(25),@Temp varchar(25),@TSS varchar(25),@COD varchar(25)
+as begin
+select count(*) from Result where (Result.Result_Parameter_ID = @pH OR Result.Result_Parameter_ID = @Temp OR Result.Result_Parameter_ID = @TSS or Result.Result_Parameter_ID = @COD) and (Result.Result_DateTime between @Time1 and @Time2) 
+end
+GO
 -- Them result
 CREATE PROC AddResult @Result_Parameter_Name nvarchar(300),@Result_Parameter_ID varchar(25),@Result_Parameter_Unit nvarchar(30),@Result_Value FLOAT
 as begin
@@ -174,8 +188,17 @@ clone.Result_DateTime BETWEEN
 @Time1 AND
  @Time2
  GO
+ --pagination paraID and day
+   create proc paginationResultByDayAndParameter (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25) ) as
+SELECT * FROM( SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result 
+ ) a WHERE a.row > @startfrom and a.row <= @endto) as clone WHERE 
+(clone.Result_DateTime BETWEEN
+@Time1 AND
+ @Time2) AND (clone.Result_Parameter_ID = @pH OR clone.Result_Parameter_ID = @Temp OR clone.Result_Parameter_ID = @TSS OR clone.Result_Parameter_ID = @COD)
+ GO
  --exec paginationActivityByDay 0,5,'2022-5-3','2023-5-3'
-
+ --exec paginationResultByDayAndParameter 0,5,'2022-1-1','2023-1-1','pH','Temp','TSS','COD'
 
 GO
 exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
@@ -186,14 +209,13 @@ Insert into Flow values('Luu luong vao',9.9,'m3/h'),('Tong luu luong vao',20,'m3
 GO
 Insert into Activity(Activity_Name) values('ngat ket noi plc');
 GO
-INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('pH','pH','6/9',7.8)
+INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('pH','pH','5/9',7.8)
 
 
-select * from Employee
-select * from Parameter
-select * from Flow
-select * from Activity
-select * from Result
+--select * from Employee
+--select * from Parameter
+--select * from Flow
+--select * from Activity
+--select * from Result
 
 GO
-

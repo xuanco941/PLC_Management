@@ -66,6 +66,35 @@ namespace PLC_Management.Models.ResultModel
             return list;
         }
 
+        public List<Result> GetResultByDayAndParameter(string tungay, string toingay, string pH, string Temp, string TSS, string COD, int? page)
+        {
+            List<Result> list = new List<Result>();
+            SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
+            sqlConnection.Open();
+            string sql;
+            if (page != null && page != 0)
+            {
+                int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE;
+                int? end = page * Common.NUMBER_ELM_ON_PAGE;
+                sql = $"exec paginationResultByDayAndParameter {start},{end},'{tungay}','{toingay}','{pH}','{Temp}','{TSS}','{COD}'";
+            }
+            else
+            {
+                sql = $"exec FindResultDayToDayByParameter '{tungay}', '{toingay}','{pH}','{Temp}','{TSS}','{COD}'";
+            }
+            SqlCommand command = new SqlCommand(sql, sqlConnection);
+            //loi
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                double _value = (double)sqlDataReader["Result_Value"];
+                Result result = new Result(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetString(2), sqlDataReader.GetString(3), Math.Round(_value, 4, MidpointRounding.AwayFromZero), sqlDataReader.GetBoolean(5), sqlDataReader["Result_DateTime"].ToString());
+                list.Add(result);
+            }
+            sqlConnection.Close();
+            return list;
+        }
+
         public static int CountResult()
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
@@ -88,6 +117,23 @@ namespace PLC_Management.Models.ResultModel
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
             string sql = $"exec CountResultDayToDay '{tungay}', '{toingay}'";
+            SqlCommand command = new SqlCommand(sql, sqlConnection);
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            int num = 0;
+            while (sqlDataReader.Read())
+            {
+                num = sqlDataReader.GetInt32(0);
+            }
+            sqlConnection.Close();
+
+            return num;
+        }
+
+        public static int CountResultByParameterAndDay(string tungay, string toingay,string idpH, string idTemp, string idTSS, string idCOD)
+        {
+            SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
+            sqlConnection.Open();
+            string sql = $"exec CountResultByParameterAndDay '{tungay}', '{toingay}', '{idpH}', '{idTemp}', '{idTSS}', '{idCOD}'";
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             SqlDataReader sqlDataReader = command.ExecuteReader();
             int num = 0;

@@ -41,8 +41,11 @@ namespace PLC_Management.Controllers
                 {
                     //Lỗi
                 }
+                ViewBag.listResults = results;
+
+                ViewBag.if1 = 1;
             }
-            else
+            else if (tungay != null && toingay != null && (pH == null && Temp == null && TSS == null && COD == null))
             {
 
                 ViewBag.host = $"result?tungay={tungay}&toingay={toingay}&page=";
@@ -67,70 +70,86 @@ namespace PLC_Management.Controllers
                 {
                     //Lỗi
                 }
+                ViewBag.listResults = results;
+
+                ViewBag.if2 = 2;
+
+            }
+            else
+            {
+                string idpH = "pH";
+                string idTemp = "Temp";
+                string idTSS = "TSS";
+                string idCOD = "COD";
+
+                idpH = pH != null ? "pH" : "null";
+                idTemp = Temp != null ? "Temp" : "null";
+                idTSS = TSS != null ? "TSS" : "null";
+                idCOD = COD != null ? "COD" : "null";
+
+                DateTime dateTime1 = Convert.ToDateTime(tungay);
+                DateTime dateTime2 = Convert.ToDateTime(toingay);
+                string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
+                string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
+                int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idpH, idTemp, idTSS, idCOD);
+                int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
+                if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
+                {
+                    countPage = countPage + 1;
+                }
+                ViewBag.countPage = countPage;
+
+                string? hostpH = "";
+                string? hostTemp = "";
+                string? hostTSS = "";
+                string? hostCOD = "";
+                if (pH != null)
+                {
+                    hostpH = "pH=on&";
+                }
+                if (Temp != null)
+                {
+                    hostTemp = "Temp=on&";
+                }
+                if (TSS != null)
+                {
+                    hostTSS = "TSS=on&";
+                }
+                if (COD != null)
+                {
+                    hostCOD = "COD=on&";
+                }
+                ViewBag.host = $"result?{hostpH}{hostTemp}{hostTSS}{hostCOD}tungay={tungay}&toingay={toingay}&page=";
+
+
+                try
+                {
+                    results = resultBusiness.GetResultByDayAndParameter(strDatime1, strDatime2, idpH,idTemp,idTSS,idCOD, page);
+                }
+                catch
+                {
+                    //Lỗi
+                }
+                ViewBag.listResults = results;
+
+                ViewBag.if3 = 3;
+
+
             }
 
-            //var idpH = pH!=null ? "pH" : "null" ;
-            //var idTemp = Temp != null ? "Temp" : "null";
-            //var idTSS = TSS != null ? "TSS" : "null";
-            //var idCOD = COD != null ? "COD" : "null";
+            ViewBag.checkpH = pH != null ? "checked" : null;
+            ViewBag.checkTemp = Temp != null ? "checked" : null;
+            ViewBag.checkTSS = TSS != null ? "checked" : null;
+            ViewBag.checkCOD = COD != null ? "checked" : null;
 
+            if (pH == null && Temp == null && TSS == null && COD == null)
+            {
+                ViewBag.checkpH = "checked";
+                ViewBag.checkTemp = "checked";
+                ViewBag.checkTSS = "checked";
+                ViewBag.checkCOD = "checked";
 
-            //var newResultList = from result in results
-            //                    where result.Parameter_ID == pH || result.Parameter_ID == Temp || result.Parameter_ID == TSS || result.Parameter_ID == COD
-            //                    select result;
-
-
-
-            //if (pH == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "Temp" || result.Parameter_ID == "TSS" || result.Parameter_ID == "COD"
-            //                                   select result);
-            //}
-            //else if (Temp == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "pH" || result.Parameter_ID == "TSS" || result.Parameter_ID == "COD"
-            //                                   select result);
-            //}
-            //else if (TSS == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "pH" || result.Parameter_ID == "Temp" || result.Parameter_ID == "COD"
-            //                                   select result);
-            //}
-            //else if (COD == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "pH" || result.Parameter_ID == "TSS" || result.Parameter_ID == "Temp"
-            //                                   select result);
-            //}
-            //else if (pH == null && Temp == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "TSS" || result.Parameter_ID == "COD"
-            //                                   select result);
-            //}
-            //else if (pH == null && Temp == null && TSS == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "COD"
-            //                                   select result);
-            //}
-            //else if (pH == null && Temp == null && COD == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "TSS"
-            //                                   select result);
-            //}
-            //else if (Temp == null)
-            //{
-            //    newResultList = (List<Result>)(from result in results
-            //                                   where result.Parameter_ID == "pH" || result.Parameter_ID == "TSS" || result.Parameter_ID == "COD"
-            //                                   select result);
-            //}
-            ViewBag.listResults = results;
-
+            }
             ViewBag.tungay = tungay;
             ViewBag.toingay = toingay;
 

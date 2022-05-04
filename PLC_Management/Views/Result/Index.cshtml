@@ -13,6 +13,10 @@
         </h1>
     </div>
 
+    @ViewBag.if1
+    @ViewBag.if2
+    @ViewBag.if3
+
     <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
         <div class="col-12" style="margin-bottom:15px;">
             <select>
@@ -22,23 +26,23 @@
 
         <form class="search col-12" method="get">
             <div style="margin-bottom:15px;">
-                <input id="pH" name="pH" checked type="checkbox" />
-                <label for="pH">pH</label>
-                <input id="Temp" name="Temp" checked type="checkbox" />
-                <label for="Temp">Temp</label>
-                <input id="TSS" name="TSS" checked type="checkbox" />
-                <label for="TSS">TSS</label>
-                <input id="COD" name="COD" checked type="checkbox" />
-                <label for="COD">COD</label>
+                <input id="pH" name="pH" @ViewBag.checkpH type="checkbox" />
+                <label style="font-size:18px;font-weight:600;" for="pH">pH</label>
+                <input id="Temp" name="Temp" @ViewBag.checkTemp type="checkbox" />
+                <label style="font-size:18px;font-weight:600;" for="Temp">Temp</label>
+                <input id="TSS" name="TSS" @ViewBag.checkTSS type="checkbox" />
+                <label style="font-size:18px;font-weight:600;" for="TSS">TSS</label>
+                <input id="COD" name="COD" @ViewBag.checkCOD type="checkbox" />
+                <label style="font-size:18px;font-weight:600;" for="COD">COD</label>
             </div>
             <div>
-                <label for="tungay">Từ ngày </label>
+                <label style="font-weight:500;" for="tungay">Từ ngày: </label>
                 <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
 
-                <label for="toingay">Tới ngày</label>
+                <label style="font-weight:500;" for="toingay">Tới ngày:</label>
                 <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
 
-                <button type="submit" class="btn-primary btn">Lọc</button>
+                <button type="submit" style="padding-left:25px; padding-right:25px;" class="btn-primary btn">Lọc</button>
             </div>
         </form>
     </div>
@@ -112,7 +116,14 @@
                 @for (int j = 1; j <= @ViewBag.countPage; j++)
                 {
                     string link = @ViewBag.host + j;
-                    <li class="page-item"><a class="page-link" href="./@link">@j</a></li>
+                    if (j == 1)
+                    {
+                        <li id="first_item" class="page-item"><a class="page-link" href="./@link">@j</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="./@link">@j</a></li>
+                    }
                 }
             </ul>
         </nav>
@@ -134,3 +145,5 @@
     })
 </script>
 <script src="~/js/Pagination.js"></script>
+
+
