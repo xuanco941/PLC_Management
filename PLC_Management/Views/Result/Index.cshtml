@@ -14,24 +14,35 @@
     </div>
 
     <div class="col-12" style="margin-top:10px; margin-bottom:10px;">
-        <div class="col-12" style="margin-bottom:10px;">
+        <div class="col-12" style="margin-bottom:15px;">
             <select>
                 <option value="find_by_day">Lọc theo ngày</option>
             </select>
         </div>
 
         <form class="search col-12" method="get">
-            <label for="tungay">Từ ngày </label>
-            <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
+            <div style="margin-bottom:15px;">
+                <input id="pH" name="pH" checked type="checkbox" />
+                <label for="pH">pH</label>
+                <input id="Temp" name="Temp" checked type="checkbox" />
+                <label for="Temp">Temp</label>
+                <input id="TSS" name="TSS" checked type="checkbox" />
+                <label for="TSS">TSS</label>
+                <input id="COD" name="COD" checked type="checkbox" />
+                <label for="COD">COD</label>
+            </div>
+            <div>
+                <label for="tungay">Từ ngày </label>
+                <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
 
-            <label for="toingay">Tới ngày</label>
-            <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+                <label for="toingay">Tới ngày</label>
+                <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
 
-            <button type="submit" class="btn-primary btn">Lọc</button>
+                <button type="submit" class="btn-primary btn">Lọc</button>
+            </div>
         </form>
     </div>
 
-    @ViewBag.sumResult
 
     <div class="col-12">
 

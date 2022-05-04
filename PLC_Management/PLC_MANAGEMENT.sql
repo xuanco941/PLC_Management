@@ -197,4 +197,3 @@ select * from Result
 
 GO
 
-exec paginationActivity 0,20

@@ -22,21 +22,41 @@ const dataInterval = setInterval(updateData, 1500);
 
 const box_number = Array.from(document.querySelectorAll(".box_number"));
 
-let soChai = 0;
 
-box_number.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        box_number.forEach((elm) => {
-            elm.style.backgroundColor = "#dcdcdc";
-            elm.style.color = "black";
-        })
-        soChai = parseInt(btn.textContent);
-        btn.style.backgroundColor = "#dc3545";
-        btn.style.color = "white";
 
-        console.log(soChai);
-    })
-})
+
+/*let soChai = 0;*/
+
+//box_number.forEach((btn) => {
+//    btn.addEventListener('click', (e) => {
+
+//        soChai = parseInt(btn.textContent);
+
+//        fetch("./dashboard/btn_chonmau", {
+//            method: "post",
+//            headers: {
+//                'content-type': 'application/json'
+//            },
+//            body: JSON.stringify({ soChai: soChai })
+//        }).then(res => res.json()).then((data) => {
+
+//            box_number.forEach((elm) => {
+//                elm.style.backgroundColor = "#dcdcdc";
+//                elm.style.color = "black";
+//            })
+//            btn.style.backgroundColor = "#dc3545";
+//            btn.style.color = "white";
+
+//            console.log(data.soChai);
+
+//        });
+
+
+
+
+
+//    })
+//})
 
 
 

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PLC_Management.Models.EmployeeModel;
+using Newtonsoft.Json;
 namespace PLC_Management.Controllers
 {
     public class DashboardController : Controller
@@ -14,7 +14,7 @@ namespace PLC_Management.Controllers
             //MainPLC.GetData();
             return Json(new
             {
-                ph = Math.Round(CurrentValuePLC.pH,4, MidpointRounding.AwayFromZero),
+                ph = Math.Round(CurrentValuePLC.pH, 4, MidpointRounding.AwayFromZero),
                 COD = Math.Round(CurrentValuePLC.COD, 4, MidpointRounding.AwayFromZero),
                 TSS = Math.Round(CurrentValuePLC.TSS, 4, MidpointRounding.AwayFromZero),
                 Temp = Math.Round(CurrentValuePLC.Temp, 4, MidpointRounding.AwayFromZero),
@@ -60,6 +60,20 @@ namespace PLC_Management.Controllers
                 status = CurrentValuePLC.btn_xoa
             });
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> Btn_chonmau()
+        //{
+        //    string strRequestBody;
+        //    using (StreamReader reader = new StreamReader(Request.Body, System.Text.Encoding.UTF8))
+        //    {
+        //        strRequestBody = await reader.ReadToEndAsync();
+        //    }
+        //    Employee? employee = JsonConvert.DeserializeObject<Employee>(strRequestBody);
+        //    return Json(
+        //        ""
+        //        );
+        //}
 
 
     }
