@@ -13,6 +13,8 @@ namespace PLC_Management.Controllers
         {
             //gui data ve client 
 
+            CurrentValuePLC.status_position_10 = true;
+
             //MainPLC.GetData();
             return Json(new
             {
