@@ -203,7 +203,7 @@ SELECT * FROM( SELECT * FROM (
 GO
 exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
 GO
-Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','<40',N'độ C'),('TSS','TSS','<100','mg/L'),('COD','COD','<150','mg/L');
+Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L');
 GO
 Insert into Flow values('Luu luong vao',9.9,'m3/h'),('Tong luu luong vao',20,'m3'),('Luu luong ra',5.5,'m3/h'),('Luu luong ra',17,'m3')
 GO

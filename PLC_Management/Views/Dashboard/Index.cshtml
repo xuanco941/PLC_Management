@@ -6,7 +6,7 @@
 
 <div class="grid_menu">
     <div class="row row_menu">
-        <div class="col-12 text-danger" id="message_error_parameter"></div>
+        <div class="col-12 text-danger" style="font-size:24px; text-align:center; width:100%;" id="message_error_parameter"></div>
         <div class="col-12 col-xl-6 tabLeft">
             <h2 style="text-align: center;">
                 Thông số chất lượng
@@ -48,7 +48,16 @@
                     </tr>
                 </tbody>
             </table>
+
+
+            <div class="box_reset" style="margin-top:7px; margin-bottom:25px;">
+                <button type="button" class="btn btn-primary" id="btn_dopH" style="width:100px; margin-right:20px;">Đo pH</button>
+                <button type="button" class="btn btn-primary" id="btn_doTSS" style="width:100px; ">Đo TSS</button>
+            </div>
         </div>
+
+
+
         <div class="col-12 col-xl-6 tabRight">
             <div class="tuLayMau">
                 <h2 style="text-align: center;">
@@ -60,7 +69,7 @@
 
 
 
-                <h4>Chọn vị trí chai lấy mẫu </h4>
+
                 <div class="box_number_father">
                     <span class="box_number">1</span>
                     <span class="box_number">2</span>
@@ -91,18 +100,22 @@
                     <span class="box_number">23</span>
                     <span class="box_number">24</span>
                 </div>
-
-                <div class="box_reset" style="margin-top:15px;">
-                    <button class="btn btn-success" id="btn_batdau" style="margin-right:20px;">Bắt đầu</button>
-                    <button class="btn btn-primary" id="btn_laymau">Lấy mẫu</button>
+                <div style="margin-bottom:5px; margin-top:25px;">
+                    <label style="font-size:20px; font-weight:500;" for="input_nhap_so_chai_lay_mau">Nhập vị trí chai lấy mẫu: </label>
+                    <input id="input_nhap_so_chai_lay_mau" style="width:150px;" placeholder="1-24" type="number" />
                 </div>
                 <div class="box_reset" style="margin-top:15px;">
-                    <input type="number" style="margin-right:5px;" />
-                    <button class="btn btn-success" style="margin-right:20px;" id="btn_luu">Lưu</button>
+                    <button type="button" class="btn btn-success" id="btn_batdau" style="margin-right:20px;">Bắt đầu</button>
+                    <button type="button" class="btn btn-info" id="btn_laymau" style="margin-right:20px;">Lấy mẫu</button>
+                    <button type="button" class="btn btn-warning" id="btn_tudong">Tự động</button>
+                </div>
+                <div class="box_reset" style="margin-top:15px;">
+                    <input type="number" id="input_luu" " style="margin-right:5px;" />
+                    <button type="button" class="btn btn-success" style="margin-right:20px;" id="btn_luu">Lưu</button>
                 </div>
                 <div class="box_reset" style="margin-top:8px;">
-                    <input type="number" style="margin-right:5px;" />
-                    <button class="btn btn-danger" style="margin-right:20px;" id="btn_xoa">Xóa</button>
+                    <input type="number" id="input_xoa" style="margin-right:5px;" />
+                    <button type="button" class="btn btn-danger" style="margin-right:20px;" id="btn_xoa">Xóa</button>
                 </div>
 
 
@@ -135,22 +148,22 @@
                 <div class="text-danger" id="message_error_luuluong"></div>
 
 
-                <div class="box_luuLuongvao">
-                    <label for="luuluongvao">Lưu lượng vào (m3/h)</label>
-                    <input style="width:300px;" type="text" id="luuluongvao" placeholder="m3/h">
-                    <label for="tongluuluongvao">Tổng lưu lượng vào (m3)</label>
-                    <input style="width:300px;" type="text" id="tongluuluongvao" placeholder="m3">
+
+                <div class="box_luuLuongra">
+                    <label for="input_luuluongvao">Lưu lượng vào (m3/h)</label>
+                    <input class="readonly_input" readonly style="width:300px;" type="text" id="input_luuluongvao" placeholder="m3/h">
+                    <label for="input_luuluongra">Lưu lượng ra (m3/h)</label>
+                    <input class="readonly_input" readonly style="width:300px;" type="text" id="input_luuluongra" placeholder="m3/h">
                 </div>
 
                 <div style="width:100%;display: flex;justify-content: center;">
                     <div style="background-color: rgba(0, 0, 0, 0.3); width: 65%;height: 1px;"></div>
                 </div>
 
-                <div class="box_luuLuongra">
-                    <label for="luuluongvao">Lưu lượng ra (m3/h)</label>
-                    <input style="width:300px;" type="text" id="luuluongvao" placeholder="m3/h">
-                    <label for="tongluuluongvao">Tổng lưu lượng ra (m3)</label>
-                    <input style="width:300px;" type="text" id="tongluuluongvao" placeholder="m3">
+                <div class="box_luuLuongvao" style="margin-top:15px;">
+                    <label for="input_tongluuluong">Tổng lưu lượng (m3)</label>
+                    <input class="readonly_input" readonly style="width:300px;" type="text" id="input_tongluuluong" placeholder="m3">
+                    <button class="btn btn-primary" id="btn_doluuluong" type="button" style="padding-left:20px; padding-right:20px; margin-top:10px;">Đo lưu lượng</button>
                 </div>
             </div>
         </div>
