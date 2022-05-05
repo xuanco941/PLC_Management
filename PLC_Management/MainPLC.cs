@@ -51,6 +51,7 @@ namespace PLC_Management
         }
 
 
+        // lay du lieu tu plc
         public static void GetData()
         {
             CurrentValuePLC.pH = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB7.DBD0"));

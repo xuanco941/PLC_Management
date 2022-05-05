@@ -43,7 +43,6 @@ namespace PLC_Management.Controllers
                 }
                 ViewBag.listResults = results;
 
-                ViewBag.if1 = 1;
             }
             else if (tungay != null && toingay != null && (pH == null && Temp == null && TSS == null && COD == null))
             {
@@ -72,7 +71,6 @@ namespace PLC_Management.Controllers
                 }
                 ViewBag.listResults = results;
 
-                ViewBag.if2 = 2;
 
             }
             else
@@ -131,8 +129,6 @@ namespace PLC_Management.Controllers
                     //Lỗi
                 }
                 ViewBag.listResults = results;
-
-                ViewBag.if3 = 3;
 
 
             }

@@ -1,7 +1,7 @@
-﻿using System.Data.SqlClient;
+﻿using PLC_Management.Models.ResultModel;
 using System.Timers;
 
-namespace PLC_Management.Models.ResultModel
+namespace PLC_Management
 {
     public class InsertResultInterval
     {

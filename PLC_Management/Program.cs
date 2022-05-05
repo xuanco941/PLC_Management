@@ -1,5 +1,4 @@
 using PLC_Management.Middlewares;
-using PLC_Management.Models.ResultModel;
 using PLC_Management;
 
 var builder = WebApplication.CreateBuilder(args);

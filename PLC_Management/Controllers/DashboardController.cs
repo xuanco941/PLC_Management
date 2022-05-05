@@ -11,6 +11,8 @@ namespace PLC_Management.Controllers
 
         public IActionResult UpdateDataPLC()
         {
+            //gui data ve client 
+
             //MainPLC.GetData();
             return Json(new
             {

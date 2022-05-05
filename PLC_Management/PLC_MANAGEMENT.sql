@@ -209,7 +209,7 @@ Insert into Flow values('Luu luong vao',9.9,'m3/h'),('Tong luu luong vao',20,'m3
 GO
 Insert into Activity(Activity_Name) values('ngat ket noi plc');
 GO
-INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('pH','pH','5/9',7.8)
+INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('COD','COD','5/9',7.8)
 
 
 --select * from Employee
