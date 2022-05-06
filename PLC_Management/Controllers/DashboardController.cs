@@ -18,7 +18,7 @@ namespace PLC_Management.Controllers
         {
             //gui data ve client 
 
-            MainPLC.GetData();
+            //MainPLC.GetData();
             return Json(new
             {
                 //btn
