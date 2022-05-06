@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using PLC_Management.Models.ActivityModel;
 namespace PLC_Management.Controllers
 {
     public class DashboardController : Controller
@@ -21,6 +21,16 @@ namespace PLC_Management.Controllers
             MainPLC.GetData();
             return Json(new
             {
+                //btn
+                btn_batdau = CurrentValuePLC.btn_batdau,
+                btn_doluuluong = CurrentValuePLC.btn_doluuluong,
+                btn_doph = CurrentValuePLC.btn_doph,
+                btn_doTSS = CurrentValuePLC.btn_dotss,
+                btn_laymau = CurrentValuePLC.btn_laymau,
+                btn_luu = CurrentValuePLC.btn_luu,
+                btn_tudong = CurrentValuePLC.btn_tudongchaytay,
+                btn_xoa = CurrentValuePLC.btn_xoa,
+
 
                 //parameter
                 ph = Math.Round(CurrentValuePLC.pH, 4, MidpointRounding.AwayFromZero),
@@ -103,10 +113,12 @@ namespace PLC_Management.Controllers
         {
             if (CurrentValuePLC.btn_batdau == false)
             {
+                ActivityBusiness.AddActivity("Bắt đầu !!!");
                 MainPLC.plc.Write("M200.2", 1);
             }
             else
             {
+                ActivityBusiness.AddActivity("Dừng lại !!!");
                 MainPLC.plc.Write("M200.2", 0);
             }
             CurrentValuePLC.btn_batdau = !CurrentValuePLC.btn_batdau;
@@ -120,6 +132,7 @@ namespace PLC_Management.Controllers
         {
             if (CurrentValuePLC.btn_laymau == false)
             {
+                ActivityBusiness.AddActivity("Đã Lấy mẫu");
                 MainPLC.plc.Write("M200.7", 1);
             }
             else
@@ -171,6 +184,7 @@ namespace PLC_Management.Controllers
         {
             if (CurrentValuePLC.btn_tudongchaytay == false)
             {
+                ActivityBusiness.AddActivity("Chuyển sang chế độ tự động.");
                 MainPLC.plc.Write("M200.6", 1);
             }
             else

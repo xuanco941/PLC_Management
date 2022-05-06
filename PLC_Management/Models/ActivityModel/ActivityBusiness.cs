@@ -97,13 +97,13 @@ namespace PLC_Management.Models.ActivityModel
         }
 
 
-        public static void AddActivity(Activity activity)
+        public static void AddActivity(string Activity_Name)
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
             SqlCommand command = new SqlCommand();
             command.CommandText = $"insert into Activity (Activity_Name) values (@Activity_Name)";
-            command.Parameters.AddWithValue("Activity_Name", activity.Name);
+            command.Parameters.AddWithValue("Activity_Name", Activity_Name);
             command.Connection = sqlConnection;
 
             command.ExecuteNonQuery();

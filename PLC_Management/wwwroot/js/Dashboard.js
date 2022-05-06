@@ -38,7 +38,15 @@ const box_number_22 = document.getElementById('box_number_22');
 const box_number_23 = document.getElementById('box_number_23');
 const box_number_24 = document.getElementById('box_number_24');
 
-
+//btn 
+const btn_batdau = document.querySelector("#btn_batdau");
+const btn_laymau = document.querySelector("#btn_laymau");
+const btn_luu = document.querySelector("#btn_luu");
+const btn_xoa = document.querySelector("#btn_xoa");
+const btn_dopH = document.querySelector("#btn_dopH");
+const btn_doTSS = document.querySelector("#btn_doTSS");
+const btn_doluuluong = document.querySelector("#btn_doluuluong");
+const btn_tudong = document.querySelector("#btn_tudong");
 
 
 
@@ -60,6 +68,15 @@ const updateData = () => {
     fetch('./dashboard/updatedataplc').then(res => res.json()).then(data => {
 
         console.log(data);
+
+        //btn
+        if (data.btn_batdau == true) {
+            btn_batdau.textContent = "Tắt";
+            btn_batdau.classList.remove("btn-success");
+            btn_batdau.classList.add("btn-danger");
+        }
+
+
         // parameter
         pH.textContent = data.ph;
         TSS.textContent = data.tss;
@@ -108,16 +125,6 @@ const dataInterval = setInterval(updateData, 1500);
 
 
 
-
-//btn
-const btn_batdau = document.querySelector("#btn_batdau");
-const btn_laymau = document.querySelector("#btn_laymau");
-const btn_luu = document.querySelector("#btn_luu");
-const btn_xoa = document.querySelector("#btn_xoa");
-const btn_dopH = document.querySelector("#btn_dopH");
-const btn_doTSS = document.querySelector("#btn_doTSS");
-const btn_doluuluong = document.querySelector("#btn_doluuluong");
-const btn_tudong = document.querySelector("#btn_tudong");
 
 //batdau
 btn_batdau.addEventListener('click', () => {
