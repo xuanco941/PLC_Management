@@ -24,7 +24,6 @@ window.onload = () => {
                 body: JSON.stringify({ ID: ID })
             }).then(res => res.json())
                 .then((dataUser) => {
-                    console.log(IDMain, dataUser.id);
 
                     fullnameUpdate.value = dataUser.fullName;
                     usernameUpdate.value = dataUser.username;
@@ -57,7 +56,6 @@ var btnInsert = document.querySelector('#btnInsert');
 var elm_unique_value = elm_unique.map(e => e.textContent);
 
 username.onkeyup = () => {
-    console.log(username.value);
     if (elm_unique_value.includes(username.value) == true) {
         btnInsert.disabled = true;
     }

@@ -153,7 +153,7 @@
             </div>
 
             <div style="height:35px;">
-                <input style="width:100px; height:100%; text-align:center" placeholder="Trang số ..." type="number" id="input_go_page" />
+                <input data-go-page="@ViewBag.countPage" style="width:100px; height:100%; text-align:center" placeholder="Trang số ..." type="number" id="input_go_page" />
                 <button data-go-page="@ViewBag.host" class="btn-primary btn" style="height:calc(100%+5px);" id="btn_go_page" type="button">Đi tới trang</button>
             </div>
 
@@ -174,4 +174,4 @@
         table2excel.export(document.querySelector("#table"));
     })
 </script>
-<script src="~/js/Activity.js"></script>
+<script src="~/js/Pagination.js"></script>
