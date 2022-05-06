@@ -4,8 +4,13 @@ namespace PLC_Management.Controllers
 {
     public class DashboardController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index([FromQuery(Name = "timeSaveData")] int? timeSaveData)
         {
+            if(timeSaveData != null)
+            {
+                InsertResultInterval.timeSaveData = (int) timeSaveData * 1000;
+            }
+            ViewBag.timeSaveData = InsertResultInterval.timeSaveData/1000;
             return View();
         }
 
@@ -13,9 +18,7 @@ namespace PLC_Management.Controllers
         {
             //gui data ve client 
 
-            CurrentValuePLC.status_position_10 = true;
-
-            //MainPLC.GetData();
+            MainPLC.GetData();
             return Json(new
             {
 
@@ -63,8 +66,8 @@ namespace PLC_Management.Controllers
                 xoa_so_chai_lay_mau = CurrentValuePLC.xoa_so_chai_lay_mau,
 
 
+
                 //status position
-                status_position_0 = CurrentValuePLC.status_position_0,
                 status_position_1 = CurrentValuePLC.status_position_1,
                 status_position_2 = CurrentValuePLC.status_position_2,
                 status_position_3 = CurrentValuePLC.status_position_3,
@@ -98,9 +101,15 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_batdau()
         {
-
+            if (CurrentValuePLC.btn_batdau == false)
+            {
+                MainPLC.plc.Write("M200.2", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.2", 0);
+            }
             CurrentValuePLC.btn_batdau = !CurrentValuePLC.btn_batdau;
-
             return Json(new
             {
                 status = CurrentValuePLC.btn_batdau
@@ -109,6 +118,14 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_laymau()
         {
+            if (CurrentValuePLC.btn_laymau == false)
+            {
+                MainPLC.plc.Write("M200.7", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.7", 0);
+            }
             CurrentValuePLC.btn_laymau = !CurrentValuePLC.btn_laymau;
             return Json(new
             {
@@ -118,6 +135,14 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_luu()
         {
+            if (CurrentValuePLC.btn_luu == false)
+            {
+                MainPLC.plc.Write("M200.1", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.1", 0);
+            }
             CurrentValuePLC.btn_luu = !CurrentValuePLC.btn_luu;
             return Json(new
             {
@@ -127,6 +152,14 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_xoa()
         {
+            if (CurrentValuePLC.btn_xoa == false)
+            {
+                MainPLC.plc.Write("M200.0", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.0", 0);
+            }
             CurrentValuePLC.btn_xoa = !CurrentValuePLC.btn_xoa;
             return Json(new
             {
@@ -136,6 +169,14 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_tudong()
         {
+            if (CurrentValuePLC.btn_tudongchaytay == false)
+            {
+                MainPLC.plc.Write("M200.6", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.6", 0);
+            }
             CurrentValuePLC.btn_tudongchaytay = !CurrentValuePLC.btn_tudongchaytay;
             return Json(new
             {
@@ -145,6 +186,14 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_doph()
         {
+            if (CurrentValuePLC.btn_doph == false)
+            {
+                MainPLC.plc.Write("M200.4", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.4", 0);
+            }
             CurrentValuePLC.btn_doph = !CurrentValuePLC.btn_doph;
             return Json(new
             {
@@ -154,6 +203,14 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_doTSS()
         {
+            if (CurrentValuePLC.btn_dotss == false)
+            {
+                MainPLC.plc.Write("M200.5", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.5", 0);
+            }
             CurrentValuePLC.btn_dotss = !CurrentValuePLC.btn_dotss;
             return Json(new
             {
@@ -163,6 +220,14 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_doluuluong()
         {
+            if (CurrentValuePLC.btn_doluuluong == false)
+            {
+                MainPLC.plc.Write("M200.3", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.3", 0);
+            }
             CurrentValuePLC.btn_doluuluong = !CurrentValuePLC.btn_doluuluong;
             return Json(new
             {

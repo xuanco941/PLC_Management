@@ -11,7 +11,11 @@
             <h2 style="text-align: center;">
                 Thông số chất lượng
             </h2>
-
+            <form method="get" asp-controller="Dashboard" asp-action="Index" style="margin-bottom:10px; margin-top:10px;">
+                <label style="font-size:20px; font-weight:500;" for="timeSaveData">Thời gian mỗi lần lưu bản ghi: </label>
+                <input id="timeSaveData" name="timeSaveData" style="width:150px;" placeholder="@ViewBag.timeSaveData giây" type="number" />
+                <button class="btn btn-success">Thay đổi</button>
+            </form>
             <table class="table table-hover table_thongso">
                 <thead>
                     <tr>
@@ -101,7 +105,7 @@
                     <span id="box_number_24" class="box_number">24</span>
                 </div>
                 <div style="margin-bottom:5px; margin-top:25px;">
-                    <label style="font-size:20px; font-weight:500;" for="input_nhap_so_chai_lay_mau">Nhập vị trí chai lấy mẫu: </label>
+                    <label style="font-size:19px; font-weight:500;" for="input_nhap_so_chai_lay_mau">Nhập vị trí chai lấy mẫu: </label>
                     <input id="input_nhap_so_chai_lay_mau" style="width:150px;" placeholder="1-24" type="number" />
                 </div>
                 <div class="box_reset" style="margin-top:15px;">

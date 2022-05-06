@@ -5,8 +5,9 @@ namespace PLC_Management
 {
     public class MainPLC
     {
-        private static PLC plc;
-        private static ExceptionCode errCode;
+        public static PLC plc;
+        public static ExceptionCode errCode;
+
         public static void Start()
         {
             string ip = "192.168.0.1";
@@ -100,32 +101,33 @@ namespace PLC_Management
             CurrentValuePLC.nhap_so_chai_lay_mau = (uint)plc.Read("DB6.DBD108");
             CurrentValuePLC.xoa_so_chai_lay_mau = (uint)plc.Read("DB6.DBD110");
 
-            //status_position
-            CurrentValuePLC.status_position_0 = (bool)plc.Read("DB17.DBx0.0");
-            CurrentValuePLC.status_position_1 = (bool)plc.Read("DB17.DBx0.1");
-            CurrentValuePLC.status_position_2 = (bool)plc.Read("DB17.DBx0.2");
-            CurrentValuePLC.status_position_3 = (bool)plc.Read("DB17.DBx0.3");
-            CurrentValuePLC.status_position_4 = (bool)plc.Read("DB17.DBx0.4");
-            CurrentValuePLC.status_position_5 = (bool)plc.Read("DB17.DBx0.5");
-            CurrentValuePLC.status_position_6 = (bool)plc.Read("DB17.DBx0.6");
-            CurrentValuePLC.status_position_7 = (bool)plc.Read("DB17.DBx0.7");
-            CurrentValuePLC.status_position_8 = (bool)plc.Read("DB17.DBx1.0");
-            CurrentValuePLC.status_position_9 = (bool)plc.Read("DB17.DBx1.1");
-            CurrentValuePLC.status_position_10 = (bool)plc.Read("DB17.DBx1.2");
-            CurrentValuePLC.status_position_11 = (bool)plc.Read("DB17.DBx1.3");
-            CurrentValuePLC.status_position_12 = (bool)plc.Read("DB17.DBx1.4");
-            CurrentValuePLC.status_position_13 = (bool)plc.Read("DB17.DBx1.5");
-            CurrentValuePLC.status_position_14 = (bool)plc.Read("DB17.DBx1.6");
-            CurrentValuePLC.status_position_15 = (bool)plc.Read("DB17.DBx1.7");
-            CurrentValuePLC.status_position_16 = (bool)plc.Read("DB17.DBx2.0");
-            CurrentValuePLC.status_position_17 = (bool)plc.Read("DB17.DBx2.1");
-            CurrentValuePLC.status_position_18 = (bool)plc.Read("DB17.DBx2.2");
-            CurrentValuePLC.status_position_19 = (bool)plc.Read("DB17.DBx2.3");
-            CurrentValuePLC.status_position_20 = (bool)plc.Read("DB17.DBx2.4");
-            CurrentValuePLC.status_position_21 = (bool)plc.Read("DB17.DBx2.5");
-            CurrentValuePLC.status_position_22 = (bool)plc.Read("DB17.DBx2.6");
-            CurrentValuePLC.status_position_23 = (bool)plc.Read("DB17.DBx2.7");
-            CurrentValuePLC.status_position_24 = (bool)plc.Read("DB17.DBx3.0");
+
+
+            ////status_position
+            CurrentValuePLC.status_position_1 = (ushort)plc.Read("DB17.DBW0");
+            CurrentValuePLC.status_position_2 = (ushort)plc.Read("DB17.DBW2");
+            CurrentValuePLC.status_position_3 = (ushort)plc.Read("DB17.DBW4");
+            CurrentValuePLC.status_position_4 = (ushort)plc.Read("DB17.DBW6");
+            CurrentValuePLC.status_position_5 = (ushort)plc.Read("DB17.DBW8");
+            CurrentValuePLC.status_position_6 = (ushort)plc.Read("DB17.DBW10");
+            CurrentValuePLC.status_position_7 = (ushort)plc.Read("DB17.DBW12");
+            CurrentValuePLC.status_position_8 = (ushort)plc.Read("DB17.DBW14");
+            CurrentValuePLC.status_position_9 = (ushort)plc.Read("DB17.DBW16");
+            CurrentValuePLC.status_position_10 = (ushort)plc.Read("DB17.DBW18");
+            CurrentValuePLC.status_position_11 = (ushort)plc.Read("DB17.DBW20");
+            CurrentValuePLC.status_position_12 = (ushort)plc.Read("DB17.DBW22");
+            CurrentValuePLC.status_position_13 = (ushort)plc.Read("DB17.DBW24");
+            CurrentValuePLC.status_position_14 = (ushort)plc.Read("DB17.DBW26");
+            CurrentValuePLC.status_position_15 = (ushort)plc.Read("DB17.DBW28");
+            CurrentValuePLC.status_position_16 = (ushort)plc.Read("DB17.DBW30");
+            CurrentValuePLC.status_position_17 = (ushort)plc.Read("DB17.DBW32");
+            CurrentValuePLC.status_position_18 = (ushort)plc.Read("DB17.DBW34");
+            CurrentValuePLC.status_position_19 = (ushort)plc.Read("DB17.DBW36");
+            CurrentValuePLC.status_position_20 = (ushort)plc.Read("DB17.DBW38");
+            CurrentValuePLC.status_position_21 = (ushort)plc.Read("DB17.DBW40");
+            CurrentValuePLC.status_position_22 = (ushort)plc.Read("DB17.DBW42");
+            CurrentValuePLC.status_position_23 = (ushort)plc.Read("DB17.DBW44");
+            CurrentValuePLC.status_position_24 = (ushort)plc.Read("DB17.DBW46");
 
 
 

@@ -5,12 +5,16 @@ namespace PLC_Management
 {
     public class InsertResultInterval
     {
+        //Time Save Result
+        // mặc định 10s
+        public static int timeSaveData { get; set; } = 5000;
+
         public static void Run()
         {
 
             // Create a timer and set a two second interval.
             var aTimer = new System.Timers.Timer();
-            aTimer.Interval = 10000;
+            aTimer.Interval = timeSaveData;
 
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;

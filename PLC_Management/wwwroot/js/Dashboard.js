@@ -46,7 +46,7 @@ const box_number_24 = document.getElementById('box_number_24');
 const message_error_parameter = document.querySelector("#message_error_parameter");
 
 function setColorPosition(position, status_position) {
-    if (status_position == true) {
+    if (status_position != 0) {
         position.style.color = "white";
         position.style.backgroundColor = "#dc3545";
     }
@@ -119,15 +119,58 @@ const btn_doTSS = document.querySelector("#btn_doTSS");
 const btn_doluuluong = document.querySelector("#btn_doluuluong");
 const btn_tudong = document.querySelector("#btn_tudong");
 
-
+//batdau
 btn_batdau.addEventListener('click', () => {
-    fetch('./dashboard/btn_batdau').then(res => res.json()).then(resData => console.log(resData.status));
+    fetch('./dashboard/btn_batdau').then(res => res.json()).then((resData) => {
+        if (resData.status == true) {
+            btn_batdau.textContent = "Tắt";
+            btn_batdau.classList.remove("btn-success");
+            btn_batdau.classList.add("btn-danger");
+        }
+        else {
+            btn_batdau.textContent = "Bắt đầu";
+            btn_batdau.classList.remove("btn-danger");
+            btn_batdau.classList.add("btn-success");
+        }
+    })
 });
 
+//laymau
 btn_laymau.addEventListener('click', () => {
-    fetch('./dashboard/btn_laymau').then(res => res.json()).then(resData => console.log(resData.status));
+    fetch('./dashboard/btn_laymau').then(res => res.json()).then((resData) => {
+        if (resData.status == true) {
+            btn_laymau.textContent = "Dừng lấy mẫu";
+            btn_laymau.classList.remove("btn-info");
+            btn_laymau.classList.add("btn-danger");
+        }
+        else {
+            btn_laymau.textContent = "Lấy mẫu";
+            btn_laymau.classList.remove("btn-danger");
+            btn_laymau.classList.add("btn-info");
+        }
+    });
 });
 
+//tu dong
+btn_tudong.addEventListener('click', () => {
+    fetch('./dashboard/btn_tudong').then(res => res.json()).then(
+        (resData) => {
+            if (resData.status == true) {
+                btn_tudong.textContent = "Tắt tự động";
+                btn_tudong.classList.remove("btn-warning");
+                btn_tudong.classList.add("btn-danger");
+            }
+            else {
+                btn_tudong.textContent = "Tự động";
+                btn_tudong.classList.remove("btn-danger");
+                btn_tudong.classList.add("btn-warning");
+            }
+        }
+
+    )
+});
+
+//luu
 btn_luu.addEventListener('click', () => {
     fetch('./dashboard/btn_luu').then(res => res.json()).then(resData => console.log(resData.status));
 });
@@ -136,9 +179,8 @@ btn_xoa.addEventListener('click', () => {
     fetch('./dashboard/btn_xoa').then(res => res.json()).then(resData => console.log(resData.status))
 });
 
-btn_tudong.addEventListener('click', () => {
-    fetch('./dashboard/btn_tudong').then(res => res.json()).then(resData => console.log(resData.status))
-});
+
+
 
 btn_dopH.addEventListener('click', () => {
     fetch('./dashboard/btn_doph').then(res => res.json()).then(resData => console.log(resData.status))

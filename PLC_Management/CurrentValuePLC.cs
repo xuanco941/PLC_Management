@@ -4,6 +4,7 @@ namespace PLC_Management
 {
     public class CurrentValuePLC
     {
+
         //Parameter 
         public static Parameter P_pH = new Parameter("pH", "pH", "5/9", "");
         public static Parameter P_Temp = new Parameter("Temp", "Temp", "40", "Độ C");
@@ -27,34 +28,34 @@ namespace PLC_Management
 
         //message
         public static string? message { get; set; }
+        public static string? messageErrorBtn { get; set; }
 
 
         //trang thai ong dung (bool)
-        public static bool status_position_0 { get; set; } = false;
-        public static bool status_position_1 { get; set; } = false;
-        public static bool status_position_2 { get; set; } = false;
-        public static bool status_position_3 { get; set; } = false;
-        public static bool status_position_4 { get; set; } = false;
-        public static bool status_position_5 { get; set; } = false;
-        public static bool status_position_6 { get; set; } = false;
-        public static bool status_position_7 { get; set; } = false;
-        public static bool status_position_8 { get; set; } = false;
-        public static bool status_position_9 { get; set; } = false;
-        public static bool status_position_10 { get; set; } = false;
-        public static bool status_position_11 { get; set; } = false;
-        public static bool status_position_12 { get; set; } = false;
-        public static bool status_position_13 { get; set; } = false;
-        public static bool status_position_14 { get; set; } = false;
-        public static bool status_position_15 { get; set; } = false;
-        public static bool status_position_16 { get; set; } = false;
-        public static bool status_position_17 { get; set; } = false;
-        public static bool status_position_18 { get; set; } = false;
-        public static bool status_position_19 { get; set; } = false;
-        public static bool status_position_20 { get; set; } = false;
-        public static bool status_position_21 { get; set; } = false;
-        public static bool status_position_22 { get; set; } = false;
-        public static bool status_position_23 { get; set; } = false;
-        public static bool status_position_24 { get; set; } = false;
+        public static ushort status_position_1 { get; set; } = 0;
+        public static ushort status_position_2 { get; set; } = 0;
+        public static ushort status_position_3 { get; set; } = 0;
+        public static ushort status_position_4 { get; set; } = 0;
+        public static ushort status_position_5 { get; set; } = 0;
+        public static ushort status_position_6 { get; set; } = 0;
+        public static ushort status_position_7 { get; set; } = 0;
+        public static ushort status_position_8 { get; set; } = 0;
+        public static ushort status_position_9 { get; set; } = 0;
+        public static ushort status_position_10 { get; set; } = 0;
+        public static ushort status_position_11 { get; set; } = 0;
+        public static ushort status_position_12 { get; set; } = 0;
+        public static ushort status_position_13 { get; set; } = 0;
+        public static ushort status_position_14 { get; set; } = 0;
+        public static ushort status_position_15 { get; set; } = 0;
+        public static ushort status_position_16 { get; set; } = 0;
+        public static ushort status_position_17 { get; set; } = 0;
+        public static ushort status_position_18 { get; set; } = 0;
+        public static ushort status_position_19 { get; set; } = 0;
+        public static ushort status_position_20 { get; set; } = 0;
+        public static ushort status_position_21 { get; set; } = 0;
+        public static ushort status_position_22 { get; set; } = 0;
+        public static ushort status_position_23 { get; set; } = 0;
+        public static ushort status_position_24 { get; set; } = 0;
 
 
         //value position
