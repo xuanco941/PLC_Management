@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uWhd5boVeT8M13sJ+a+sfeS3foL0wifAv7/7dxnkKK0=",
+  "Hash": "h+dM2/RIyX4mipbFAihZEcGfTvzqRfgQ/ZdC3SvcZXE=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -119,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\css\\Main.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\Record.css",
+      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\Result.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
-      "RelativePath": "css/Record.css",
+      "RelativePath": "css/Result.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,7 +133,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Record.css"
+      "OriginalItemSpec": "wwwroot\\css\\Result.css"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\SideNav.css",
@@ -236,23 +236,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Employee.js"
-    },
-    {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\Pagination.js",
-      "SourceId": "PLC_Management",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
-      "BasePath": "_content/PLC_Management",
-      "RelativePath": "js/Pagination.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Pagination.js"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\table2excel.js",

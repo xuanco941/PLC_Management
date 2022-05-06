@@ -19,14 +19,24 @@
         </div>
 
         <form class="search col-12" method="get">
-            <label for="tungay">Từ ngày </label>
-            <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
+            <div class="box_loc">
+                <span class="span_locngay">
+                    <label style="font-weight:500;" for="tungay">Từ ngày: </label>
+                    <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
+                </span>
 
-            <label for="toingay">Tới ngày</label>
-            <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+                <span class="span_locngay">
+                    <label style="font-weight:500;" for="toingay">Tới ngày:</label>
+                    <input id="toingay" value=@ViewBag.toingay name="toingay" type="date" style="margin-right:40px;" />
+                </span>
 
-            <button type="submit" class="btn-primary btn">Lọc</button>
+
+                <button type="submit" style="padding-left:25px; padding-right:25px;" class="btn-primary btn btn_locngay span_locngay">Lọc</button>
+            </div>
         </form>
+        <div class="col-12" style="display:flex; justify-content:flex-end;">
+            <button class="btn-success btn" id="btn-export">Xuất file excel</button>
+        </div>
     </div>
 
 
@@ -85,24 +95,77 @@
 
 
         </table>
+
+        <div class="col-12" style="display: flex; justify-content:space-between; margin-top:15px;margin-bottom:25px;">
+            <div>
+                <div>
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            @{
+                                int page1 = ViewBag.pageCurrent - 2;
+                                int page2 = ViewBag.pageCurrent - 1;
+                                int page3 = ViewBag.pageCurrent;
+                                int page4 = ViewBag.pageCurrent + 1;
+                                int page5 = ViewBag.pageCurrent + 2;
+
+
+                                string link1 = @ViewBag.host + page1;
+                                string link2 = @ViewBag.host + page2;
+                                string link3 = @ViewBag.host + page3;
+                                string link4 = @ViewBag.host + page4;
+                                string link5 = @ViewBag.host + page5;
+
+                                string link_count_page = @ViewBag.host + @ViewBag.countPage;
+                            }
+                            @if ((@page3 - 2) > 0)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link1">@page1</a></li>
+                            }
+                            @if ((@page3 - 1) > 0)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link2">@page2</a></li>
+                            }
+
+                            <li class="page-item active"><a class="page-link" href="./@link3">@page3</a></li>
+
+                            @if (@page3 < @ViewBag.countPage)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link4">@page4</a></li>
+                            }
+
+                            @if ((@page3 + 1) < @ViewBag.countPage)
+                            {
+                                <li class="page-item"><a class="page-link" href="./@link5">@page5</a></li>
+                            }
+                            @if ((@page3 + 2) < @ViewBag.countPage)
+                            {
+                                <li style="width:28px; display: flex; justify-content:center; font-size:19px; height:100%; margin-top:9px; color:#0d6efd ">. . .</li>
+                                <li class="page-item"><a class="page-link" href="./@link_count_page">@ViewBag.countPage (Trang cuối)</a></li>
+                            }
+
+                        </ul>
+                    </nav>
+                </div>
+
+
+
+
+            </div>
+
+            <div style="height:35px;">
+                <input style="width:100px; height:100%; text-align:center" placeholder="Trang số ..." type="number" id="input_go_page" />
+                <button data-go-page="@ViewBag.host" class="btn-primary btn" style="height:calc(100%+5px);" id="btn_go_page" type="button">Đi tới trang</button>
+            </div>
+
+        </div>
+
     </div>
 </div>
 
 
-<nav aria-label="...">
-    <ul class="pagination justify-content-center">
-        @for (int j = 1; j <= @ViewBag.countPage; j++)
-        {
-            string link = @ViewBag.host + j;
-            <li class="page-item"><a class="page-link" href="./@link">@j</a></li>
-        }
-    </ul>
-</nav>
 
-<div class="bottomPlace"
-     style="width:100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: end; margin-bottom:30px;">
-    <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
-</div>
+
+
 
 <script src="./js/table2excel.js"></script>
 <script>
@@ -112,4 +175,3 @@
     })
 </script>
 <script src="~/js/Activity.js"></script>
-<script src="~/js/Pagination.js"></script>

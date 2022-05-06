@@ -29,19 +29,6 @@ Parameter_Unit NVARCHAR(30)
 )
 GO
 
---CREATE TABLE Cabinet(
-	
---)
-GO
-CREATE TABLE Flow(
-Flow_ID INT IDENTITY(1,1) PRIMARY KEY,
-Flow_Name nvarchar(200),
-Flow_Value FLOAT ,
-Flow_Unit nvarchar(20)
-)
-
-GO
-
 CREATE TABLE Result(
 Result_ID INT IDENTITY(1,1) PRIMARY KEY,
 Result_Parameter_Name NVARCHAR(300),
@@ -171,51 +158,45 @@ SELECT * FROM (
  ) a WHERE a.row > @startfrom and a.row <= @endto
  GO
 
- --phan trang theo ngay
- create proc paginationActivityByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as
-SELECT * FROM( SELECT * FROM ( 
-  SELECT *, ROW_NUMBER() OVER (ORDER BY Activity_ID desc) as row FROM Activity 
- ) a WHERE a.row > @startfrom and a.row <= @endto) as clone WHERE 
-clone.Activity_Time BETWEEN
+-- phan trang theo ngay
+ create proc paginationActivityByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as begin
+SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY Activity_ID desc) as row FROM Activity WHERE 
+Activity_Time BETWEEN
 @Time1 AND
- @Time2
+ @Time2 ) as a WHERE a.row > @startfrom and a.row <= @endto
+ end
  GO
-  create proc paginationResultByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as
-SELECT * FROM( SELECT * FROM ( 
-  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result 
- ) a WHERE a.row > @startfrom and a.row <= @endto) as clone WHERE 
-clone.Result_DateTime BETWEEN
-@Time1 AND
- @Time2
- GO
- --pagination paraID and day
-   create proc paginationResultByDayAndParameter (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25) ) as
-SELECT * FROM( SELECT * FROM ( 
-  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result 
- ) a WHERE a.row > @startfrom and a.row <= @endto) as clone WHERE 
-(clone.Result_DateTime BETWEEN
-@Time1 AND
- @Time2) AND (clone.Result_Parameter_ID = @pH OR clone.Result_Parameter_ID = @Temp OR clone.Result_Parameter_ID = @TSS OR clone.Result_Parameter_ID = @COD)
- GO
- --exec paginationActivityByDay 0,5,'2022-5-3','2023-5-3'
- --exec paginationResultByDayAndParameter 0,5,'2022-1-1','2023-1-1','pH','Temp','TSS','COD'
 
-GO
-exec AddEmployee 'Do Van Xuan', 'xuan', '123', 1
+  create proc paginationResultByDay (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime) as
+SELECT * FROM ( 
+  SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
+Result_DateTime BETWEEN
+@Time1 AND
+ @Time2
+ ) as a WHERE a.row > @startfrom and a.row <= @endto 
+ GO
+
+ --pagination paraID and day
+   create proc paginationResultByDayAndParameter (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25) ) as begin 
+  select * from (SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
+(Result_DateTime BETWEEN
+@Time1 AND
+ @Time2) AND (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD)) as a WHERE a.row > @startfrom and a.row <= @endto  
+ end
+ GO
+ 
+exec AddEmployee 'Leader', 'admin', '123', 1
 GO
 Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L');
 GO
-Insert into Flow values('Luu luong vao',9.9,'m3/h'),('Tong luu luong vao',20,'m3'),('Luu luong ra',5.5,'m3/h'),('Luu luong ra',17,'m3')
-GO
 Insert into Activity(Activity_Name) values('ngat ket noi plc');
 GO
-INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('COD','COD','5/9',7.8)
+INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('pH','pH','5/9',9.4)
 
-
---select * from Employee
---select * from Parameter
---select * from Flow
---select * from Activity
---select * from Result
+GO
+select * from Employee
+select * from Parameter
+select * from Activity
+select * from Result
 
 GO

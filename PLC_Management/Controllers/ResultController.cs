@@ -25,7 +25,6 @@ namespace PLC_Management.Controllers
                 tungay = today;
                 toingay = today;
                 int sumResult = ResultBusiness.CountResult();
-                ViewBag.sumResult = sumResult;
 
                 int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
                 if (sumResult % Common.NUMBER_ELM_ON_PAGE != 0)
@@ -70,6 +69,7 @@ namespace PLC_Management.Controllers
                     //Lỗi
                 }
                 ViewBag.listResults = results;
+
 
 
             }
@@ -130,7 +130,6 @@ namespace PLC_Management.Controllers
                 }
                 ViewBag.listResults = results;
 
-
             }
 
             ViewBag.checkpH = pH != null ? "checked" : null;
@@ -148,6 +147,7 @@ namespace PLC_Management.Controllers
             }
             ViewBag.tungay = tungay;
             ViewBag.toingay = toingay;
+            ViewBag.pageCurrent = page;
 
             return View();
         }

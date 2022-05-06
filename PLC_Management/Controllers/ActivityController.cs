@@ -68,6 +68,8 @@ namespace PLC_Management.Controllers
 
             ViewBag.tungay = tungay;
             ViewBag.toingay = toingay;
+            ViewBag.pageCurrent = page;
+
             return View();
         }
 
