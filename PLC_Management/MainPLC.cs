@@ -1,5 +1,6 @@
 ﻿using PROFINET_STEP_7.Profinet;
 using PROFINET_STEP_7.Types;
+using System.Timers;
 
 namespace PLC_Management
 {
@@ -7,6 +8,9 @@ namespace PLC_Management
     {
         public static PLC plc;
         public static ExceptionCode errCode;
+
+        public static System.Timers.Timer TimerRefreshData;
+
 
         public static void Start()
         {
@@ -20,26 +24,26 @@ namespace PLC_Management
             {
                 if (string.IsNullOrEmpty(plc.IP))
                 {
-                    Common.Message = "*Xin vui lòng nhập địa chỉ IP";
-                    //throw new Exception("Xin vui lòng nhập địa chỉ IP");
+                    CurrentValuePLC.message = "*Thiếu địa chỉ IP";
+                    throw new Exception("Xin vui lòng nhập địa chỉ IP");
                 }
                 if (!plc.IsAvailable)
                 {
-                    Common.Message = "(*)Không tìm thấy PLC cần kết nối!";
-                    //throw new Exception("Không tìm thấy PLC cần kết nối!");
+                    CurrentValuePLC.message = "*Không tìm thấy PLC cần kết nối!";
+                    throw new Exception("Không tìm thấy PLC cần kết nối!");
                 }
                 errCode = plc.Open();
                 if (errCode != ExceptionCode.ExceptionNo)
                 {
-                    Common.Message = "(*)Gặp lỗi: " + plc.lastErrorString.ToString();
-                    //throw new Exception(plc.lastErrorString);
+                    CurrentValuePLC.message = "*Gặp lỗi: " + plc.lastErrorString.ToString();
+                    throw new Exception(plc.lastErrorString);
                 }
-                InsertResultInterval.TimerInsertResult.Enabled = true;
-                InsertResultInterval.Run();
+
             }
             catch (Exception ex)
             {
-                Common.Message = "(*)Gặp lỗi: " + ex.ToString();
+                ReStart();
+                CurrentValuePLC.message = "*Gặp lỗi: " + ex.ToString();
             }
         }
 
@@ -52,19 +56,37 @@ namespace PLC_Management
             }
             catch (Exception ex)
             {
-                Common.Message = "(*)Lỗi đóng máy: " + ex.Message;
+                CurrentValuePLC.message = "*Lỗi đóng máy: " + ex.Message;
             }
         }
 
-        public static void RefreshConectionPLC()
+        public static void ReStart()
         {
             CurrentValuePLC.messageErrorConnectPLC = "*Mất kết nối tới PLC, đang tự động kết nối lại . . .";
-            InsertResultInterval.TimerInsertResult.Enabled = false;
             Start();
         }
 
+
         // lay du lieu tu plc
-        public static void GetData()
+
+        public static void StartGetData()
+        {
+            TimerRefreshData = new System.Timers.Timer(500);
+
+            TimerRefreshData.AutoReset = true;
+            // Hook up the Elapsed event for the timer. 
+            TimerRefreshData.Elapsed += GetData;
+
+            TimerRefreshData.Enabled = true;
+        }
+        public static void StopGetData()
+        {
+            TimerRefreshData.Enabled = false;
+            TimerRefreshData.Dispose();
+        }
+
+
+        public static void GetData(object sender, ElapsedEventArgs e)
         {
 
             //(READ)
@@ -140,6 +162,7 @@ namespace PLC_Management
             CurrentValuePLC.status_position_22 = (ushort)plc.Read("DB17.DBW42");
             CurrentValuePLC.status_position_23 = (ushort)plc.Read("DB17.DBW44");
             CurrentValuePLC.status_position_24 = (ushort)plc.Read("DB17.DBW46");
+
 
 
         }

@@ -6,9 +6,11 @@ namespace PLC_Management.Controllers
     {
         public IActionResult Index([FromQuery(Name = "timeSaveData")] int? timeSaveData)
         {
-            if (timeSaveData != null && (timeSaveData > 2))
+            if ((timeSaveData != null) && (timeSaveData > 2) && (timeSaveData*1000 != InsertResultInterval.timeSaveData))
             {
                 InsertResultInterval.timeSaveData = (int)timeSaveData * 1000;
+                InsertResultInterval.Clear();
+                InsertResultInterval.Run();
             }
             ViewBag.timeSaveData = InsertResultInterval.timeSaveData / 1000;
             return View();
@@ -16,16 +18,6 @@ namespace PLC_Management.Controllers
 
         public IActionResult UpdateDataPLC()
         {
-            //gui data ve client 
-            try
-            {
-                MainPLC.GetData();
-            }
-            catch
-            {
-                MainPLC.RefreshConectionPLC();
-            }
-
             return Json(new
             {
                 //btn

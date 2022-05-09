@@ -46,7 +46,6 @@ app.MapControllerRoute(
 app.UseMiddleware<AuthMiddlewares>();
 
 //ket noi , chay PLC
-
 MainPLC.Start();
 
 

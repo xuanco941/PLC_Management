@@ -5,28 +5,36 @@ namespace PLC_Management
 {
     public class InsertResultInterval
     {
-        public static System.Timers.Timer TimerInsertResult = new System.Timers.Timer();
+        public static System.Timers.Timer TimerInsertResult;
         //Time Save Result
         // mặc định 10s
         public static int timeSaveData { get; set; } = 10000;
 
         public static void Run()
         {
-
             // Create a timer and set a two second interval.
+            TimerInsertResult = new System.Timers.Timer(timeSaveData);
+
             TimerInsertResult.Interval = timeSaveData;
 
             // Hook up the Elapsed event for the timer. 
-            TimerInsertResult.Elapsed += OnTimedEvent;
+            TimerInsertResult.Elapsed += InsertResult;
 
             // Have the timer fire repeated events (true is the default)
             TimerInsertResult.AutoReset = true;
 
             // Start the timer
-            //TimerInsertResult.Enabled = true;
+            TimerInsertResult.Enabled = true;
+        }
+        public static void Clear()
+        {
+            TimerInsertResult.Enabled = false;
+            TimerInsertResult.Dispose();
         }
 
-        public static void OnTimedEvent(object sender, ElapsedEventArgs e)
+
+
+        public static void InsertResult(object sender, ElapsedEventArgs e)
         {
             foreach (var parameter in CurrentValuePLC.parameters)
             {
@@ -54,8 +62,7 @@ namespace PLC_Management
                 result.Value = value;
                 result.Status = true;
 
-                ResultBusiness resultBusiness = new ResultBusiness();
-                resultBusiness.AddResult(result);
+                ResultBusiness.AddResult(result);
             }
         }
        

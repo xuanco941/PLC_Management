@@ -149,7 +149,7 @@ namespace PLC_Management.Models.ResultModel
 
 
 
-        public void AddResult(Result result)
+        public static void AddResult(Result result)
         {
 
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);

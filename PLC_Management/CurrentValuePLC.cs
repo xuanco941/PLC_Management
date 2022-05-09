@@ -32,6 +32,7 @@ namespace PLC_Management
         public static string? messageErrorConnectPLC { get; set; }
 
 
+
         //trang thai ong dung (bool)
         public static ushort status_position_1 { get; set; } = 0;
         public static ushort status_position_2 { get; set; } = 0;
