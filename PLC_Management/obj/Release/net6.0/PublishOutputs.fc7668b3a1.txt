@@ -1,0 +1,14 @@
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\PLC_Management.exe
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\PLC_Management.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\PLC_Management.deps.json
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\PLC_Management.runtimeconfig.json
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\PLC_Management.pdb
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\System.Data.SqlClient.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\runtimes\win-x64\native\sni.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\runtimes\win-x86\native\sni.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

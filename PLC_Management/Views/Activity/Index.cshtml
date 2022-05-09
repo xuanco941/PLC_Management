@@ -22,6 +22,7 @@
             <div class="box_loc">
                 <span class="span_locngay">
                     <label style="font-weight:500;" for="tungay">Từ ngày: </label>
+
                     <input id="tungay" name="tungay" value=@ViewBag.tungay type="date" style="margin-right:40px;" />
                 </span>
 
@@ -66,13 +67,15 @@
                 }
                 @foreach (Activity activity in ViewBag.listActivities)
                 {
+                    DateTime dateTime = Convert.ToDateTime(activity.Time);
+                    String s = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
                     int j = i + 1;
                     if (i % 2 == 0)
                     {
                         <tr class="table-info">
                             <th scope="row">@j</th>
                             <td>@activity.Name</td>
-                            <td>@activity.Time</td>
+                            <td>@s</td>
                         </tr>
 
                     }
@@ -81,7 +84,7 @@
                         <tr>
                             <th scope="row">@j</th>
                             <td>@activity.Name</td>
-                            <td>@activity.Time</td>
+                            <td>@s</td>
                         </tr>
                     }
                     i++;
@@ -175,3 +178,4 @@
     })
 </script>
 <script src="~/js/Pagination.js"></script>
+<script src="~/js/FormatInPutDate.js"></script>

@@ -79,7 +79,9 @@
                 }
                 @foreach (Result result in ViewBag.listResults)
                 {
-                    int j = i + 1;
+                DateTime dateTime = Convert.ToDateTime(result.Datetime);
+                String s = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
+                int j = i + 1;
                     if (i % 2 == 0)
                     {
                         <tr class="table-info">
@@ -87,7 +89,7 @@
                             <td>@result.Parameter_Name</td>
                             <td>@result.Parameter_ID</td>
                             <td>@result.Parameter_Unit</td>
-                            <td>@result.Datetime</td>
+                            <td>@s</td>
                             <td>@result.Value</td>
                         </tr>
                     }
@@ -98,7 +100,7 @@
                             <td>@result.Parameter_Name</td>
                             <td>@result.Parameter_ID</td>
                             <td>@result.Parameter_Unit</td>
-                            <td>@result.Datetime</td>
+                            <td>@s</td>
                             <td>@result.Value</td>
                         </tr>
                     }

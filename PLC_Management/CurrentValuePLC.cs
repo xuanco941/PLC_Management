@@ -29,6 +29,7 @@ namespace PLC_Management
         //message
         public static string? message { get; set; }
         public static string? messageErrorBtn { get; set; }
+        public static string? messageErrorConnectPLC { get; set; }
 
 
         //trang thai ong dung (bool)

@@ -8,7 +8,7 @@ namespace PLC_Management.Controllers
         {
             List<Activity> activities = new List<Activity>();
             ActivityBusiness activityBusiness = new ActivityBusiness();
-            var today = DateTime.Now.ToString("yyyy-MM-dd");
+            var today = DateTime.Now;
             if (page == null || page == 0)
             {
                 page = 1;
@@ -16,8 +16,8 @@ namespace PLC_Management.Controllers
             if (tungay == null && toingay == null)
             {
                 ViewBag.host = $"activity?page=";
-                tungay = today;
-                toingay = today;
+                tungay = today.AddDays(-365).ToString("yyyy-MM-dd");
+                toingay = today.AddDays(1).ToString("yyyy-MM-dd");
                 int sumActivity = ActivityBusiness.CountActivity();
                 int countPage = (sumActivity / Common.NUMBER_ELM_ON_PAGE);
                 if (sumActivity % Common.NUMBER_ELM_ON_PAGE != 0)
@@ -40,7 +40,7 @@ namespace PLC_Management.Controllers
 
                 ViewBag.host = $"activity?tungay={tungay}&toingay={toingay}&page=";
                 DateTime dateTime1 = Convert.ToDateTime(tungay);
-                DateTime dateTime2 = Convert.ToDateTime(toingay);
+                DateTime dateTime2 = Convert.ToDateTime(toingay).AddDays(1);
                 string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
 

@@ -6,19 +6,26 @@ namespace PLC_Management.Controllers
     {
         public IActionResult Index([FromQuery(Name = "timeSaveData")] int? timeSaveData)
         {
-            if(timeSaveData != null)
+            if (timeSaveData != null && (timeSaveData > 2))
             {
-                InsertResultInterval.timeSaveData = (int) timeSaveData * 1000;
+                InsertResultInterval.timeSaveData = (int)timeSaveData * 1000;
             }
-            ViewBag.timeSaveData = InsertResultInterval.timeSaveData/1000;
+            ViewBag.timeSaveData = InsertResultInterval.timeSaveData / 1000;
             return View();
         }
 
         public IActionResult UpdateDataPLC()
         {
             //gui data ve client 
+            try
+            {
+                MainPLC.GetData();
+            }
+            catch
+            {
+                MainPLC.RefreshConectionPLC();
+            }
 
-            //MainPLC.GetData();
             return Json(new
             {
                 //btn
@@ -104,7 +111,8 @@ namespace PLC_Management.Controllers
                 status_position_24 = CurrentValuePLC.status_position_24,
 
 
-                message = CurrentValuePLC.message
+                message = CurrentValuePLC.message,
+                messageErrorConnectPLC = CurrentValuePLC.messageErrorConnectPLC
             });
         }
 

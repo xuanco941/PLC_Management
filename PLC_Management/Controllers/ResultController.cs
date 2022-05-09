@@ -14,7 +14,7 @@ namespace PLC_Management.Controllers
             List<Result> results = new List<Result>();
 
 
-            var today = DateTime.Now.ToString("yyyy-MM-dd");
+            var today = DateTime.Now;
             if (page == null || page == 0)
             {
                 page = 1;
@@ -22,8 +22,8 @@ namespace PLC_Management.Controllers
             if (tungay == null && toingay == null)
             {
                 ViewBag.host = $"result?page=";
-                tungay = today;
-                toingay = today;
+                tungay = today.AddDays(-365).ToString("yyyy-MM-dd");
+                toingay = today.AddDays(1).ToString("yyyy-MM-dd");
                 int sumResult = ResultBusiness.CountResult();
 
                 int countPage = (sumResult / Common.NUMBER_ELM_ON_PAGE);
@@ -48,7 +48,7 @@ namespace PLC_Management.Controllers
 
                 ViewBag.host = $"result?tungay={tungay}&toingay={toingay}&page=";
                 DateTime dateTime1 = Convert.ToDateTime(tungay);
-                DateTime dateTime2 = Convert.ToDateTime(toingay);
+                DateTime dateTime2 = Convert.ToDateTime(toingay).AddDays(1);
                 string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
 
@@ -86,7 +86,7 @@ namespace PLC_Management.Controllers
                 idCOD = COD != null ? "COD" : "null";
 
                 DateTime dateTime1 = Convert.ToDateTime(tungay);
-                DateTime dateTime2 = Convert.ToDateTime(toingay);
+                DateTime dateTime2 = Convert.ToDateTime(toingay).AddDays(1);
                 string strDatime1 = dateTime1.Year + "-" + dateTime1.Month + "-" + dateTime1.Day;
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
                 int sumResult = ResultBusiness.CountResultByParameterAndDay(strDatime1, strDatime2, idpH, idTemp, idTSS, idCOD);

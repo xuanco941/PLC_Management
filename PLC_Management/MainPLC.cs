@@ -15,22 +15,27 @@ namespace PLC_Management
             Int16 rack = 0;
             Int16 slot = 1;
 
-            plc = new PLC(cpu,ip,rack,slot);
+            plc = new PLC(cpu, ip, rack, slot);
             try
             {
-                if (string.IsNullOrEmpty(plc.IP)) {
+                if (string.IsNullOrEmpty(plc.IP))
+                {
                     Common.Message = "*Xin vui lòng nhập địa chỉ IP";
                     //throw new Exception("Xin vui lòng nhập địa chỉ IP");
                 }
-                if (!plc.IsAvailable) {
+                if (!plc.IsAvailable)
+                {
                     Common.Message = "(*)Không tìm thấy PLC cần kết nối!";
                     //throw new Exception("Không tìm thấy PLC cần kết nối!");
                 }
                 errCode = plc.Open();
-                if (errCode != ExceptionCode.ExceptionNo) {
+                if (errCode != ExceptionCode.ExceptionNo)
+                {
                     Common.Message = "(*)Gặp lỗi: " + plc.lastErrorString.ToString();
                     //throw new Exception(plc.lastErrorString);
-                } 
+                }
+                InsertResultInterval.TimerInsertResult.Enabled = true;
+                InsertResultInterval.Run();
             }
             catch (Exception ex)
             {
@@ -45,16 +50,23 @@ namespace PLC_Management
             {
                 plc.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Common.Message = "(*)Lỗi đóng máy: " + ex.Message;
             }
         }
 
+        public static void RefreshConectionPLC()
+        {
+            CurrentValuePLC.messageErrorConnectPLC = "*Mất kết nối tới PLC, đang tự động kết nối lại . . .";
+            InsertResultInterval.TimerInsertResult.Enabled = false;
+            Start();
+        }
 
         // lay du lieu tu plc
         public static void GetData()
         {
+
             //(READ)
             //parameter
             CurrentValuePLC.pH = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB16.DBD0"));
@@ -128,8 +140,6 @@ namespace PLC_Management
             CurrentValuePLC.status_position_22 = (ushort)plc.Read("DB17.DBW42");
             CurrentValuePLC.status_position_23 = (ushort)plc.Read("DB17.DBW44");
             CurrentValuePLC.status_position_24 = (ushort)plc.Read("DB17.DBW46");
-
-
 
 
         }

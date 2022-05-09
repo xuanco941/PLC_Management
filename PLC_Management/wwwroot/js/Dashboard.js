@@ -50,8 +50,9 @@ const btn_tudong = document.querySelector("#btn_tudong");
 
 
 
-
+//message
 const message_error_parameter = document.querySelector("#message_error_parameter");
+var message_error_connect = document.querySelector("#message_error_connect");
 
 function setColorPosition(position, status_position) {
     if (status_position != 0) {
@@ -117,6 +118,8 @@ const updateData = () => {
 
 
         message_error_parameter.textContent = data.message !== "" ? data.message : "";
+        message_error_connect.textContent = data.messageErrorConnectPLC !== "" ? data.messageErrorConnectPLC : "";
+
     })
 }
 

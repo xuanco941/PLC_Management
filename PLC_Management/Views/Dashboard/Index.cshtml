@@ -7,12 +7,13 @@
 <div class="grid_menu">
     <div class="row row_menu">
         <div class="col-12 text-danger" style="font-size:24px; text-align:center; width:100%;" id="message_error_parameter"></div>
+        <div class="col-12 text-danger" style="font-size:24px; text-align:center; width:100%;" id="message_error_connect"></div>
         <div class="col-12 col-xl-6 tabLeft">
             <h2 style="text-align: center;">
                 Thông số chất lượng
             </h2>
             <form method="get" asp-controller="Dashboard" asp-action="Index" style="margin-bottom:10px; margin-top:10px;">
-                <label style="font-size:20px; font-weight:500;" for="timeSaveData">Thời gian mỗi lần lưu bản ghi: </label>
+                <label style="font-size:20px; font-weight:500;" for="timeSaveData">Thời gian mỗi lần lưu bản ghi (&#62;2): </label>
                 <input id="timeSaveData" name="timeSaveData" style="width:150px;" placeholder="@ViewBag.timeSaveData giây" type="number" />
                 <button class="btn btn-success">Thay đổi</button>
             </form>
@@ -174,3 +175,4 @@
     </div>
 </div>
 <script src="~/js/Dashboard.js"></script>
+<script src="~/js/FormatInPutDate.js"></script>
