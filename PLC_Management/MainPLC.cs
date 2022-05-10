@@ -40,11 +40,13 @@ namespace PLC_Management
                 }
 
                 StartGetData();
+                InsertResultInterval.Run();
             }
             catch (Exception ex)
             {
-                ReStart();
+                InsertResultInterval.Clear();
                 CurrentValuePLC.message = "*Gặp lỗi: " + ex.ToString();
+                ReStart();
             }
         }
 
