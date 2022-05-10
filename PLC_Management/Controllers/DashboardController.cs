@@ -9,8 +9,11 @@ namespace PLC_Management.Controllers
             if ((timeSaveData != null) && (timeSaveData > 2) && (timeSaveData*1000 != InsertResultInterval.timeSaveData))
             {
                 InsertResultInterval.timeSaveData = (int)timeSaveData * 1000;
-                InsertResultInterval.Clear();
-                InsertResultInterval.Run();
+                if (InsertResultInterval.TimerInsertResult.Enabled == true)
+                {
+                    InsertResultInterval.Clear();
+                    InsertResultInterval.Run();
+                }
             }
             ViewBag.timeSaveData = InsertResultInterval.timeSaveData / 1000;
             return View();
@@ -18,6 +21,7 @@ namespace PLC_Management.Controllers
 
         public IActionResult UpdateDataPLC()
         {
+            MainPLC.GetData();
             return Json(new
             {
                 //btn

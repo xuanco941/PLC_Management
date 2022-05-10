@@ -35,16 +35,16 @@ namespace PLC_Management
                 errCode = plc.Open();
                 if (errCode != ExceptionCode.ExceptionNo)
                 {
-                    CurrentValuePLC.message = "*Gặp lỗi: " + plc.lastErrorString.ToString();
+                    CurrentValuePLC.message = "*Lỗi: " + plc.lastErrorString.ToString();
                     throw new Exception(plc.lastErrorString);
                 }
 
-                StartGetData();
-                InsertResultInterval.Run();
+                // success
+                CurrentValuePLC.message = null;
+                CurrentValuePLC.messageErrorConnectPLC = null;
             }
             catch (Exception ex)
             {
-                InsertResultInterval.Clear();
                 CurrentValuePLC.message = "*Gặp lỗi: " + ex.ToString();
                 ReStart();
             }
@@ -65,33 +65,12 @@ namespace PLC_Management
 
         public static void ReStart()
         {
-            CurrentValuePLC.messageErrorConnectPLC = "*Mất kết nối tới PLC, đang tự động kết nối lại . . .";
+            CurrentValuePLC.messageErrorConnectPLC = "(Đang tự động kết nối lại . . .)";
             Start();
         }
 
-
-        // lay du lieu tu plc
-
-        public static void StartGetData()
+        public static void GetData()
         {
-            TimerRefreshData = new System.Timers.Timer(500);
-
-            TimerRefreshData.AutoReset = true;
-            // Hook up the Elapsed event for the timer. 
-            TimerRefreshData.Elapsed += GetData;
-
-            TimerRefreshData.Enabled = true;
-        }
-        public static void StopGetData()
-        {
-            TimerRefreshData.Enabled = false;
-            TimerRefreshData.Dispose();
-        }
-
-
-        public static void GetData(object sender, ElapsedEventArgs e)
-        {
-
             //(READ)
             //parameter
             CurrentValuePLC.pH = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB16.DBD0"));
@@ -165,8 +144,6 @@ namespace PLC_Management
             CurrentValuePLC.status_position_22 = (ushort)plc.Read("DB17.DBW42");
             CurrentValuePLC.status_position_23 = (ushort)plc.Read("DB17.DBW44");
             CurrentValuePLC.status_position_24 = (ushort)plc.Read("DB17.DBW46");
-
-
 
         }
     }

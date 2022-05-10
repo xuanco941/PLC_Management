@@ -47,7 +47,7 @@ app.UseMiddleware<AuthMiddlewares>();
 
 //ket noi , chay PLC
 MainPLC.Start();
-
+InsertResultInterval.Run();
 app.Run();
 
 

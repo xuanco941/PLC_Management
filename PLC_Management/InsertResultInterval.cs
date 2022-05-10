@@ -28,8 +28,12 @@ namespace PLC_Management
         }
         public static void Clear()
         {
-            TimerInsertResult.Enabled = false;
-            TimerInsertResult.Dispose();
+            if(TimerInsertResult != null && TimerInsertResult.Enabled == true)
+            {
+                TimerInsertResult.Stop();
+                TimerInsertResult.Dispose();
+            } 
+ 
         }
 
 
