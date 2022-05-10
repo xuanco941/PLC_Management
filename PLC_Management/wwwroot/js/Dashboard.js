@@ -88,7 +88,7 @@ const updateData = () => {
         input_luuluongvao.value = data.luuluongvao;
         input_luuluongra.value = data.luuluongra;
         input_tongluuluong.value = data.luuluong;
-        input_nhap_so_chai_lay_mau.value = data.nhap_so_chai_lay_mau;
+        //input_nhap_so_chai_lay_mau.value = data.nhap_so_chai_lay_mau;
 
         //position
         setColorPosition(box_number_1, data.status_position_1);
@@ -131,7 +131,15 @@ const dataInterval = setInterval(updateData, 800);
 
 //batdau
 btn_batdau.addEventListener('click', () => {
-    fetch('./dashboard/btn_batdau').then(res => res.json()).then((resData) => {
+    let number = parseInt(input_nhap_so_chai_lay_mau.value);
+
+    fetch('./dashboard/btn_batdau', {
+        method: 'post',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({ number: number })
+    }).then(res => res.json()).then((resData) => {
         if (resData.status == true) {
             btn_batdau.textContent = "Tắt";
             btn_batdau.classList.remove("btn-success");
@@ -143,6 +151,7 @@ btn_batdau.addEventListener('click', () => {
             btn_batdau.classList.add("btn-success");
         }
     })
+
 });
 
 //laymau

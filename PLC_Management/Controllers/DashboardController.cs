@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PLC_Management.Models.ActivityModel;
+using PLC_Management.Models.ParameterModel;
+
 namespace PLC_Management.Controllers
 {
     public class DashboardController : Controller
@@ -113,12 +116,21 @@ namespace PLC_Management.Controllers
         }
 
 
-        public IActionResult Btn_batdau()
+        public async Task<IActionResult> Btn_batdau()
         {
+
+            string strRequestBody;
+            using (StreamReader reader = new StreamReader(Request.Body, System.Text.Encoding.UTF8))
+            {
+                strRequestBody = await reader.ReadToEndAsync();
+            }
+            NumberModel? number = JsonConvert.DeserializeObject<NumberModel>(strRequestBody);
+
             if (CurrentValuePLC.btn_batdau == false)
             {
                 ActivityBusiness.AddActivity("Bắt đầu !!!");
                 MainPLC.plc.Write("M200.2", 1);
+                MainPLC.plc.Write("MW10",number.Number.ToString());
             }
             else
             {
