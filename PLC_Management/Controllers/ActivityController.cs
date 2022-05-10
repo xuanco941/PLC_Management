@@ -16,7 +16,7 @@ namespace PLC_Management.Controllers
             if (tungay == null && toingay == null)
             {
                 ViewBag.host = $"activity?page=";
-                tungay = today.AddDays(-365).ToString("yyyy-MM-dd");
+                tungay = today.ToString("yyyy-MM-dd");
                 toingay = today.AddDays(1).ToString("yyyy-MM-dd");
                 int sumActivity = ActivityBusiness.CountActivity();
                 int countPage = (sumActivity / Common.NUMBER_ELM_ON_PAGE);

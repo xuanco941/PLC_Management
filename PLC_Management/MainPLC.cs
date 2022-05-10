@@ -39,6 +39,7 @@ namespace PLC_Management
                     throw new Exception(plc.lastErrorString);
                 }
 
+                StartGetData();
             }
             catch (Exception ex)
             {

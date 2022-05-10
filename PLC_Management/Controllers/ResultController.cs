@@ -22,7 +22,7 @@ namespace PLC_Management.Controllers
             if (tungay == null && toingay == null)
             {
                 ViewBag.host = $"result?page=";
-                tungay = today.AddDays(-365).ToString("yyyy-MM-dd");
+                tungay = today.ToString("yyyy-MM-dd");
                 toingay = today.AddDays(1).ToString("yyyy-MM-dd");
                 int sumResult = ResultBusiness.CountResult();
 
