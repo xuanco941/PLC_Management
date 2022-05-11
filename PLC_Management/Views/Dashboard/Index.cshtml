@@ -14,7 +14,7 @@
             </h2>
             <form method="get" asp-controller="Dashboard" asp-action="Index" style="margin-bottom:10px; margin-top:10px;">
                 <label style="font-size:20px; font-weight:500;" for="timeSaveData">Thời gian mỗi lần lưu bản ghi (&#62;2): </label>
-                <input id="timeSaveData" name="timeSaveData" style="width:150px;" placeholder="@ViewBag.timeSaveData giây" type="number" />
+                <input id="timeSaveData" required name="timeSaveData" style="width:150px;" placeholder="@ViewBag.timeSaveData giây" type="number" />
                 <button class="btn btn-success">Thay đổi</button>
             </form>
             <table class="table table-hover table_thongso">
@@ -57,7 +57,7 @@
 
             <div class="box_reset" style="margin-top:7px; margin-bottom:25px;">
                 <button type="button" class="btn btn-primary" id="btn_dopH" style="width:100px; margin-right:20px;">Đo pH</button>
-                <button type="button" class="btn btn-primary" id="btn_dopH" style="width:100px; margin-right:20px;">Đo COD</button>
+                <button type="button" class="btn btn-primary" id="btn_doCOD" style="width:100px; margin-right:20px;">Đo COD</button>
                 <button type="button" class="btn btn-primary" id="btn_doTSS" style="width:100px; ">Đo TSS</button>
             </div>
         </div>
@@ -110,31 +110,23 @@
                     <label style="font-size:19px; font-weight:500;" for="input_nhap_so_chai_lay_mau">Nhập vị trí chai lấy mẫu: </label>
                     <input id="input_nhap_so_chai_lay_mau" style="width:150px;" placeholder="1-24" type="number" />
                 </div>
+                <div style="margin-bottom:5px; margin-top:25px;">
+                    <div style="font-size:19px; font-weight:500;" for="input_nhap_so_chai_lay_mau">Đang ở vị trí : 4</div>
+                </div>
                 <div class="box_reset" style="margin-top:15px;">
                     <button type="button" class="btn btn-success" id="btn_batdau" style="margin-right:20px;">Bắt đầu</button>
                     <button type="button" class="btn btn-info" id="btn_laymau" style="margin-right:20px;">Lấy mẫu</button>
                     <button type="button" class="btn btn-warning" id="btn_tudong">Tự động</button>
                 </div>
                 <div class="box_reset" style="margin-top:15px;">
-                    <input type="number" id="input_luu" " style="margin-right:5px;" />
+                    <input type="number" class="readonly_input" readonly id="input_luu" style="margin-right:5px;" />
                     <button type="button" class="btn btn-success" style="margin-right:20px;" id="btn_luu">Lưu</button>
                 </div>
                 <div class="box_reset" style="margin-top:8px;">
-                    <input type="number" id="input_xoa" style="margin-right:5px;" />
+                    <select id="input_xoa" style="width:199px; margin-right:5px;" class="form-select" aria-label="Default select example">
+                    </select>
                     <button type="button" class="btn btn-danger" style="margin-right:20px;" id="btn_xoa">Xóa</button>
                 </div>
-
-
-                @*               <div class="footer_box">
-                    <div class="footer_box_item">
-                    <span style="margin-right: 20px;">Đổi vị trí lọ: 23</span>
-                    <span>T&#186;in: 0.00 &#186;C</span>
-                    </div>
-                    <div class="footer_box_item">
-                    <span style="margin-right: 20px;">Lấy mẫu vào: 21</span>
-                    <span>T&#186;out: 0.00 &#186;C</span>
-                    </div>
-                    </div>*@
             </div>
 
 
@@ -176,4 +168,3 @@
     </div>
 </div>
 <script src="~/js/Dashboard.js"></script>
-<script src="~/js/FormatInPutDate.js"></script>

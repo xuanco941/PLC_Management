@@ -9,7 +9,7 @@ namespace PLC_Management.Controllers
     {
         public IActionResult Index([FromQuery(Name = "timeSaveData")] int? timeSaveData)
         {
-            if ((timeSaveData != null) && (timeSaveData > 2) && (timeSaveData*1000 != InsertResultInterval.timeSaveData))
+            if ((timeSaveData != null) && (timeSaveData > 2) && (timeSaveData * 1000 != InsertResultInterval.timeSaveData))
             {
                 InsertResultInterval.timeSaveData = (int)timeSaveData * 1000;
                 if (InsertResultInterval.TimerInsertResult.Enabled == true)
@@ -115,55 +115,34 @@ namespace PLC_Management.Controllers
             });
         }
 
-
-        public async Task<IActionResult> Btn_batdau()
+        //btn bat dau
+        public IActionResult Btn_batdau([FromQuery(Name = "position")] int position)
         {
-
-            string strRequestBody;
-            using (StreamReader reader = new StreamReader(Request.Body, System.Text.Encoding.UTF8))
-            {
-                strRequestBody = await reader.ReadToEndAsync();
-            }
-            NumberModel? number = JsonConvert.DeserializeObject<NumberModel>(strRequestBody);
-
-            if (CurrentValuePLC.btn_batdau == false)
-            {
-                ActivityBusiness.AddActivity("Bắt đầu !!!");
-                MainPLC.plc.Write("M200.2", 1);
-                MainPLC.plc.Write("MW10",number.Number.ToString());
-            }
-            else
-            {
-                ActivityBusiness.AddActivity("Dừng lại !!!");
-                MainPLC.plc.Write("M200.2", 0);
-            }
-            CurrentValuePLC.btn_batdau = !CurrentValuePLC.btn_batdau;
+            CurrentValuePLC.position_current = position;
+            ActivityBusiness.AddActivity($"Bắt đầu trên mẫu thử số: {position}.");
+            MainPLC.plc.Write("M200.2", 1);
+            MainPLC.plc.Write("MW10", position.ToString());
             return Json(new
             {
-                status = CurrentValuePLC.btn_batdau
+                status = position
             });
         }
 
-        public IActionResult Btn_laymau()
+        public IActionResult Btn_laymau([FromQuery(Name = "position")] int position)
         {
-            if (CurrentValuePLC.btn_laymau == false)
-            {
-                ActivityBusiness.AddActivity("Đã Lấy mẫu");
-                MainPLC.plc.Write("M200.7", 1);
-            }
-            else
-            {
-                MainPLC.plc.Write("M200.7", 0);
-            }
-            CurrentValuePLC.btn_laymau = !CurrentValuePLC.btn_laymau;
+
+            ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {position}");
+            MainPLC.plc.Write("M200.7", 1);
+
             return Json(new
             {
-                status = CurrentValuePLC.btn_laymau
+                status = position
             });
         }
 
-        public IActionResult Btn_luu()
+        public IActionResult Btn_luu([FromQuery(Name = "position")] int position)
         {
+            CurrentValuePLC.position_current = 0;
             if (CurrentValuePLC.btn_luu == false)
             {
                 MainPLC.plc.Write("M200.1", 1);
@@ -172,10 +151,9 @@ namespace PLC_Management.Controllers
             {
                 MainPLC.plc.Write("M200.1", 0);
             }
-            CurrentValuePLC.btn_luu = !CurrentValuePLC.btn_luu;
             return Json(new
             {
-                status = CurrentValuePLC.btn_luu
+                status = CurrentValuePLC.position_current
             });
         }
 

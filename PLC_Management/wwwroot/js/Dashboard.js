@@ -45,6 +45,7 @@ const btn_luu = document.querySelector("#btn_luu");
 const btn_xoa = document.querySelector("#btn_xoa");
 const btn_dopH = document.querySelector("#btn_dopH");
 const btn_doTSS = document.querySelector("#btn_doTSS");
+const btn_doCOD = document.querySelector("#btn_doCOD");
 const btn_doluuluong = document.querySelector("#btn_doluuluong");
 const btn_tudong = document.querySelector("#btn_tudong");
 
@@ -54,6 +55,13 @@ const btn_tudong = document.querySelector("#btn_tudong");
 const message_error_parameter = document.querySelector("#message_error_parameter");
 var message_error_connect = document.querySelector("#message_error_connect");
 
+
+//value global
+var position_current = 0;
+var arr_status_position = [];
+var numberOptionXoa = 0;
+
+//set color position
 function setColorPosition(position, status_position) {
     if (status_position != 0) {
         position.style.color = "white";
@@ -67,15 +75,14 @@ function setColorPosition(position, status_position) {
 
 const updateData = () => {
     fetch('./dashboard/updatedataplc').then(res => res.json()).then(data => {
+        //value global
+        position_current = data.position_current;
+
 
         console.log(data);
 
-        //btn
-        if (data.btn_batdau == true) {
-            btn_batdau.textContent = "Tắt";
-            btn_batdau.classList.remove("btn-success");
-            btn_batdau.classList.add("btn-danger");
-        }
+        //btn status
+
 
 
         // parameter
@@ -116,9 +123,59 @@ const updateData = () => {
         setColorPosition(box_number_23, data.status_position_23);
         setColorPosition(box_number_24, data.status_position_24);
 
+        if (position_current != 0) {
+            var curPosition = document.querySelector(`#box_number_${position_current}`);
+            curPosition.style.backgroundColor = "#198754";
+            curPosition.style.color = "#fff";
+        }
 
+
+        //message
         message_error_parameter.textContent = data.message !== "" ? data.message : "";
         message_error_connect.textContent = data.messageErrorConnectPLC !== "" ? data.messageErrorConnectPLC : "";
+
+        //xoa
+
+        arr_status_position = [data.status_position_1, data.status_position_2, data.status_position_3, data.status_position_4, data.status_position_5, data.status_position_6, data.status_position_7, data.status_position_8, data.status_position_9, data.status_position_10, data.status_position_11, data.status_position_12, data.status_position_13, data.status_position_14, data.status_position_15, data.status_position_16, data.status_position_17, data.status_position_18, data.status_position_19, data.status_position_20, data.status_position_21, data.status_position_22, data.status_position_23, data.status_position_24];
+
+        if (input_xoa.length == 0) {
+            arr_status_position.forEach((position, index) => {
+                if (position != 0) {
+                    var option = document.createElement("option");
+                    option.value = index + 1;
+                    option.text = index + 1;
+                    option.classList.add("option_position");
+                    if (index + 1 == position_current) {
+                        option.selected = true;
+                    }
+                    input_xoa.add(option);
+
+                }
+            });
+        }
+        if (input_xoa.length != numberOptionXoa) {
+
+            input_xoa.innerHTML = "";
+            arr_status_position.forEach((position, index) => {
+                if (position != 0) {
+                    var option = document.createElement("option");
+                    option.value = index + 1;
+                    option.text = index + 1;
+                    option.classList.add("option_position");
+                    if (index + 1 == position_current) {
+                        option.selected = true;
+                    }
+                    input_xoa.add(option);
+
+                }
+            });
+
+
+        }
+
+        numberOptionXoa = input_xoa.length;
+
+
 
     })
 }
@@ -131,43 +188,36 @@ const dataInterval = setInterval(updateData, 800);
 
 //batdau
 btn_batdau.addEventListener('click', () => {
-    let number = parseInt(input_nhap_so_chai_lay_mau.value);
 
-    fetch('./dashboard/btn_batdau', {
-        method: 'post',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({ number: number })
-    }).then(res => res.json()).then((resData) => {
-        if (resData.status == true) {
-            btn_batdau.textContent = "Tắt";
-            btn_batdau.classList.remove("btn-success");
-            btn_batdau.classList.add("btn-danger");
+    if (input_nhap_so_chai_lay_mau.value) {
+        let position = parseInt(input_nhap_so_chai_lay_mau.value);
+
+        if (position >= 1 && position <= 24) {
+            fetch(`./dashboard/btn_batdau?position=${position}`).then(res => res.json()).then((resData) => {
+                console.log(resData.status);
+            })
+        } else {
+            alert("Vui lòng nhập vị trí chọn mẫu sẵn có.")
         }
-        else {
-            btn_batdau.textContent = "Bắt đầu";
-            btn_batdau.classList.remove("btn-danger");
-            btn_batdau.classList.add("btn-success");
-        }
-    })
+    } else {
+        alert("Chưa nhập vị trí chọn mẫu.");
+    }
 
 });
 
+
+
 //laymau
 btn_laymau.addEventListener('click', () => {
-    fetch('./dashboard/btn_laymau').then(res => res.json()).then((resData) => {
-        if (resData.status == true) {
-            btn_laymau.textContent = "Dừng lấy mẫu";
-            btn_laymau.classList.remove("btn-info");
-            btn_laymau.classList.add("btn-danger");
-        }
-        else {
-            btn_laymau.textContent = "Lấy mẫu";
-            btn_laymau.classList.remove("btn-danger");
-            btn_laymau.classList.add("btn-info");
-        }
-    });
+    //input
+    if (position_current != 0) {
+        input_luu.value = position_current;
+        fetch(`./dashboard/btn_laymau?position=${position_current}`).then(res => res.json()).then(
+            (resData) => {
+                console.log(resData.status);
+            })
+    }
+
 });
 
 //tu dong
@@ -191,9 +241,14 @@ btn_tudong.addEventListener('click', () => {
 
 //luu
 btn_luu.addEventListener('click', () => {
-    fetch('./dashboard/btn_luu').then(res => res.json()).then(resData => console.log(resData.status));
+    var position_luu = parseInt(input_luu.value);
+    fetch(`./dashboard/btn_luu?position=${position_luu}`).then(res => res.json()).then((resData) => {
+        console.log(resData.position);
+    });
 });
 
+
+//xoa
 btn_xoa.addEventListener('click', () => {
     fetch('./dashboard/btn_xoa').then(res => res.json()).then(resData => console.log(resData.status))
 });
