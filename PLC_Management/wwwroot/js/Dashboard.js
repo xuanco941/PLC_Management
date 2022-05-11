@@ -12,6 +12,8 @@ const input_luu = document.querySelector("#input_luu");
 const input_xoa = document.querySelector("#input_xoa");
 const input_nhap_so_chai_lay_mau = document.querySelector("#input_nhap_so_chai_lay_mau");
 
+//
+const position_current_span = document.querySelector("#position_current_span");
 //24 position
 const box_number_1 = document.getElementById('box_number_1');
 const box_number_2 = document.getElementById('box_number_2');
@@ -95,9 +97,9 @@ const updateData = () => {
         input_luuluongvao.value = data.luuluongvao;
         input_luuluongra.value = data.luuluongra;
         input_tongluuluong.value = data.luuluong;
-        //input_nhap_so_chai_lay_mau.value = data.nhap_so_chai_lay_mau;
 
         //position
+        position_current_span.textContent = position_current;
         setColorPosition(box_number_1, data.status_position_1);
         setColorPosition(box_number_2, data.status_position_2);
         setColorPosition(box_number_3, data.status_position_3);
@@ -220,32 +222,38 @@ btn_laymau.addEventListener('click', () => {
 
 });
 
+
+//key-value dia chi plc cua 24 mau thu
+var adrressPosition = [
+    {}
+]
+
+//luu
+btn_luu.addEventListener('click', () => {
+    if (input_luu.value) {
+        var position_luu = parseInt(input_luu.value);
+        fetch(`./dashboard/btn_luu?position=${position_luu}`).then(res => res.json()).then((resData) => {
+            input_luu.value = null;
+            console.log(resData.position);
+        });
+    }
+
+});
+
+
+
 //tu dong
 btn_tudong.addEventListener('click', () => {
     fetch('./dashboard/btn_tudong').then(res => res.json()).then(
         (resData) => {
-            if (resData.status == true) {
-                btn_tudong.textContent = "Tắt tự động";
-                btn_tudong.classList.remove("btn-warning");
-                btn_tudong.classList.add("btn-danger");
-            }
-            else {
-                btn_tudong.textContent = "Tự động";
-                btn_tudong.classList.remove("btn-danger");
-                btn_tudong.classList.add("btn-warning");
-            }
+            console.log(resData.status);
+
         }
 
     )
 });
 
-//luu
-btn_luu.addEventListener('click', () => {
-    var position_luu = parseInt(input_luu.value);
-    fetch(`./dashboard/btn_luu?position=${position_luu}`).then(res => res.json()).then((resData) => {
-        console.log(resData.position);
-    });
-});
+
 
 
 //xoa
@@ -258,6 +266,10 @@ btn_xoa.addEventListener('click', () => {
 
 btn_dopH.addEventListener('click', () => {
     fetch('./dashboard/btn_doph').then(res => res.json()).then(resData => console.log(resData.status))
+});
+
+btn_doCOD.addEventListener('click', () => {
+    fetch('./dashboard/btn_docod').then(res => res.json()).then(resData => console.log(resData.status))
 });
 
 btn_doTSS.addEventListener('click', () => {

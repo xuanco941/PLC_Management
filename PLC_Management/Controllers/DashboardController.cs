@@ -120,8 +120,8 @@ namespace PLC_Management.Controllers
         {
             CurrentValuePLC.position_current = position;
             ActivityBusiness.AddActivity($"Bắt đầu trên mẫu thử số: {position}.");
-            MainPLC.plc.Write("M200.2", 1);
-            MainPLC.plc.Write("MW10", position.ToString());
+            //MainPLC.plc.Write("M200.2", 1);
+            //MainPLC.plc.Write("MW10", position.ToString());
             return Json(new
             {
                 status = position
@@ -132,7 +132,7 @@ namespace PLC_Management.Controllers
         {
 
             ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {position}");
-            MainPLC.plc.Write("M200.7", 1);
+            //MainPLC.plc.Write("M200.7", 1);
 
             return Json(new
             {
