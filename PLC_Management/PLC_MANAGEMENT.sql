@@ -185,18 +185,5 @@ Result_DateTime BETWEEN
  end
  GO
  
-exec AddEmployee 'Leader', 'admin', '123', 1
-GO
-Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L');
-GO
-Insert into Activity(Activity_Name) values('ngat ket noi plc');
-GO
-INSERT INTO Result(Result_Parameter_NAME,Result_Parameter_ID,Result_Parameter_Unit,Result_Value) values('pH','pH','5/9',9.4)
-
-GO
-select * from Employee
-select * from Parameter
-select * from Activity
-select * from Result
-
+exec AddEmployee N'Đỗ Văn Xuân', 'admin', '123', 1
 GO

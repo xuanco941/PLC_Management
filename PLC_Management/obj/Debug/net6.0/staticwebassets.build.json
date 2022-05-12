@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2NBWbeyONCWcUrST6N1uz2c4FMNWZlgzJrefwSYWQi8=",
+  "Hash": "KFH3ORWKudHHjTtPsIXF9NplQaTvFI4Tcf7MAXIw+UE=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -219,23 +219,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Employee.js"
-    },
-    {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\FormatInPutDate.js",
-      "SourceId": "PLC_Management",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
-      "BasePath": "_content/PLC_Management",
-      "RelativePath": "js/FormatInPutDate.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\FormatInPutDate.js"
     },
     {
       "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\Pagination.js",
