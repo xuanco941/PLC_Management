@@ -99,7 +99,7 @@ const updateData = () => {
         input_tongluuluong.value = data.luuluong;
 
         //position
-        position_current_span.textContent = position_current;
+        position_current_span.textContent = data.position_current;
         setColorPosition(box_number_1, data.status_position_1);
         setColorPosition(box_number_2, data.status_position_2);
         setColorPosition(box_number_3, data.status_position_3);
@@ -125,8 +125,8 @@ const updateData = () => {
         setColorPosition(box_number_23, data.status_position_23);
         setColorPosition(box_number_24, data.status_position_24);
 
-        if (position_current != 0) {
-            var curPosition = document.querySelector(`#box_number_${position_current}`);
+        if (data.position_current != 0) {
+            var curPosition = document.querySelector(`#box_number_${data.position_current}`);
             curPosition.style.backgroundColor = "#198754";
             curPosition.style.color = "#fff";
         }
@@ -147,7 +147,7 @@ const updateData = () => {
                     option.value = index + 1;
                     option.text = index + 1;
                     option.classList.add("option_position");
-                    if (index + 1 == position_current) {
+                    if (index + 1 == data.position_current) {
                         option.selected = true;
                     }
                     input_xoa.add(option);
@@ -164,7 +164,7 @@ const updateData = () => {
                     option.value = index + 1;
                     option.text = index + 1;
                     option.classList.add("option_position");
-                    if (index + 1 == position_current) {
+                    if (index + 1 == data.position_current) {
                         option.selected = true;
                     }
                     input_xoa.add(option);
@@ -183,7 +183,7 @@ const updateData = () => {
 }
 
 
-const dataInterval = setInterval(updateData, 800);
+const dataInterval = setInterval(updateData, 500);
 
 
 
@@ -223,17 +223,30 @@ btn_laymau.addEventListener('click', () => {
 });
 
 
-//key-value dia chi plc cua 24 mau thu
+//key-value status dia chi plc cua 24 mau thu
+
 var adrressPosition = [
-    {}
+    'DB17.DBW0', 'DB17.DBW2', 'DB17.DBW4', 'DB17.DBW6', 'DB17.DBW8', 'DB17.DBW10', 'DB17.DBW12', 'DB17.DBW14', 'DB17.DBW16', 'DB17.DBW18', 'DB17.DBW20', 'DB17.DBW22', 'DB17.DBW24', 'DB17.DBW26', 'DB17.DBW28', 'DB17.DBW30', 'DB17.DBW32', 'DB17.DBW34', 'DB17.DBW36', 'DB17.DBW38', 'DB17.DBW40', 'DB17.DBW42', 'DB17.DBW44', 'DB17.DBW46'
 ]
 
 //luu
 btn_luu.addEventListener('click', () => {
     if (input_luu.value) {
         var position_luu = parseInt(input_luu.value);
-        fetch(`./dashboard/btn_luu?position=${position_luu}`).then(res => res.json()).then((resData) => {
+        fetch(`./dashboard/btn_luu?adrrposition=${adrressPosition[position_luu - 1]}`).then(res => res.json()).then((resData) => {
             input_luu.value = null;
+            console.log(resData.position);
+        });
+    }
+
+});
+
+//xoa
+btn_xoa.addEventListener('click', () => {
+    if (input_xoa.value) {
+        var position_xoa = parseInt(input_xoa.value);
+        fetch(`./dashboard/btn_xoa?adrrposition=${adrressPosition[position_xoa - 1]}`).then(res => res.json()).then((resData) => {
+            input_xoa.value = null;
             console.log(resData.position);
         });
     }
@@ -256,10 +269,6 @@ btn_tudong.addEventListener('click', () => {
 
 
 
-//xoa
-btn_xoa.addEventListener('click', () => {
-    fetch('./dashboard/btn_xoa').then(res => res.json()).then(resData => console.log(resData.status))
-});
 
 
 

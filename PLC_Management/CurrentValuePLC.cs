@@ -86,7 +86,7 @@ namespace PLC_Management
         public static double position_23 { get; set; } = 0;
         public static double position_24 { get; set; } = 0;
         public static double position_absolute { get; set; } = 0;
-        public static double position_current { get; set; } = 0;
+        public static uint position_current { get; set; } = 0;
         public static double velitical_absolute_jog { get; set; } = 0;
         public static uint nhap_so_chai_lay_mau { get; set; } = 0;
         public static uint xoa_so_chai_lay_mau { get; set; } = 0;

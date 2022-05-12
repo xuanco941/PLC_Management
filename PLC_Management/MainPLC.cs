@@ -111,7 +111,7 @@ namespace PLC_Management
             CurrentValuePLC.position_24 = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB6.DBD92"));
 
             CurrentValuePLC.position_absolute = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB6.DBD96"));
-            CurrentValuePLC.position_current = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB6.DBD100"));
+            //CurrentValuePLC.position_current = (uint)plc.Read("DB6.DBD100");
             CurrentValuePLC.velitical_absolute_jog = PROFINET_STEP_7.Types.Double.FromDWord((uint)plc.Read("DB6.DBD104"));
 
             CurrentValuePLC.nhap_so_chai_lay_mau = (uint)plc.Read("DB6.DBD108");

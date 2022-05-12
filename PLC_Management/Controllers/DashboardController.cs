@@ -76,7 +76,7 @@ namespace PLC_Management.Controllers
                 position_24 = Math.Round(CurrentValuePLC.position_24, 4, MidpointRounding.AwayFromZero),
 
                 position_absolute = Math.Round(CurrentValuePLC.position_absolute, 4, MidpointRounding.AwayFromZero),
-                position_current = Math.Round(CurrentValuePLC.position_current, 4, MidpointRounding.AwayFromZero),
+                position_current = CurrentValuePLC.position_current,
                 velitical_absolute_jog = Math.Round(CurrentValuePLC.velitical_absolute_jog, 4, MidpointRounding.AwayFromZero),
                 nhap_so_chai_lay_mau = CurrentValuePLC.nhap_so_chai_lay_mau,
                 xoa_so_chai_lay_mau = CurrentValuePLC.xoa_so_chai_lay_mau,
@@ -116,7 +116,7 @@ namespace PLC_Management.Controllers
         }
 
         //btn bat dau
-        public IActionResult Btn_batdau([FromQuery(Name = "position")] int position)
+        public IActionResult Btn_batdau([FromQuery(Name = "position")] uint position)
         {
             CurrentValuePLC.position_current = position;
             ActivityBusiness.AddActivity($"Bắt đầu trên mẫu thử số: {position}.");
@@ -128,9 +128,9 @@ namespace PLC_Management.Controllers
             });
         }
 
-        public IActionResult Btn_laymau([FromQuery(Name = "position")] int position)
+        public IActionResult Btn_laymau([FromQuery(Name = "position")] uint position)
         {
-
+            CurrentValuePLC.position_current = position;
             ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {position}");
             //MainPLC.plc.Write("M200.7", 1);
 
@@ -140,9 +140,14 @@ namespace PLC_Management.Controllers
             });
         }
 
-        public IActionResult Btn_luu([FromQuery(Name = "position")] int position)
+        public IActionResult Btn_luu([FromQuery(Name = "adrrposition")] string adrrposition)
         {
             CurrentValuePLC.position_current = 0;
+
+            // ghi 1 vao dia chi trang thai position
+            MainPLC.plc.Write(adrrposition, 1);
+
+
             if (CurrentValuePLC.btn_luu == false)
             {
                 MainPLC.plc.Write("M200.1", 1);
@@ -157,8 +162,13 @@ namespace PLC_Management.Controllers
             });
         }
 
-        public IActionResult Btn_xoa()
+
+        public IActionResult Btn_xoa([FromQuery(Name = "adrrposition")] string adrrposition)
         {
+
+            // ghi 1 vao dia chi trang thai position
+            MainPLC.plc.Write(adrrposition, 0);
+
             if (CurrentValuePLC.btn_xoa == false)
             {
                 MainPLC.plc.Write("M200.0", 1);
