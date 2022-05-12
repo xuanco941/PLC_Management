@@ -4,7 +4,7 @@
     Layout = "_Layout";
 }
 
-<link rel="stylesheet" href="~/css/Record.css />
+<link rel="stylesheet" href="~/css/Record.css"/>
 
 <div class="row">
     <div class="col-12" style="margin-top:25px;">
@@ -74,16 +74,16 @@
 
 
             <tbody>
-                @{
-                    int i = 0;
-                }
-                @foreach (Result result in ViewBag.listResults)
-                {
+            @{
+                int i = 0;
+            }
+            @foreach (Result result in ViewBag.listResults)
+            {
                 DateTime dateTime = Convert.ToDateTime(result.Datetime);
                 String s = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
                 int j = i + 1;
-                    if (i % 2 == 0)
-                    {
+                if (i % 2 == 0)
+                {
                         <tr class="table-info">
                             <th scope="row">@j</th>
                             <td>@result.Parameter_Name</td>
@@ -92,9 +92,9 @@
                             <td>@s</td>
                             <td>@result.Value</td>
                         </tr>
-                    }
-                    else
-                    {
+                }
+                else
+                {
                         <tr>
                             <th scope="row">@j</th>
                             <td>@result.Parameter_Name</td>
@@ -103,9 +103,9 @@
                             <td>@s</td>
                             <td>@result.Value</td>
                         </tr>
-                    }
-                    i++;
                 }
+                i++;
+            }
 
             </tbody>
             <!--Table body-->
@@ -122,47 +122,47 @@
                 <div>
                     <nav aria-label="...">
                         <ul class="pagination">
-                            @{
-                                int page1 = ViewBag.pageCurrent - 2;
-                                int page2 = ViewBag.pageCurrent - 1;
-                                int page3 = ViewBag.pageCurrent;
-                                int page4 = ViewBag.pageCurrent + 1;
-                                int page5 = ViewBag.pageCurrent + 2;
+                        @{
+                            int page1 = ViewBag.pageCurrent - 2;
+                            int page2 = ViewBag.pageCurrent - 1;
+                            int page3 = ViewBag.pageCurrent;
+                            int page4 = ViewBag.pageCurrent + 1;
+                            int page5 = ViewBag.pageCurrent + 2;
 
 
-                                string link1 = @ViewBag.host + page1;
-                                string link2 = @ViewBag.host + page2;
-                                string link3 = @ViewBag.host + page3;
-                                string link4 = @ViewBag.host + page4;
-                                string link5 = @ViewBag.host + page5;
+                            string link1 = @ViewBag.host + page1;
+                            string link2 = @ViewBag.host + page2;
+                            string link3 = @ViewBag.host + page3;
+                            string link4 = @ViewBag.host + page4;
+                            string link5 = @ViewBag.host + page5;
 
-                                string link_count_page = @ViewBag.host + @ViewBag.countPage;
-                            }
-                            @if ((@page3 - 2) > 0)
-                            {
+                            string link_count_page = @ViewBag.host + @ViewBag.countPage;
+                        }
+                        @if ((@page3 - 2) > 0)
+                        {
                                 <li class="page-item"><a class="page-link" href="./@link1">@page1</a></li>
-                            }
-                            @if ((@page3 - 1) > 0)
-                            {
+                        }
+                        @if ((@page3 - 1) > 0)
+                        {
                                 <li class="page-item"><a class="page-link" href="./@link2">@page2</a></li>
-                            }
+                        }
 
                             <li class="page-item active"><a class="page-link" href="./@link3">@page3</a></li>
 
-                            @if (@page3 < @ViewBag.countPage)
-                            {
+                        @if (@page3 < @ViewBag.countPage)
+                        {
                                 <li class="page-item"><a class="page-link" href="./@link4">@page4</a></li>
-                            }
+                        }
 
-                            @if ((@page3 + 1) < @ViewBag.countPage)
-                            {
+                        @if ((@page3 + 1) < @ViewBag.countPage)
+                        {
                                 <li class="page-item"><a class="page-link" href="./@link5">@page5</a></li>
-                            }
-                            @if ((@page3 + 2) < @ViewBag.countPage)
-                            {
+                        }
+                        @if ((@page3 + 2) < @ViewBag.countPage)
+                        {
                                 <li style="width:28px; display: flex; justify-content:center; font-size:19px; height:100%; margin-top:9px; color:#0d6efd ">. . .</li>
                                 <li class="page-item"><a class="page-link" href="./@link_count_page">@ViewBag.countPage (Trang cuối)</a></li>
-                            }
+                        }
 
                         </ul>
                     </nav>
@@ -179,13 +179,8 @@
             </div>
 
         </div>
-
-
-
-
-
-
     </div>
+
 </div>
 <script src="./js/table2excel.js"></script>
 <script>
@@ -195,4 +190,3 @@
     })
 </script>
 <script src="~/js/Pagination.js"></script>
-<script src="~/js/FormatInPutDate.js"></script>
