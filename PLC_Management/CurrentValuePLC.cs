@@ -22,8 +22,8 @@ namespace PLC_Management
         public static bool btn_doluuluong { get; set; } = false;
         public static bool btn_doph { get; set; } = false;
         public static bool btn_dotss { get; set; } = false;
-        public static bool btn_tudongchaytay { get; set; } = false;
-
+        public static bool btn_tudong { get; set; } = true;
+        public static bool btn_docod { get; set; } = false;
 
 
         //message

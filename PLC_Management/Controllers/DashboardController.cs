@@ -34,7 +34,7 @@ namespace PLC_Management.Controllers
                 btn_doTSS = CurrentValuePLC.btn_dotss,
                 btn_laymau = CurrentValuePLC.btn_laymau,
                 btn_luu = CurrentValuePLC.btn_luu,
-                btn_tudong = CurrentValuePLC.btn_tudongchaytay,
+                btn_tudong = CurrentValuePLC.btn_tudong,
                 btn_xoa = CurrentValuePLC.btn_xoa,
 
 
@@ -120,87 +120,79 @@ namespace PLC_Management.Controllers
         {
             CurrentValuePLC.position_current = position;
             ActivityBusiness.AddActivity($"Bắt đầu trên mẫu thử số: {position}.");
-            //MainPLC.plc.Write("M200.2", 1);
-            //MainPLC.plc.Write("MW10", position.ToString());
+            MainPLC.plc.Write("M200.2", 1);
+            MainPLC.plc.Write("MW10", position.ToString());
             return Json(new
             {
-                status = position
+                position = position
             });
         }
 
         public IActionResult Btn_laymau([FromQuery(Name = "position")] uint position)
         {
             CurrentValuePLC.position_current = position;
-            ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {position}");
-            //MainPLC.plc.Write("M200.7", 1);
+            ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {position}.");
+            MainPLC.plc.Write("M200.7", 1);
 
             return Json(new
             {
-                status = position
+                position = position
             });
         }
 
-        public IActionResult Btn_luu([FromQuery(Name = "adrrposition")] string adrrposition)
+        public IActionResult Btn_luu([FromQuery(Name = "adrrposition")] string adrrposition, [FromQuery(Name = "position")] uint position)
         {
             CurrentValuePLC.position_current = 0;
 
+            ActivityBusiness.AddActivity($"Lưu tại vị trí: {position}.");
             // ghi 1 vao dia chi trang thai position
             MainPLC.plc.Write(adrrposition, 1);
 
-
-            if (CurrentValuePLC.btn_luu == false)
-            {
                 MainPLC.plc.Write("M200.1", 1);
-            }
-            else
-            {
-                MainPLC.plc.Write("M200.1", 0);
-            }
+           
             return Json(new
             {
-                status = CurrentValuePLC.position_current
+                position = "Lưu tại vị trí " + position
             });
         }
 
 
-        public IActionResult Btn_xoa([FromQuery(Name = "adrrposition")] string adrrposition)
+        public IActionResult Btn_xoa([FromQuery(Name = "adrrposition")] string adrrposition, [FromQuery(Name = "position")] uint position)
         {
 
             // ghi 1 vao dia chi trang thai position
             MainPLC.plc.Write(adrrposition, 0);
+            ActivityBusiness.AddActivity($"Xóa tại vị trí: {position}.");
 
-            if (CurrentValuePLC.btn_xoa == false)
-            {
-                MainPLC.plc.Write("M200.0", 1);
-            }
-            else
-            {
-                MainPLC.plc.Write("M200.0", 0);
-            }
-            CurrentValuePLC.btn_xoa = !CurrentValuePLC.btn_xoa;
+            MainPLC.plc.Write("M200.0", 1);
+
             return Json(new
             {
-                status = CurrentValuePLC.btn_xoa
+                position = $"Xóa tại vị trí: {position}"
             });
         }
 
+
         public IActionResult Btn_tudong()
         {
-            if (CurrentValuePLC.btn_tudongchaytay == false)
+            if (CurrentValuePLC.btn_tudong == false)
             {
                 ActivityBusiness.AddActivity("Chuyển sang chế độ tự động.");
                 MainPLC.plc.Write("M200.6", 1);
             }
             else
             {
+                ActivityBusiness.AddActivity("Tắt chế độ tự động.");
                 MainPLC.plc.Write("M200.6", 0);
             }
-            CurrentValuePLC.btn_tudongchaytay = !CurrentValuePLC.btn_tudongchaytay;
+            CurrentValuePLC.btn_tudong = !CurrentValuePLC.btn_tudong;
             return Json(new
             {
-                status = CurrentValuePLC.btn_tudongchaytay
+                status = CurrentValuePLC.btn_tudong
             });
         }
+
+
 
         public IActionResult Btn_doph()
         {
@@ -236,6 +228,23 @@ namespace PLC_Management.Controllers
             });
         }
 
+        public IActionResult Btn_doCOD()
+        {
+            if (CurrentValuePLC.btn_dotss == false)
+            {
+                MainPLC.plc.Write("M200.5", 1);
+            }
+            else
+            {
+                MainPLC.plc.Write("M200.5", 0);
+            }
+            CurrentValuePLC.btn_dotss = !CurrentValuePLC.btn_dotss;
+            return Json(new
+            {
+                status = CurrentValuePLC.btn_dotss
+            });
+        }
+
         public IActionResult Btn_doluuluong()
         {
             if (CurrentValuePLC.btn_doluuluong == false)
@@ -252,21 +261,6 @@ namespace PLC_Management.Controllers
                 status = CurrentValuePLC.btn_doluuluong
             });
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Btn_chonmau()
-        //{
-        //    string strRequestBody;
-        //    using (StreamReader reader = new StreamReader(Request.Body, System.Text.Encoding.UTF8))
-        //    {
-        //        strRequestBody = await reader.ReadToEndAsync();
-        //    }
-        //    Employee? employee = JsonConvert.DeserializeObject<Employee>(strRequestBody);
-        //    return Json(
-        //        ""
-        //        );
-        //}
-
 
     }
 }

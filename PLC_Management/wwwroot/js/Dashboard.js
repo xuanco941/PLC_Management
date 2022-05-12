@@ -13,7 +13,7 @@ const input_xoa = document.querySelector("#input_xoa");
 const input_nhap_so_chai_lay_mau = document.querySelector("#input_nhap_so_chai_lay_mau");
 
 //
-const position_current_span = document.querySelector("#position_current_span");
+const position_current_text = document.querySelector("#position_current_text");
 //24 position
 const box_number_1 = document.getElementById('box_number_1');
 const box_number_2 = document.getElementById('box_number_2');
@@ -61,7 +61,6 @@ var message_error_connect = document.querySelector("#message_error_connect");
 //value global
 var position_current = 0;
 var arr_status_position = [];
-var numberOptionXoa = 0;
 
 //set color position
 function setColorPosition(position, status_position) {
@@ -80,10 +79,33 @@ const updateData = () => {
         //value global
         position_current = data.position_current;
 
-
-        console.log(data);
-
         //btn status
+        if (data.btn_tudong == false) {
+            btn_batdau.disabled = true;
+            btn_doCOD.disabled = true;
+            btn_doluuluong.disabled = true;
+            btn_dopH.disabled = true;
+            btn_doTSS.disabled = true;
+            btn_laymau.disabled = true;
+            btn_luu.disabled = true;
+            btn_xoa.disabled = true;
+            btn_tudong.classList.remove('btn-warning');
+            btn_tudong.classList.add('btn-success');
+            btn_tudong.textContent = 'Bật tự động';
+        }
+        else {
+            btn_batdau.disabled = false;
+            btn_doCOD.disabled = false;
+            btn_doluuluong.disabled = false;
+            btn_dopH.disabled = false;
+            btn_doTSS.disabled = false;
+            btn_laymau.disabled = false;
+            btn_luu.disabled = false;
+            btn_xoa.disabled = false;
+            btn_tudong.classList.add('btn-warning');
+            btn_tudong.classList.remove('btn-success');
+            btn_tudong.textContent = 'Tắt tự động';
+        }
 
 
 
@@ -99,7 +121,6 @@ const updateData = () => {
         input_tongluuluong.value = data.luuluong;
 
         //position
-        position_current_span.textContent = data.position_current;
         setColorPosition(box_number_1, data.status_position_1);
         setColorPosition(box_number_2, data.status_position_2);
         setColorPosition(box_number_3, data.status_position_3);
@@ -137,46 +158,24 @@ const updateData = () => {
         message_error_connect.textContent = data.messageErrorConnectPLC !== "" ? data.messageErrorConnectPLC : "";
 
         //xoa
-
         arr_status_position = [data.status_position_1, data.status_position_2, data.status_position_3, data.status_position_4, data.status_position_5, data.status_position_6, data.status_position_7, data.status_position_8, data.status_position_9, data.status_position_10, data.status_position_11, data.status_position_12, data.status_position_13, data.status_position_14, data.status_position_15, data.status_position_16, data.status_position_17, data.status_position_18, data.status_position_19, data.status_position_20, data.status_position_21, data.status_position_22, data.status_position_23, data.status_position_24];
 
-        if (input_xoa.length == 0) {
-            arr_status_position.forEach((position, index) => {
-                if (position != 0) {
-                    var option = document.createElement("option");
-                    option.value = index + 1;
-                    option.text = index + 1;
-                    option.classList.add("option_position");
-                    if (index + 1 == data.position_current) {
-                        option.selected = true;
-                    }
-                    input_xoa.add(option);
+        var arrOptionXoa = [];
+        arr_status_position.forEach((position, index) => {
+            if (position != 0) {
+                arrOptionXoa.push(index + 1);
+            }
+        })
 
-                }
-            });
-        }
-        if (input_xoa.length != numberOptionXoa) {
-
+        if (input_xoa.length != arrOptionXoa.length) {
             input_xoa.innerHTML = "";
-            arr_status_position.forEach((position, index) => {
-                if (position != 0) {
-                    var option = document.createElement("option");
-                    option.value = index + 1;
-                    option.text = index + 1;
-                    option.classList.add("option_position");
-                    if (index + 1 == data.position_current) {
-                        option.selected = true;
-                    }
-                    input_xoa.add(option);
-
-                }
-            });
-
-
+            arrOptionXoa.forEach((optionValue) => {
+                var option = document.createElement("option");
+                option.value = optionValue;
+                option.text = optionValue;
+                input_xoa.add(option);
+            })
         }
-
-        numberOptionXoa = input_xoa.length;
-
 
 
     })
@@ -196,7 +195,8 @@ btn_batdau.addEventListener('click', () => {
 
         if (position >= 1 && position <= 24) {
             fetch(`./dashboard/btn_batdau?position=${position}`).then(res => res.json()).then((resData) => {
-                console.log(resData.status);
+                position_current_text.textContent = `Đang bắt đầu tại vị trí: ${resData.position}`;
+                console.log(resData.position);
             })
         } else {
             alert("Vui lòng nhập vị trí chọn mẫu sẵn có.")
@@ -216,7 +216,8 @@ btn_laymau.addEventListener('click', () => {
         input_luu.value = position_current;
         fetch(`./dashboard/btn_laymau?position=${position_current}`).then(res => res.json()).then(
             (resData) => {
-                console.log(resData.status);
+                position_current_text.textContent = `Đang lấy mẫu tại vị trí: ${resData.position} (Sẵn sàng để lưu).`;
+                console.log(resData.position);
             })
     }
 
@@ -232,8 +233,10 @@ var adrressPosition = [
 //luu
 btn_luu.addEventListener('click', () => {
     if (input_luu.value) {
-        var position_luu = parseInt(input_luu.value);
-        fetch(`./dashboard/btn_luu?adrrposition=${adrressPosition[position_luu - 1]}`).then(res => res.json()).then((resData) => {
+        var position = parseInt(input_luu.value);
+        fetch(`./dashboard/btn_luu?adrrposition=${adrressPosition[position - 1]}&position=${position}`).then(res => res.json()).then((resData) => {
+            position_current_text.textContent = "";
+            input_nhap_so_chai_lay_mau.value = null;
             input_luu.value = null;
             console.log(resData.position);
         });
@@ -244,8 +247,8 @@ btn_luu.addEventListener('click', () => {
 //xoa
 btn_xoa.addEventListener('click', () => {
     if (input_xoa.value) {
-        var position_xoa = parseInt(input_xoa.value);
-        fetch(`./dashboard/btn_xoa?adrrposition=${adrressPosition[position_xoa - 1]}`).then(res => res.json()).then((resData) => {
+        var position = parseInt(input_xoa.value);
+        fetch(`./dashboard/btn_xoa?adrrposition=${adrressPosition[position - 1]}&position=${position}`).then(res => res.json()).then((resData) => {
             input_xoa.value = null;
             console.log(resData.position);
         });
@@ -260,7 +263,6 @@ btn_tudong.addEventListener('click', () => {
     fetch('./dashboard/btn_tudong').then(res => res.json()).then(
         (resData) => {
             console.log(resData.status);
-
         }
 
     )
@@ -289,56 +291,3 @@ btn_doluuluong.addEventListener('click', () => {
     fetch('./dashboard/btn_doluuluong').then(res => res.json()).then(resData => console.log(resData.status))
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//24 position
-//const box_number = Array.from(document.querySelectorAll(".box_number"));
-
-/*let soChai = 0;*/
-
-//box_number.forEach((btn) => {
-//    btn.addEventListener('click', (e) => {
-
-//        soChai = parseInt(btn.textContent);
-
-//        fetch("./dashboard/btn_chonmau", {
-//            method: "post",
-//            headers: {
-//                'content-type': 'application/json'
-//            },
-//            body: JSON.stringify({ soChai: soChai })
-//        }).then(res => res.json()).then((data) => {
-
-//            box_number.forEach((elm) => {
-//                elm.style.backgroundColor = "#dcdcdc";
-//                elm.style.color = "black";
-//            })
-//            btn.style.backgroundColor = "#dc3545";
-//            btn.style.color = "white";
-
-//            console.log(data.soChai);
-
-//        });
-
-
-
-
-
-//    })
-//})
