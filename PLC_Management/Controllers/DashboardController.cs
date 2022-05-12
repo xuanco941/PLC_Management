@@ -148,8 +148,10 @@ namespace PLC_Management.Controllers
             // ghi 1 vao dia chi trang thai position
             MainPLC.plc.Write(adrrposition, 1);
 
-                MainPLC.plc.Write("M200.1", 1);
-           
+            MainPLC.plc.Write("M200.1", 1);
+            MainPLC.plc.Write("M200.2", 0);
+
+
             return Json(new
             {
                 position = "Lưu tại vị trí " + position
@@ -162,6 +164,7 @@ namespace PLC_Management.Controllers
 
             // ghi 1 vao dia chi trang thai position
             MainPLC.plc.Write(adrrposition, 0);
+
             ActivityBusiness.AddActivity($"Xóa tại vị trí: {position}.");
 
             MainPLC.plc.Write("M200.0", 1);
