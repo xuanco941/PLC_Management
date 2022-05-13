@@ -11,7 +11,7 @@ namespace PLC_Management
         public static Parameter P_TSS = new Parameter("TSS", "TSS", "100", "mg/L");
         public static Parameter P_COD = new Parameter("COD", "COD", "150", "mg/L");
         public static Parameter P_NH4 = new Parameter("NH4", "NH4", "", "");
-        public static List<Parameter> parameters = new List<Parameter>() { P_pH, P_Temp, P_TSS, P_COD };
+        public static List<Parameter> parameters = new List<Parameter>() { P_pH, P_Temp, P_TSS, P_COD, P_NH4 };
 
 
 

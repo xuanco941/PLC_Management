@@ -105,12 +105,12 @@ Result_DateTime BETWEEN
  @Time2 order by Result.Result_ID DESC
 end
 GO
-CREATE PROC FindResultDayToDayByParameter @Time1 DateTime , @Time2 DateTime,@pH varchar(25), @Temp varchar(25), @TSS varchar(25),@COD varchar(25)
+CREATE PROC FindResultDayToDayByParameter @Time1 DateTime , @Time2 DateTime,@pH varchar(25), @Temp varchar(25), @TSS varchar(25),@COD varchar(25), @NH4 varchar(25)
 as begin
 SELECT * FROM Result WHERE( 
 Result_DateTime BETWEEN
 @Time1 AND
- @Time2) and (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD) order by Result.Result_ID DESC
+ @Time2) and (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD OR Result_Parameter_ID = @NH4) order by Result.Result_ID DESC
 end
 GO
 --count by day
@@ -133,9 +133,9 @@ end
 GO
 
 --Dem result theo ngay, theo parameter
-CREATE PROC CountResultByParameterAndDay @Time1 DateTime, @Time2 DateTime, @pH varchar(25),@Temp varchar(25),@TSS varchar(25),@COD varchar(25)
+CREATE PROC CountResultByParameterAndDay @Time1 DateTime, @Time2 DateTime, @pH varchar(25),@Temp varchar(25),@TSS varchar(25),@COD varchar(25), @NH4 varchar(25)
 as begin
-select count(*) from Result where (Result.Result_Parameter_ID = @pH OR Result.Result_Parameter_ID = @Temp OR Result.Result_Parameter_ID = @TSS or Result.Result_Parameter_ID = @COD) and (Result.Result_DateTime between @Time1 and @Time2) 
+select count(*) from Result where (Result.Result_Parameter_ID = @pH OR Result.Result_Parameter_ID = @Temp OR Result.Result_Parameter_ID = @TSS or Result.Result_Parameter_ID = @COD OR Result.Result_Parameter_ID = @NH4) and (Result.Result_DateTime between @Time1 and @Time2) 
 end
 GO
 -- Them result
@@ -177,13 +177,15 @@ Result_DateTime BETWEEN
  GO
 
  --pagination paraID and day
-   create proc paginationResultByDayAndParameter (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25) ) as begin 
+   create proc paginationResultByDayAndParameter (@startfrom int ,@endto int, @Time1 Datetime , @Time2 Datetime,@pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25),@NH4 varchar(25) ) as begin 
   select * from (SELECT *, ROW_NUMBER() OVER (ORDER BY Result_ID desc) as row FROM Result WHERE 
 (Result_DateTime BETWEEN
 @Time1 AND
- @Time2) AND (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD)) as a WHERE a.row > @startfrom and a.row <= @endto  
+ @Time2) AND (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD OR Result.Result_Parameter_ID = @NH4)) as a WHERE a.row > @startfrom and a.row <= @endto  
  end
  GO
  
 exec AddEmployee N'Đỗ Văn Xuân', 'admin', '123', 1
+GO
+Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L'),('NH4','NH4','','');
 GO

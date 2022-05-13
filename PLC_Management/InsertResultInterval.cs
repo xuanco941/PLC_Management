@@ -59,6 +59,10 @@ namespace PLC_Management
                 {
                     value = CurrentValuePLC.COD;
                 }
+                if(parameter.Name == "NH4")
+                {
+                    value = CurrentValuePLC.NH4;
+                }
                 Result result = new Result();
                 result.Parameter_Name = parameter.Name;
                 result.Parameter_ID = parameter.ID;

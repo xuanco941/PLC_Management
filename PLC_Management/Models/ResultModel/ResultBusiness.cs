@@ -66,7 +66,7 @@ namespace PLC_Management.Models.ResultModel
             return list;
         }
 
-        public List<Result> GetResultByDayAndParameter(string tungay, string toingay, string pH, string Temp, string TSS, string COD, int? page)
+        public List<Result> GetResultByDayAndParameter(string tungay, string toingay, string pH, string Temp, string TSS, string COD,string NH4 ,int? page)
         {
             List<Result> list = new List<Result>();
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
@@ -76,11 +76,11 @@ namespace PLC_Management.Models.ResultModel
             {
                 int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE;
                 int? end = page * Common.NUMBER_ELM_ON_PAGE;
-                sql = $"exec paginationResultByDayAndParameter {start},{end},'{tungay}','{toingay}','{pH}','{Temp}','{TSS}','{COD}'";
+                sql = $"exec paginationResultByDayAndParameter {start},{end},'{tungay}','{toingay}','{pH}','{Temp}','{TSS}','{COD}','{NH4}'";
             }
             else
             {
-                sql = $"exec FindResultDayToDayByParameter '{tungay}', '{toingay}','{pH}','{Temp}','{TSS}','{COD}'";
+                sql = $"exec FindResultDayToDayByParameter '{tungay}', '{toingay}','{pH}','{Temp}','{TSS}','{COD}','{NH4}'";
             }
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             //loi
@@ -129,11 +129,11 @@ namespace PLC_Management.Models.ResultModel
             return num;
         }
 
-        public static int CountResultByParameterAndDay(string tungay, string toingay,string idpH, string idTemp, string idTSS, string idCOD)
+        public static int CountResultByParameterAndDay(string tungay, string toingay,string idpH, string idTemp, string idTSS, string idCOD, string idNH4)
         {
             SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
             sqlConnection.Open();
-            string sql = $"exec CountResultByParameterAndDay '{tungay}', '{toingay}', '{idpH}', '{idTemp}', '{idTSS}', '{idCOD}'";
+            string sql = $"exec CountResultByParameterAndDay '{tungay}', '{toingay}', '{idpH}', '{idTemp}', '{idTSS}', '{idCOD}','{idNH4}'";
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             SqlDataReader sqlDataReader = command.ExecuteReader();
             int num = 0;
