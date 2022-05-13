@@ -36,7 +36,8 @@
             </div>
         </form>
         <div class="col-12" style="display:flex; justify-content:flex-end;">
-            <button class="btn-success btn" id="btn-export">Xuất file excel</button>
+            <button class="btn-warning btn" id="btn-print" style="margin-right:10px;">In báo cáo</button>
+            <button class="btn-info btn" id="btn-export">Xuất file excel</button>
         </div>
     </div>
 
@@ -44,60 +45,62 @@
 
 
     <div class="col-12">
+        <div id="print_data">
+            <!--Table-->
+            <table class="table table-primary " id="table">
 
-        <!--Table-->
-        <table class="table table-primary " id="table">
-
-            <!--Table head-->
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Hành động</th>
-                    <th>Ngày</th>
-                </tr>
-            </thead>
-            <!--Table head-->
-            <!--Table body-->
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Hành động</th>
+                        <th>Ngày</th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
 
 
 
-            <tbody>
-                @{
-                    int i = 0;
-                }
-                @foreach (Activity activity in ViewBag.listActivities)
-                {
-                    DateTime dateTime = Convert.ToDateTime(activity.Time);
-                    String s = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
-                    int j = i + 1;
-                    if (i % 2 == 0)
-                    {
-                        <tr class="table-info">
-                            <th scope="row">@j</th>
-                            <td>@activity.Name</td>
-                            <td>@s</td>
-                        </tr>
-
+                <tbody>
+                    @{
+                        int i = 0;
                     }
-                    else
+                    @foreach (Activity activity in ViewBag.listActivities)
                     {
-                        <tr>
-                            <th scope="row">@j</th>
-                            <td>@activity.Name</td>
-                            <td>@s</td>
-                        </tr>
+                        DateTime dateTime = Convert.ToDateTime(activity.Time);
+                        String s = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
+                        int j = i + 1;
+                        if (i % 2 == 0)
+                        {
+                            <tr class="table-info">
+                                <th scope="row">@j</th>
+                                <td>@activity.Name</td>
+                                <td>@s</td>
+                            </tr>
+
+                        }
+                        else
+                        {
+                            <tr>
+                                <th scope="row">@j</th>
+                                <td>@activity.Name</td>
+                                <td>@s</td>
+                            </tr>
+                        }
+                        i++;
                     }
-                    i++;
-                }
 
-            </tbody>
-            <!--Table body-->
+                </tbody>
+                <!--Table body-->
 
 
 
 
 
-        </table>
+            </table>
+        </div>
+
 
         <div class="col-12" style="display: flex; justify-content:space-between; margin-top:15px;margin-bottom:25px;">
             <div>
@@ -177,4 +180,19 @@
         table2excel.export(document.querySelector("#table"));
     })
 </script>
+
+<script>
+        document.querySelector('#btn-print').onclick = () => {
+            var printdata = document.getElementById('print_data');
+            var newwin = window.open("");
+            var div = document.createElement('div');
+            div.textContent = "Print neffffffffffffffffffffffffffffffffffffffffffffff";
+            printdata.appendChild(div);
+            newwin.document.write(printdata.outerHTML);
+            div.remove();
+            newwin.print();
+        }
+    }
+</script>
+
 <script src="~/js/Pagination.js"></script>
