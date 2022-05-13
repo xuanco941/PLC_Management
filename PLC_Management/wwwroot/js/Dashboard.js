@@ -81,6 +81,10 @@ const btn_doluuluongvao = document.querySelector("#btn_doluuluongvao");
 const btn_doluuluongra = document.querySelector("#btn_doluuluongra");
 const btn_doNH4 = document.querySelector("#btn_doNH4");
 
+//position current text
+const position_current_text_batdau = document.querySelector('#position_current_text_batdau');
+const position_current_text_laymau = document.querySelector('#position_current_text_laymau');
+const position_current_text_luu = document.querySelector('#position_current_text_luu');
 
 
 
@@ -164,6 +168,27 @@ const updateData = () => {
     fetch('./dashboard/updatedataplc').then(res => res.json()).then(data => {
 
         console.log(data);
+
+        //position current text
+        if (data.position_current_batdau != 0) {
+            position_current_text_batdau.textContent = `Đang bắt đầu tại vị trí : ${data.position_current_batdau}`;
+        }
+        else {
+            position_current_text_batdau.textContent = '';
+        }
+        if (data.position_current_laymau != 0) {
+            position_current_text_laymau.textContent = `Đang lấy mẫu tại vị trí : ${data.position_current_laymau}`;
+        }
+        else {
+            position_current_text_laymau.textContent = '';
+        }
+        if (data.position_current_luu != 0) {
+            position_current_text_luu.textContent = `Vừa lưu tại vị trí : ${data.position_current_luu}`;
+        }
+        else {
+            position_current_text_luu.textContent = '';
+        }
+
 
         // parameter
         pH.textContent = data.ph;
@@ -281,8 +306,7 @@ btn_batdau.addEventListener('click', () => {
 
         if (position >= 1 && position <= 24) {
             fetch(`./dashboard/btn_batdau?position=${position}`).then(res => res.json()).then((resData) => {
-                position_current_text.textContent = `Đang bắt đầu tại vị trí: ${resData.position}`;
-                console.log(resData.position);
+                console.log(resData.status);
             })
         } else {
             alert("Vui lòng nhập vị trí chọn mẫu sẵn có.")
@@ -297,34 +321,23 @@ btn_batdau.addEventListener('click', () => {
 
 //laymau
 btn_laymau.addEventListener('click', () => {
-    //input
-    if (position_current != 0) {
-        input_luu.value = position_current;
-        fetch(`./dashboard/btn_laymau?position=${position_current}`).then(res => res.json()).then(
+ 
+        fetch(`./dashboard/btn_laymau`).then(res => res.json()).then(
             (resData) => {
-                position_current_text.textContent = `Đang lấy mẫu tại vị trí: ${resData.position} (Sẵn sàng để lưu).`;
-                console.log(resData.position);
+                console.log(resData.status);
             })
-    }
 
 });
 
-
-//key-value status dia chi plc cua 24 mau thu
-
-var adrressPosition = [
-    'DB17.DBW0', 'DB17.DBW2', 'DB17.DBW4', 'DB17.DBW6', 'DB17.DBW8', 'DB17.DBW10', 'DB17.DBW12', 'DB17.DBW14', 'DB17.DBW16', 'DB17.DBW18', 'DB17.DBW20', 'DB17.DBW22', 'DB17.DBW24', 'DB17.DBW26', 'DB17.DBW28', 'DB17.DBW30', 'DB17.DBW32', 'DB17.DBW34', 'DB17.DBW36', 'DB17.DBW38', 'DB17.DBW40', 'DB17.DBW42', 'DB17.DBW44', 'DB17.DBW46'
-]
 
 //luu
 btn_luu.addEventListener('click', () => {
     if (input_luu.value) {
         var position = parseInt(input_luu.value);
-        fetch(`./dashboard/btn_luu?adrrposition=${adrressPosition[position - 1]}&position=${position}`).then(res => res.json()).then((resData) => {
-            position_current_text.textContent = "";
+        fetch(`./dashboard/btn_luu?position=${position}`).then(res => res.json()).then((resData) => {
             input_nhap_so_chai_lay_mau.value = null;
             input_luu.value = null;
-            console.log(resData.position);
+            console.log(resData.status);
         });
     }
 
@@ -334,9 +347,9 @@ btn_luu.addEventListener('click', () => {
 btn_xoa.addEventListener('click', () => {
     if (input_xoa.value) {
         var position = parseInt(input_xoa.value);
-        fetch(`./dashboard/btn_xoa?adrrposition=${adrressPosition[position - 1]}&position=${position}`).then(res => res.json()).then((resData) => {
+        fetch(`./dashboard/btn_xoa?position=${position}`).then(res => res.json()).then((resData) => {
             input_xoa.value = null;
-            console.log(resData.position);
+            console.log(resData.status);
         });
     }
 

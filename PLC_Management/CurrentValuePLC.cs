@@ -93,6 +93,12 @@ namespace PLC_Management
         public static ushort status_position_DB18_23 { get; set; } = 0;
         public static ushort status_position_DB18_24 { get; set; } = 0;
 
+        //position_current
+        public static uint position_current_batdau { get; set; } = 0;
+        public static uint position_current_laymau { get; set; } = 0;
+        public static uint position_current_luu { get; set; } = 0;
+
+
 
         //luu luong
         public static double luuLuongTong { get; set; } = 0;

@@ -108,6 +108,13 @@ namespace PLC_Management.Controllers
                 status_position_DB18_23 = CurrentValuePLC.status_position_DB18_23,
                 status_position_DB18_24 = CurrentValuePLC.status_position_DB18_24,
 
+
+                //position_current
+                position_current_batdau = CurrentValuePLC.position_current_batdau,
+                position_current_laymau = CurrentValuePLC.position_current_laymau,
+                position_current_luu = CurrentValuePLC.position_current_luu,
+
+
                 message = CurrentValuePLC.message,
                 messageErrorConnectPLC = CurrentValuePLC.messageErrorConnectPLC
             });
@@ -120,57 +127,58 @@ namespace PLC_Management.Controllers
         //btn bat dau
         public IActionResult Btn_batdau([FromQuery(Name = "position")] uint position)
         {
-            ActivityBusiness.AddActivity($"Bắt đầu trên mẫu thử số: {position}.");
             MainPLC.plc.Write("M200.2", 1);
             MainPLC.plc.Write("MW10", position.ToString());
+            ActivityBusiness.AddActivity($"Bắt đầu trên mẫu thử số: {position}.");
+            CurrentValuePLC.position_current_batdau = position;
             return Json(new
             {
-                position = position
+                status = $"Bắt đầu trên mẫu thử số: {position}."
             });
         }
 
-        public IActionResult Btn_laymau([FromQuery(Name = "position")] uint position)
+        public IActionResult Btn_laymau()
         {
-            ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {position}.");
             MainPLC.plc.Write("M200.7", 1);
+            if (CurrentValuePLC.position_current_batdau != 0)
+            {
+                CurrentValuePLC.position_current_laymau = CurrentValuePLC.position_current_batdau;
+                ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {CurrentValuePLC.position_current_laymau}.");
+                CurrentValuePLC.position_current_batdau = 0;
+            }
 
             return Json(new
             {
-                position = position
+                status = $"Lấy mẫu tại vị trí: {CurrentValuePLC.position_current_batdau}."
             });
         }
 
-        public IActionResult Btn_luu([FromQuery(Name = "adrrposition")] string adrrposition, [FromQuery(Name = "position")] uint position)
+        public IActionResult Btn_luu([FromQuery(Name = "position")] uint position)
         {
-
-            ActivityBusiness.AddActivity($"Lưu tại vị trí: {position}.");
-            // ghi 1 vao dia chi trang thai position
-            MainPLC.plc.Write(adrrposition, 1);
-
+            if (CurrentValuePLC.position_current_laymau != 0)
+            {
+                CurrentValuePLC.position_current_luu = CurrentValuePLC.position_current_laymau;
+                ActivityBusiness.AddActivity($"Lưu tại vị trí: {CurrentValuePLC.position_current_luu}.");
+                CurrentValuePLC.position_current_laymau = 0;
+            }
             MainPLC.plc.Write("M200.1", 1);
-            MainPLC.plc.Write("M200.2", 0);
-
 
             return Json(new
             {
-                position = "Lưu tại vị trí " + position
+                status = $"Lưu tại vị trí: {CurrentValuePLC.position_current_luu}."
             });
         }
 
 
-        public IActionResult Btn_xoa([FromQuery(Name = "adrrposition")] string adrrposition, [FromQuery(Name = "position")] uint position)
+        public IActionResult Btn_xoa([FromQuery(Name = "position")] uint position)
         {
-
-            // ghi 1 vao dia chi trang thai position
-            MainPLC.plc.Write(adrrposition, 0);
-
+            MainPLC.plc.Write("M200.0", 1);
+            MainPLC.plc.Write("MW12", position.ToString());
             ActivityBusiness.AddActivity($"Xóa tại vị trí: {position}.");
 
-            MainPLC.plc.Write("M200.0", 1);
-
             return Json(new
             {
-                position = $"Xóa tại vị trí: {position}"
+                status = $"Xóa tại vị trí: {position}"
             });
         }
 
@@ -184,13 +192,15 @@ namespace PLC_Management.Controllers
             {
                 ActivityBusiness.AddActivity("Chuyển sang chế độ tự động.");
                 MainPLC.plc.Write("M200.6", 1);
+                CurrentValuePLC.btn_tudong = true;
             }
             else
             {
                 ActivityBusiness.AddActivity("Tắt chế độ tự động.");
                 MainPLC.plc.Write("M200.6", 0);
+                CurrentValuePLC.btn_tudong = false;
             }
-            CurrentValuePLC.btn_tudong = !CurrentValuePLC.btn_tudong;
+
             return Json(new
             {
                 status = CurrentValuePLC.btn_tudong
