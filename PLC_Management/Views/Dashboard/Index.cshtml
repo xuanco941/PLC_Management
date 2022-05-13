@@ -51,6 +51,12 @@
                         <td id="COD">0</td>
                         <td>mg/L</td>
                     </tr>
+                    <tr>
+                        <td scope="row">NH4</td>
+                        <td></td>
+                        <td id="NH4">0</td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -58,7 +64,8 @@
             <div class="box_reset" style="margin-top:7px; margin-bottom:25px;">
                 <button type="button" class="btn btn-primary" id="btn_dopH" style="width:100px; margin-right:20px;">Đo pH</button>
                 <button type="button" class="btn btn-primary" id="btn_doCOD" style="width:100px; margin-right:20px;">Đo COD</button>
-                <button type="button" class="btn btn-primary" id="btn_doTSS" style="width:100px; ">Đo TSS</button>
+                <button type="button" class="btn btn-primary" id="btn_doTSS" style="width:100px;  margin-right:20px;">Đo TSS</button>
+                <button type="button" class="btn btn-primary" id="btn_doNH4" style="width:100px;  margin-right:20px;">Đo NH4</button>
             </div>
         </div>
 
@@ -70,42 +77,74 @@
                     Tủ lấy mẫu
                 </h2>
 
-
                 <div class="text-danger" id="message_error_tulaymau"></div>
 
+                @*DB17*@
+                <div class="box_number_father">
+                    <span id="status_position_DB17_1" class="box_number">1</span>
+                    <span id="status_position_DB17_2" class="box_number">2</span>
+                    <span id="status_position_DB17_3" class="box_number">3</span>
+                    <span id="status_position_DB17_4" class="box_number">4</span>
+                    <span id="status_position_DB17_5" class="box_number">5</span>
+                    <span id="status_position_DB17_6" class="box_number">6</span>
+                    <span id="status_position_DB17_7" class="box_number">7</span>
+                    <span id="status_position_DB17_8" class="box_number">8</span>
+                </div>
+                <div class="box_number_father">
+                    <span id="status_position_DB17_9" class="box_number">9</span>
+                    <span id="status_position_DB17_10" class="box_number">10</span>
+                    <span id="status_position_DB17_11" class="box_number">11</span>
+                    <span id="status_position_DB17_12" class="box_number">12</span>
+                    <span id="status_position_DB17_13" class="box_number">13</span>
+                    <span id="status_position_DB17_14" class="box_number">14</span>
+                    <span id="status_position_DB17_15" class="box_number">15</span>
+                    <span id="status_position_DB17_16" class="box_number">16</span>
+                </div>
+                <div class="box_number_father">
+                    <span id="status_position_DB17_17" class="box_number">17</span>
+                    <span id="status_position_DB17_18" class="box_number">18</span>
+                    <span id="status_position_DB17_19" class="box_number">19</span>
+                    <span id="status_position_DB17_20" class="box_number">20</span>
+                    <span id="status_position_DB17_21" class="box_number">21</span>
+                    <span id="status_position_DB17_22" class="box_number">22</span>
+                    <span id="status_position_DB17_23" class="box_number">23</span>
+                    <span id="status_position_DB17_24" class="box_number">24</span>
+                </div>
+
+                @*DB18*@
+                <div class="box_number_father" style="margin-top:15px;">
+                    <span id="status_position_DB18_1" class="box_number">1</span>
+                    <span id="status_position_DB18_2" class="box_number">2</span>
+                    <span id="status_position_DB18_3" class="box_number">3</span>
+                    <span id="status_position_DB18_4" class="box_number">4</span>
+                    <span id="status_position_DB18_5" class="box_number">5</span>
+                    <span id="status_position_DB18_6" class="box_number">6</span>
+                    <span id="status_position_DB18_7" class="box_number">7</span>
+                    <span id="status_position_DB18_8" class="box_number">8</span>
+                </div>
+                <div class="box_number_father">
+                    <span id="status_position_DB18_9" class="box_number">9</span>
+                    <span id="status_position_DB18_10" class="box_number">10</span>
+                    <span id="status_position_DB18_11" class="box_number">11</span>
+                    <span id="status_position_DB18_12" class="box_number">12</span>
+                    <span id="status_position_DB18_13" class="box_number">13</span>
+                    <span id="status_position_DB18_14" class="box_number">14</span>
+                    <span id="status_position_DB18_15" class="box_number">15</span>
+                    <span id="status_position_DB18_16" class="box_number">16</span>
+                </div>
+                <div class="box_number_father">
+                    <span id="status_position_DB18_17" class="box_number">17</span>
+                    <span id="status_position_DB18_18" class="box_number">18</span>
+                    <span id="status_position_DB18_19" class="box_number">19</span>
+                    <span id="status_position_DB18_20" class="box_number">20</span>
+                    <span id="status_position_DB18_21" class="box_number">21</span>
+                    <span id="status_position_DB18_22" class="box_number">22</span>
+                    <span id="status_position_DB18_23" class="box_number">23</span>
+                    <span id="status_position_DB18_24" class="box_number">24</span>
+                </div>
 
 
 
-                <div class="box_number_father">
-                    <span id="box_number_1" class="box_number">1</span>
-                    <span id="box_number_2" class="box_number">2</span>
-                    <span id="box_number_3" class="box_number">3</span>
-                    <span id="box_number_4" class="box_number">4</span>
-                    <span id="box_number_5" class="box_number">5</span>
-                    <span id="box_number_6" class="box_number">6</span>
-                    <span id="box_number_7" class="box_number">7</span>
-                    <span id="box_number_8" class="box_number">8</span>
-                </div>
-                <div class="box_number_father">
-                    <span id="box_number_9" class="box_number">9</span>
-                    <span id="box_number_10" class="box_number">10</span>
-                    <span id="box_number_11" class="box_number">11</span>
-                    <span id="box_number_12" class="box_number">12</span>
-                    <span id="box_number_13" class="box_number">13</span>
-                    <span id="box_number_14" class="box_number">14</span>
-                    <span id="box_number_15" class="box_number">15</span>
-                    <span id="box_number_16" class="box_number">16</span>
-                </div>
-                <div class="box_number_father">
-                    <span id="box_number_17" class="box_number">17</span>
-                    <span id="box_number_18" class="box_number">18</span>
-                    <span id="box_number_19" class="box_number">19</span>
-                    <span id="box_number_20" class="box_number">20</span>
-                    <span id="box_number_21" class="box_number">21</span>
-                    <span id="box_number_22" class="box_number">22</span>
-                    <span id="box_number_23" class="box_number">23</span>
-                    <span id="box_number_24" class="box_number">24</span>
-                </div>
                 <div style="margin-bottom:5px; margin-top:25px;">
                     <label style="font-size:17px; font-weight:500;" for="input_nhap_so_chai_lay_mau">Nhập vị trí chai lấy mẫu: </label>
                     <input id="input_nhap_so_chai_lay_mau" style="width:150px;" placeholder="1-24" type="number" />
@@ -150,8 +189,10 @@
                 <div class="box_luuLuongra">
                     <label for="input_luuluongvao">Lưu lượng vào (m3/h)</label>
                     <input class="readonly_input" readonly style="width:300px;" type="text" id="input_luuluongvao" placeholder="m3/h">
+                    <button class="btn btn-primary" id="btn_doluuluongvao" type="button" style="padding-left:20px; padding-right:20px; margin-top:10px; margin-bottom:10px;">Đo lưu lượng vào</button>
                     <label for="input_luuluongra">Lưu lượng ra (m3/h)</label>
                     <input class="readonly_input" readonly style="width:300px;" type="text" id="input_luuluongra" placeholder="m3/h">
+                    <button class="btn btn-primary" id="btn_doluuluongra" type="button" style="padding-left:20px; padding-right:20px; margin-top:10px; margin-bottom:10px;">Đo lưu lượng ra</button>
                 </div>
 
                 <div style="width:100%;display: flex;justify-content: center;">
@@ -161,7 +202,7 @@
                 <div class="box_luuLuongvao" style="margin-top:15px;">
                     <label for="input_tongluuluong">Tổng lưu lượng (m3)</label>
                     <input class="readonly_input" readonly style="width:300px;" type="text" id="input_tongluuluong" placeholder="m3">
-                    <button class="btn btn-primary" id="btn_doluuluong" type="button" style="padding-left:20px; padding-right:20px; margin-top:10px;">Đo lưu lượng</button>
+                    <button class="btn btn-primary" id="btn_doluuluongtong" type="button" style="padding-left:20px; padding-right:20px; margin-top:10px;">Đo lưu lượng tổng</button>
                 </div>
             </div>
         </div>

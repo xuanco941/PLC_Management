@@ -29,96 +29,97 @@ namespace PLC_Management.Controllers
             {
                 //btn
                 btn_batdau = CurrentValuePLC.btn_batdau,
-                btn_doluuluong = CurrentValuePLC.btn_doluuluong,
-                btn_doph = CurrentValuePLC.btn_doph,
-                btn_doTSS = CurrentValuePLC.btn_dotss,
                 btn_laymau = CurrentValuePLC.btn_laymau,
                 btn_luu = CurrentValuePLC.btn_luu,
                 btn_tudong = CurrentValuePLC.btn_tudong,
                 btn_xoa = CurrentValuePLC.btn_xoa,
+                btn_doph = CurrentValuePLC.btn_doph,
+                btn_dotss = CurrentValuePLC.btn_dotss,
+                btn_docod = CurrentValuePLC.btn_docod,
+                btn_donh4 = CurrentValuePLC.btn_donh4,
+                btn_doluuluongtong = CurrentValuePLC.btn_doluuluongtong,
+                btn_doluuluongvao = CurrentValuePLC.btn_doluuluongvao,
+                Btn_doluuluongra = CurrentValuePLC.btn_doluuluongra,
 
 
                 //parameter
                 ph = Math.Round(CurrentValuePLC.pH, 4, MidpointRounding.AwayFromZero),
-                COD = Math.Round(CurrentValuePLC.COD, 4, MidpointRounding.AwayFromZero),
-                TSS = Math.Round(CurrentValuePLC.TSS, 4, MidpointRounding.AwayFromZero),
-                Temp = Math.Round(CurrentValuePLC.Temp, 4, MidpointRounding.AwayFromZero),
+                cod = Math.Round(CurrentValuePLC.COD, 4, MidpointRounding.AwayFromZero),
+                tss = Math.Round(CurrentValuePLC.TSS, 4, MidpointRounding.AwayFromZero),
+                temp = Math.Round(CurrentValuePLC.Temp, 4, MidpointRounding.AwayFromZero),
+                nh4 = Math.Round(CurrentValuePLC.NH4, 4, MidpointRounding.AwayFromZero),
 
                 //luu luong
-                luuluong = Math.Round(CurrentValuePLC.luuLuong, 4, MidpointRounding.AwayFromZero),
+                luuluongtong = Math.Round(CurrentValuePLC.luuLuongTong, 4, MidpointRounding.AwayFromZero),
                 luuluongvao = Math.Round(CurrentValuePLC.luuLuongVao, 4, MidpointRounding.AwayFromZero),
                 luuluongra = Math.Round(CurrentValuePLC.luuLuongRa, 4, MidpointRounding.AwayFromZero),
 
-                //position
-                position_1 = Math.Round(CurrentValuePLC.position_1, 4, MidpointRounding.AwayFromZero),
-                position_2 = Math.Round(CurrentValuePLC.position_2, 4, MidpointRounding.AwayFromZero),
-                position_3 = Math.Round(CurrentValuePLC.position_3, 4, MidpointRounding.AwayFromZero),
-                position_4 = Math.Round(CurrentValuePLC.position_4, 4, MidpointRounding.AwayFromZero),
-                position_5 = Math.Round(CurrentValuePLC.position_5, 4, MidpointRounding.AwayFromZero),
-                position_6 = Math.Round(CurrentValuePLC.position_6, 4, MidpointRounding.AwayFromZero),
-                position_7 = Math.Round(CurrentValuePLC.position_7, 4, MidpointRounding.AwayFromZero),
-                position_8 = Math.Round(CurrentValuePLC.position_8, 4, MidpointRounding.AwayFromZero),
-                position_9 = Math.Round(CurrentValuePLC.position_9, 4, MidpointRounding.AwayFromZero),
-                position_10 = Math.Round(CurrentValuePLC.position_10, 4, MidpointRounding.AwayFromZero),
-                position_11 = Math.Round(CurrentValuePLC.position_11, 4, MidpointRounding.AwayFromZero),
-                position_12 = Math.Round(CurrentValuePLC.position_12, 4, MidpointRounding.AwayFromZero),
-                position_13 = Math.Round(CurrentValuePLC.position_13, 4, MidpointRounding.AwayFromZero),
-                position_14 = Math.Round(CurrentValuePLC.position_14, 4, MidpointRounding.AwayFromZero),
-                position_15 = Math.Round(CurrentValuePLC.position_15, 4, MidpointRounding.AwayFromZero),
-                position_16 = Math.Round(CurrentValuePLC.position_16, 4, MidpointRounding.AwayFromZero),
-                position_17 = Math.Round(CurrentValuePLC.position_17, 4, MidpointRounding.AwayFromZero),
-                position_18 = Math.Round(CurrentValuePLC.position_18, 4, MidpointRounding.AwayFromZero),
-                position_19 = Math.Round(CurrentValuePLC.position_19, 4, MidpointRounding.AwayFromZero),
-                position_20 = Math.Round(CurrentValuePLC.position_20, 4, MidpointRounding.AwayFromZero),
-                position_21 = Math.Round(CurrentValuePLC.position_21, 4, MidpointRounding.AwayFromZero),
-                position_22 = Math.Round(CurrentValuePLC.position_22, 4, MidpointRounding.AwayFromZero),
-                position_23 = Math.Round(CurrentValuePLC.position_23, 4, MidpointRounding.AwayFromZero),
-                position_24 = Math.Round(CurrentValuePLC.position_24, 4, MidpointRounding.AwayFromZero),
 
-                position_absolute = Math.Round(CurrentValuePLC.position_absolute, 4, MidpointRounding.AwayFromZero),
-                position_current = CurrentValuePLC.position_current,
-                velitical_absolute_jog = Math.Round(CurrentValuePLC.velitical_absolute_jog, 4, MidpointRounding.AwayFromZero),
-                nhap_so_chai_lay_mau = CurrentValuePLC.nhap_so_chai_lay_mau,
-                xoa_so_chai_lay_mau = CurrentValuePLC.xoa_so_chai_lay_mau,
+                //status position DB17
+                status_position_DB17_1 = CurrentValuePLC.status_position_DB17_1,
+                status_position_DB17_2 = CurrentValuePLC.status_position_DB17_2,
+                status_position_DB17_3 = CurrentValuePLC.status_position_DB17_3,
+                status_position_DB17_4 = CurrentValuePLC.status_position_DB17_4,
+                status_position_DB17_5 = CurrentValuePLC.status_position_DB17_5,
+                status_position_DB17_6 = CurrentValuePLC.status_position_DB17_6,
+                status_position_DB17_7 = CurrentValuePLC.status_position_DB17_7,
+                status_position_DB17_8 = CurrentValuePLC.status_position_DB17_8,
+                status_position_DB17_9 = CurrentValuePLC.status_position_DB17_9,
+                status_position_DB17_10 = CurrentValuePLC.status_position_DB17_10,
+                status_position_DB17_11 = CurrentValuePLC.status_position_DB17_11,
+                status_position_DB17_12 = CurrentValuePLC.status_position_DB17_12,
+                status_position_DB17_13 = CurrentValuePLC.status_position_DB17_13,
+                status_position_DB17_14 = CurrentValuePLC.status_position_DB17_14,
+                status_position_DB17_15 = CurrentValuePLC.status_position_DB17_15,
+                status_position_DB17_16 = CurrentValuePLC.status_position_DB17_16,
+                status_position_DB17_17 = CurrentValuePLC.status_position_DB17_17,
+                status_position_DB17_18 = CurrentValuePLC.status_position_DB17_18,
+                status_position_DB17_19 = CurrentValuePLC.status_position_DB17_19,
+                status_position_DB17_20 = CurrentValuePLC.status_position_DB17_20,
+                status_position_DB17_21 = CurrentValuePLC.status_position_DB17_21,
+                status_position_DB17_22 = CurrentValuePLC.status_position_DB17_22,
+                status_position_DB17_23 = CurrentValuePLC.status_position_DB17_23,
+                status_position_DB17_24 = CurrentValuePLC.status_position_DB17_24,
 
 
-
-                //status position
-                status_position_1 = CurrentValuePLC.status_position_1,
-                status_position_2 = CurrentValuePLC.status_position_2,
-                status_position_3 = CurrentValuePLC.status_position_3,
-                status_position_4 = CurrentValuePLC.status_position_4,
-                status_position_5 = CurrentValuePLC.status_position_5,
-                status_position_6 = CurrentValuePLC.status_position_6,
-                status_position_7 = CurrentValuePLC.status_position_7,
-                status_position_8 = CurrentValuePLC.status_position_8,
-                status_position_9 = CurrentValuePLC.status_position_9,
-                status_position_10 = CurrentValuePLC.status_position_10,
-                status_position_11 = CurrentValuePLC.status_position_11,
-                status_position_12 = CurrentValuePLC.status_position_12,
-                status_position_13 = CurrentValuePLC.status_position_13,
-                status_position_14 = CurrentValuePLC.status_position_14,
-                status_position_15 = CurrentValuePLC.status_position_15,
-                status_position_16 = CurrentValuePLC.status_position_16,
-                status_position_17 = CurrentValuePLC.status_position_17,
-                status_position_18 = CurrentValuePLC.status_position_18,
-                status_position_19 = CurrentValuePLC.status_position_19,
-                status_position_20 = CurrentValuePLC.status_position_20,
-                status_position_21 = CurrentValuePLC.status_position_21,
-                status_position_22 = CurrentValuePLC.status_position_22,
-                status_position_23 = CurrentValuePLC.status_position_23,
-                status_position_24 = CurrentValuePLC.status_position_24,
-
+                //status position DB17
+                status_position_DB18_1 = CurrentValuePLC.status_position_DB18_1,
+                status_position_DB18_2 = CurrentValuePLC.status_position_DB18_2,
+                status_position_DB18_3 = CurrentValuePLC.status_position_DB18_3,
+                status_position_DB18_4 = CurrentValuePLC.status_position_DB18_4,
+                status_position_DB18_5 = CurrentValuePLC.status_position_DB18_5,
+                status_position_DB18_6 = CurrentValuePLC.status_position_DB18_6,
+                status_position_DB18_7 = CurrentValuePLC.status_position_DB18_7,
+                status_position_DB18_8 = CurrentValuePLC.status_position_DB18_8,
+                status_position_DB18_9 = CurrentValuePLC.status_position_DB18_9,
+                status_position_DB18_10 = CurrentValuePLC.status_position_DB18_10,
+                status_position_DB18_11 = CurrentValuePLC.status_position_DB18_11,
+                status_position_DB18_12 = CurrentValuePLC.status_position_DB18_12,
+                status_position_DB18_13 = CurrentValuePLC.status_position_DB18_13,
+                status_position_DB18_14 = CurrentValuePLC.status_position_DB18_14,
+                status_position_DB18_15 = CurrentValuePLC.status_position_DB18_15,
+                status_position_DB18_16 = CurrentValuePLC.status_position_DB18_16,
+                status_position_DB18_17 = CurrentValuePLC.status_position_DB18_17,
+                status_position_DB18_18 = CurrentValuePLC.status_position_DB18_18,
+                status_position_DB18_19 = CurrentValuePLC.status_position_DB18_19,
+                status_position_DB18_20 = CurrentValuePLC.status_position_DB18_20,
+                status_position_DB18_21 = CurrentValuePLC.status_position_DB18_21,
+                status_position_DB18_22 = CurrentValuePLC.status_position_DB18_22,
+                status_position_DB18_23 = CurrentValuePLC.status_position_DB18_23,
+                status_position_DB18_24 = CurrentValuePLC.status_position_DB18_24,
 
                 message = CurrentValuePLC.message,
                 messageErrorConnectPLC = CurrentValuePLC.messageErrorConnectPLC
             });
         }
 
+
+
+
+
         //btn bat dau
         public IActionResult Btn_batdau([FromQuery(Name = "position")] uint position)
         {
-            CurrentValuePLC.position_current = position;
             ActivityBusiness.AddActivity($"Bắt đầu trên mẫu thử số: {position}.");
             MainPLC.plc.Write("M200.2", 1);
             MainPLC.plc.Write("MW10", position.ToString());
@@ -130,7 +131,6 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_laymau([FromQuery(Name = "position")] uint position)
         {
-            CurrentValuePLC.position_current = position;
             ActivityBusiness.AddActivity($"Lấy mẫu tại vị trí: {position}.");
             MainPLC.plc.Write("M200.7", 1);
 
@@ -142,7 +142,6 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_luu([FromQuery(Name = "adrrposition")] string adrrposition, [FromQuery(Name = "position")] uint position)
         {
-            CurrentValuePLC.position_current = 0;
 
             ActivityBusiness.AddActivity($"Lưu tại vị trí: {position}.");
             // ghi 1 vao dia chi trang thai position
@@ -176,6 +175,9 @@ namespace PLC_Management.Controllers
         }
 
 
+
+
+
         public IActionResult Btn_tudong()
         {
             if (CurrentValuePLC.btn_tudong == false)
@@ -199,69 +201,63 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_doph()
         {
-            if (CurrentValuePLC.btn_doph == false)
-            {
-                MainPLC.plc.Write("M200.4", 1);
-            }
-            else
-            {
-                MainPLC.plc.Write("M200.4", 0);
-            }
-            CurrentValuePLC.btn_doph = !CurrentValuePLC.btn_doph;
+            MainPLC.plc.Write("M200.4", 1);
             return Json(new
             {
-                status = CurrentValuePLC.btn_doph
+                status = "M200.4"
             });
         }
 
         public IActionResult Btn_doTSS()
         {
-            if (CurrentValuePLC.btn_dotss == false)
-            {
-                MainPLC.plc.Write("M200.5", 1);
-            }
-            else
-            {
-                MainPLC.plc.Write("M200.5", 0);
-            }
-            CurrentValuePLC.btn_dotss = !CurrentValuePLC.btn_dotss;
+                MainPLC.plc.Write("M200.5", 1);     
             return Json(new
             {
-                status = CurrentValuePLC.btn_dotss
+                status = "M200.5"
             });
         }
 
         public IActionResult Btn_doCOD()
         {
-            if (CurrentValuePLC.btn_dotss == false)
-            {
-                MainPLC.plc.Write("M200.5", 1);
-            }
-            else
-            {
-                MainPLC.plc.Write("M200.5", 0);
-            }
-            CurrentValuePLC.btn_dotss = !CurrentValuePLC.btn_dotss;
+                MainPLC.plc.Write("M201.2", 1);
+          
             return Json(new
             {
-                status = CurrentValuePLC.btn_dotss
+                status = "M201.2"
+            });
+        }
+        public IActionResult Btn_doNH4()
+        {
+            MainPLC.plc.Write("M201.3", 1);
+
+            return Json(new
+            {
+                status = "M201.3"
             });
         }
 
-        public IActionResult Btn_doluuluong()
+        public IActionResult Btn_doluuluongtong()
         {
-            if (CurrentValuePLC.btn_doluuluong == false)
-            {
-                MainPLC.plc.Write("M200.3", 1);
-            }
-            else
-            {
-                MainPLC.plc.Write("M200.3", 0);
-            }
-            CurrentValuePLC.btn_doluuluong = !CurrentValuePLC.btn_doluuluong;
+            MainPLC.plc.Write("M200.3", 1);
             return Json(new
             {
-                status = CurrentValuePLC.btn_doluuluong
+                status = "OK M200.3"
+            });
+        }
+        public IActionResult Btn_doluuluongvao()
+        {
+            MainPLC.plc.Write("M201.0", 1);
+            return Json(new
+            {
+                status = "OK M201.0"
+            });
+        }
+        public IActionResult Btn_doluuluongra()
+        {
+            MainPLC.plc.Write("M201.1", 1);
+            return Json(new
+            {
+                status = "OK M201.1"
             });
         }
 

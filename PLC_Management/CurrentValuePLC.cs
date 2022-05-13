@@ -10,6 +10,7 @@ namespace PLC_Management
         public static Parameter P_Temp = new Parameter("Temp", "Temp", "40", "Độ C");
         public static Parameter P_TSS = new Parameter("TSS", "TSS", "100", "mg/L");
         public static Parameter P_COD = new Parameter("COD", "COD", "150", "mg/L");
+        public static Parameter P_NH4 = new Parameter("NH4", "NH4", "", "");
         public static List<Parameter> parameters = new List<Parameter>() { P_pH, P_Temp, P_TSS, P_COD };
 
 
@@ -19,82 +20,82 @@ namespace PLC_Management
         public static bool btn_laymau { get; set; } = false;
         public static bool btn_luu { get; set; } = false;
         public static bool btn_xoa { get; set; } = false;
-        public static bool btn_doluuluong { get; set; } = false;
+        public static bool btn_doluuluongtong { get; set; } = false;
         public static bool btn_doph { get; set; } = false;
         public static bool btn_dotss { get; set; } = false;
         public static bool btn_tudong { get; set; } = true;
         public static bool btn_docod { get; set; } = false;
+        public static bool btn_donh4 { get; set; } = false;
+        public static bool btn_doluuluongvao { get; set; } = false;
+        public static bool btn_doluuluongra { get; set; } = false;
 
+
+
+        //connection
+        public static bool isConnected { get; set; } = false; 
 
         //message
         public static string? message { get; set; }
-        public static string? messageErrorBtn { get; set; }
         public static string? messageErrorConnectPLC { get; set; }
 
 
 
-        //trang thai ong dung (bool)
-        public static ushort status_position_1 { get; set; } = 0;
-        public static ushort status_position_2 { get; set; } = 0;
-        public static ushort status_position_3 { get; set; } = 0;
-        public static ushort status_position_4 { get; set; } = 0;
-        public static ushort status_position_5 { get; set; } = 0;
-        public static ushort status_position_6 { get; set; } = 0;
-        public static ushort status_position_7 { get; set; } = 0;
-        public static ushort status_position_8 { get; set; } = 0;
-        public static ushort status_position_9 { get; set; } = 0;
-        public static ushort status_position_10 { get; set; } = 0;
-        public static ushort status_position_11 { get; set; } = 0;
-        public static ushort status_position_12 { get; set; } = 0;
-        public static ushort status_position_13 { get; set; } = 0;
-        public static ushort status_position_14 { get; set; } = 0;
-        public static ushort status_position_15 { get; set; } = 0;
-        public static ushort status_position_16 { get; set; } = 0;
-        public static ushort status_position_17 { get; set; } = 0;
-        public static ushort status_position_18 { get; set; } = 0;
-        public static ushort status_position_19 { get; set; } = 0;
-        public static ushort status_position_20 { get; set; } = 0;
-        public static ushort status_position_21 { get; set; } = 0;
-        public static ushort status_position_22 { get; set; } = 0;
-        public static ushort status_position_23 { get; set; } = 0;
-        public static ushort status_position_24 { get; set; } = 0;
+        //trang thai ong dung DB17
+        public static ushort status_position_DB17_1 { get; set; } = 0;
+        public static ushort status_position_DB17_2 { get; set; } = 0;
+        public static ushort status_position_DB17_3 { get; set; } = 0;
+        public static ushort status_position_DB17_4 { get; set; } = 0;
+        public static ushort status_position_DB17_5 { get; set; } = 0;
+        public static ushort status_position_DB17_6 { get; set; } = 0;
+        public static ushort status_position_DB17_7 { get; set; } = 0;
+        public static ushort status_position_DB17_8 { get; set; } = 0;
+        public static ushort status_position_DB17_9 { get; set; } = 0;
+        public static ushort status_position_DB17_10 { get; set; } = 0;
+        public static ushort status_position_DB17_11 { get; set; } = 0;
+        public static ushort status_position_DB17_12 { get; set; } = 0;
+        public static ushort status_position_DB17_13 { get; set; } = 0;
+        public static ushort status_position_DB17_14 { get; set; } = 0;
+        public static ushort status_position_DB17_15 { get; set; } = 0;
+        public static ushort status_position_DB17_16 { get; set; } = 0;
+        public static ushort status_position_DB17_17 { get; set; } = 0;
+        public static ushort status_position_DB17_18 { get; set; } = 0;
+        public static ushort status_position_DB17_19 { get; set; } = 0;
+        public static ushort status_position_DB17_20 { get; set; } = 0;
+        public static ushort status_position_DB17_21 { get; set; } = 0;
+        public static ushort status_position_DB17_22 { get; set; } = 0;
+        public static ushort status_position_DB17_23 { get; set; } = 0;
+        public static ushort status_position_DB17_24 { get; set; } = 0;
 
 
-        //value position
-        public static double position_1 { get; set; } = 0;
-        public static double position_2 { get; set; } = 0;
-        public static double position_3 { get; set; } = 0;
-        public static double position_4 { get; set; } = 0;
-        public static double position_5 { get; set; } = 0;
-        public static double position_6 { get; set; } = 0;
-        public static double position_7 { get; set; } = 0;
-        public static double position_8 { get; set; } = 0;
-        public static double position_9 { get; set; } = 0;
-        public static double position_10 { get; set; } = 0;
-        public static double position_11 { get; set; } = 0;
-        public static double position_12 { get; set; } = 0;
-        public static double position_13 { get; set; } = 0;
-        public static double position_14 { get; set; } = 0;
-        public static double position_15 { get; set; } = 0;
-        public static double position_16 { get; set; } = 0;
-        public static double position_17 { get; set; } = 0;
-        public static double position_18 { get; set; } = 0;
-        public static double position_19 { get; set; } = 0;
-        public static double position_20 { get; set; } = 0;
-        public static double position_21 { get; set; } = 0;
-        public static double position_22 { get; set; } = 0;
-        public static double position_23 { get; set; } = 0;
-        public static double position_24 { get; set; } = 0;
-        public static double position_absolute { get; set; } = 0;
-        public static uint position_current { get; set; } = 0;
-        public static double velitical_absolute_jog { get; set; } = 0;
-        public static uint nhap_so_chai_lay_mau { get; set; } = 0;
-        public static uint xoa_so_chai_lay_mau { get; set; } = 0;
-
+        // trang thai ong dung DB18
+        public static ushort status_position_DB18_1 { get; set; } = 0;
+        public static ushort status_position_DB18_2 { get; set; } = 0;
+        public static ushort status_position_DB18_3 { get; set; } = 0;
+        public static ushort status_position_DB18_4 { get; set; } = 0;
+        public static ushort status_position_DB18_5 { get; set; } = 0;
+        public static ushort status_position_DB18_6 { get; set; } = 0;
+        public static ushort status_position_DB18_7 { get; set; } = 0;
+        public static ushort status_position_DB18_8 { get; set; } = 0;
+        public static ushort status_position_DB18_9 { get; set; } = 0;
+        public static ushort status_position_DB18_10 { get; set; } = 0;
+        public static ushort status_position_DB18_11 { get; set; } = 0;
+        public static ushort status_position_DB18_12 { get; set; } = 0;
+        public static ushort status_position_DB18_13 { get; set; } = 0;
+        public static ushort status_position_DB18_14 { get; set; } = 0;
+        public static ushort status_position_DB18_15 { get; set; } = 0;
+        public static ushort status_position_DB18_16 { get; set; } = 0;
+        public static ushort status_position_DB18_17 { get; set; } = 0;
+        public static ushort status_position_DB18_18 { get; set; } = 0;
+        public static ushort status_position_DB18_19 { get; set; } = 0;
+        public static ushort status_position_DB18_20 { get; set; } = 0;
+        public static ushort status_position_DB18_21 { get; set; } = 0;
+        public static ushort status_position_DB18_22 { get; set; } = 0;
+        public static ushort status_position_DB18_23 { get; set; } = 0;
+        public static ushort status_position_DB18_24 { get; set; } = 0;
 
 
         //luu luong
-        public static double luuLuong { get; set; } = 0;
+        public static double luuLuongTong { get; set; } = 0;
         public static double luuLuongVao { get; set; } = 0;
         public static double luuLuongRa { get; set; } = 0;
 
@@ -105,6 +106,7 @@ namespace PLC_Management
         public static double COD { get; set; } = 0;
         public static double TSS { get; set; } = 0;
         public static double Temp { get; set; } = 0;
+        public static double NH4 { get; set; } = 0;
     }
 
 }
