@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using PLC_Management.Models.ActivityModel;
 using PLC_Management.Models.ParameterModel;
+using PROFINET_STEP_7.Profinet;
 
 namespace PLC_Management.Controllers
 {
@@ -220,7 +221,7 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_doTSS()
         {
-                MainPLC.plc.Write("M200.5", 1);     
+            MainPLC.plc.Write("M200.5", 1);
             return Json(new
             {
                 status = "M200.5"
@@ -229,8 +230,8 @@ namespace PLC_Management.Controllers
 
         public IActionResult Btn_doCOD()
         {
-                MainPLC.plc.Write("M201.2", 1);
-          
+            MainPLC.plc.Write("M201.2", 1);
+
             return Json(new
             {
                 status = "M201.2"

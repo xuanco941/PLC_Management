@@ -42,26 +42,27 @@ namespace PLC_Management
         {
             foreach (var parameter in CurrentValuePLC.parameters)
             {
+                //parameter
                 double value = 0;
                 if (parameter.Name == "pH")
                 {
-                    value = CurrentValuePLC.pH;
+                    value = PROFINET_STEP_7.Types.Double.FromDWord((uint)MainPLC.plc.Read("DB16.DBD0"));
                 }
                 if (parameter.Name == "TSS")
                 {
-                    value = CurrentValuePLC.TSS;
+                    value = PROFINET_STEP_7.Types.Double.FromDWord((uint)MainPLC.plc.Read("DB16.DBD8"));
                 }
                 if (parameter.Name == "Temp")
                 {
-                    value = CurrentValuePLC.Temp;
+                    value = PROFINET_STEP_7.Types.Double.FromDWord((uint)MainPLC.plc.Read("DB16.DBD12"));
                 }
                 if (parameter.Name == "COD")
                 {
-                    value = CurrentValuePLC.COD;
+                    value = PROFINET_STEP_7.Types.Double.FromDWord((uint)MainPLC.plc.Read("DB16.DBD4"));
                 }
                 if(parameter.Name == "NH4")
                 {
-                    value = CurrentValuePLC.NH4;
+                    value = PROFINET_STEP_7.Types.Double.FromDWord((uint)MainPLC.plc.Read("DB16.DBD28"));
                 }
                 Result result = new Result();
                 result.Parameter_Name = parameter.Name;
