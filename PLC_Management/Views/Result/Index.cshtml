@@ -49,9 +49,16 @@
                 <button type="submit" style="padding-left:25px; padding-right:25px;" class="btn-primary btn btn_locngay span_locngay">Lọc</button>
             </div>
         </form>
-        <div class="col-12" style="display:flex; justify-content:flex-end;">
-            <button class="btn-warning btn" id="btn-print" style="margin-right:10px;">In báo cáo</button>
-            <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
+
+        <div class="col-12" style="display:flex; justify-content:space-between; margin-top:25px;">
+            <form method="get">
+                <input id="numberResult" placeholder="Số bản ghi" style="text-align:center;width:137px; font-size:14px; height:36px;" name="numberResult" type="number" />
+                <button type="submit" class="btn-primary btn">Thay đổi</button>
+            </form>
+            <div>
+                <button class="btn-warning btn" id="btn-print" style="margin-right:10px;">In báo cáo</button>
+                <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
+            </div>
         </div>
     </div>
 
@@ -164,7 +171,7 @@
                             @if ((@page3 + 2) < @ViewBag.countPage)
                             {
                                 <li style="width:28px; display: flex; justify-content:center; font-size:19px; height:100%; margin-top:9px; color:#0d6efd ">. . .</li>
-                                <li class="page-item"><a class="page-link" href="./@link_count_page">@ViewBag.countPage (Trang cuối)</a></li>
+                                <li class="page-item"><a class="page-link" href="./@link_count_page">@ViewBag.countPage (hết)</a></li>
                             }
 
                         </ul>

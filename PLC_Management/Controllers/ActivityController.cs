@@ -19,8 +19,8 @@ namespace PLC_Management.Controllers
                 tungay = today.AddDays(-365).ToString("yyyy-MM-dd");
                 toingay = today.AddDays(1).ToString("yyyy-MM-dd");
                 int sumActivity = ActivityBusiness.CountActivity();
-                int countPage = (sumActivity / Common.NUMBER_ELM_ON_PAGE);
-                if (sumActivity % Common.NUMBER_ELM_ON_PAGE != 0)
+                int countPage = (sumActivity / Common.NUMBER_ELM_ON_PAGE_ACTIVITY);
+                if (sumActivity % Common.NUMBER_ELM_ON_PAGE_ACTIVITY != 0)
                 {
                     countPage = countPage + 1;
                 }
@@ -45,8 +45,8 @@ namespace PLC_Management.Controllers
                 string strDatime2 = dateTime2.Year + "-" + dateTime2.Month + "-" + dateTime2.Day;
 
                 int sumActivity = ActivityBusiness.CountActivityByDay(strDatime1, strDatime2);
-                int countPage = (sumActivity / Common.NUMBER_ELM_ON_PAGE);
-                if (sumActivity % Common.NUMBER_ELM_ON_PAGE != 0)
+                int countPage = (sumActivity / Common.NUMBER_ELM_ON_PAGE_ACTIVITY);
+                if (sumActivity % Common.NUMBER_ELM_ON_PAGE_ACTIVITY != 0)
                 {
                     countPage = countPage + 1;
                 }
@@ -63,8 +63,6 @@ namespace PLC_Management.Controllers
             }
 
             ViewBag.listActivities = activities;
-
-            //ViewBag.host = $"activity?tungay={tungay}&toingay={toingay}&page=";
 
             ViewBag.tungay = tungay;
             ViewBag.toingay = toingay;

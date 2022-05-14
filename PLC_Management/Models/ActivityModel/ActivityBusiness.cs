@@ -13,8 +13,8 @@ namespace PLC_Management.Models.ActivityModel
             string sql;
             if (page != null && page != 0)
             {
-                int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE;
-                int? end = page * Common.NUMBER_ELM_ON_PAGE;
+                int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE_ACTIVITY;
+                int? end = page * Common.NUMBER_ELM_ON_PAGE_ACTIVITY;
                 sql = $"exec paginationActivity {start},{end}";
             }
             else
@@ -41,8 +41,8 @@ namespace PLC_Management.Models.ActivityModel
             string sql;
             if (page != null && page != 0)
             {
-                int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE;
-                int? end = page * Common.NUMBER_ELM_ON_PAGE;
+                int? start = (page - 1) * Common.NUMBER_ELM_ON_PAGE_ACTIVITY;
+                int? end = page * Common.NUMBER_ELM_ON_PAGE_ACTIVITY;
                 sql = $"exec paginationActivityByDay {start},{end},'{tungay}','{toingay}'";
             }
             else

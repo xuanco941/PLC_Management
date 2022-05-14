@@ -7,7 +7,7 @@
     }
 
 
-@media (max-width: 1139px) {
+@media (max-width: 999px) {
     .box_loc{
         display: flex;
         flex-direction:column;
@@ -18,5 +18,13 @@
     }
     .btn_locngay{
         width:200px;
+    }
+
+}
+
+@media (max-width: 560px) {
+
+    #btn-print, #numberResult {
+        margin-bottom: 10px;
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using PLC_Management.Models.ActivityModel;
-using PLC_Management.Models.ParameterModel;
-using PROFINET_STEP_7.Profinet;
+
 
 namespace PLC_Management.Controllers
 {

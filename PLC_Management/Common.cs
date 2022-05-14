@@ -14,7 +14,10 @@ namespace PLC_Management
 
         public const string SESSION_ISADMIN = "SESSION_ISADMIN";
 
-        public const int NUMBER_ELM_ON_PAGE = 50;
+        public static int NUMBER_ELM_ON_PAGE = 50;
+
+        public const int NUMBER_ELM_ON_PAGE_ACTIVITY = 50;
+
 
         public static string? Message;
         //[TempData]

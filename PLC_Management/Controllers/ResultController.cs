@@ -6,8 +6,14 @@ namespace PLC_Management.Controllers
     public class ResultController : Controller
     {
         public IActionResult Index([FromQuery(Name = "tungay")] string tungay, [FromQuery(Name = "toingay")] string toingay, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "pH")] string pH,
-            [FromQuery(Name = "Temp")] string Temp, [FromQuery(Name = "TSS")] string TSS, [FromQuery(Name = "COD")] string COD, [FromQuery(Name = "NH4")] string NH4)
+            [FromQuery(Name = "Temp")] string Temp, [FromQuery(Name = "TSS")] string TSS, [FromQuery(Name = "COD")] string COD, [FromQuery(Name = "NH4")] string NH4, [FromQuery(Name = "numberResult")] int numberResult)
         {
+
+            if (numberResult>0)
+            {
+                Common.NUMBER_ELM_ON_PAGE = numberResult;
+            }
+
             ResultBusiness resultBusiness = new ResultBusiness();
             List<Result> results = new List<Result>();
 
