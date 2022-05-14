@@ -171,19 +171,20 @@ const updateData = () => {
 
         //position current text
         if (data.position_current_batdau != 0) {
-            position_current_text_batdau.textContent = `Đang bắt đầu tại vị trí : ${data.position_current_batdau}`;
+            position_current_text_batdau.textContent = `*Đang bắt đầu tại vị trí : ${data.position_current_batdau}`;
         }
         else {
             position_current_text_batdau.textContent = '';
         }
         if (data.position_current_laymau != 0) {
-            position_current_text_laymau.textContent = `Đang lấy mẫu tại vị trí : ${data.position_current_laymau}`;
+            input_luu.value = data.position_current_laymau;
+            position_current_text_laymau.textContent = `*Đang lấy mẫu tại vị trí : ${data.position_current_laymau}`;
         }
         else {
             position_current_text_laymau.textContent = '';
         }
         if (data.position_current_luu != 0) {
-            position_current_text_luu.textContent = `Vừa lưu tại vị trí : ${data.position_current_luu}`;
+            position_current_text_luu.textContent = `*Vừa lưu tại vị trí : ${data.position_current_luu}`;
         }
         else {
             position_current_text_luu.textContent = '';
