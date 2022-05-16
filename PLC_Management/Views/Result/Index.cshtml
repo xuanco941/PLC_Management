@@ -50,9 +50,18 @@
             </div>
         </form>
 
+
+        <div class="col-12" style="display:flex; justify-content:end;">
+            <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger">
+                Xóa bản ghi trang hiện tại
+            </button>
+        </div>
+
+
+
         <div class="col-12" style="display:flex; justify-content:space-between; margin-top:25px;">
             <form method="get">
-                <input id="numberResult" placeholder="Số bản ghi" style="text-align:center;width:137px; font-size:14px; height:36px;" name="numberResult" type="number" />
+                <input id="numberResult" placeholder="@ViewBag.NUMBER_ELM_ON_PAGE bản ghi" style="text-align:center;width:137px; font-size:14px; height:36px;" name="numberResult" type="number" />
                 <button type="submit" class="btn-primary btn">Thay đổi</button>
             </form>
             <div>
@@ -60,6 +69,7 @@
                 <button class="btn-primary btn" id="btn-export">Xuất file excel</button>
             </div>
         </div>
+
     </div>
 
     <div class="col-12">
@@ -94,10 +104,10 @@
                         int j = i + 1;
                         if (i % 2 == 0)
                         {
-                            <tr class="table-success">
+                            <tr class="table-success ID_Result" data-id-result="@result.ID">
                                 <th scope="row">@j</th>
                                 <td>@result.Parameter_Name</td>
-                                <td>@result.Parameter_ID</td>
+                                <td class="Parameter_ID">@result.Parameter_ID</td>
                                 <td>@result.Parameter_Unit</td>
                                 <td>@s</td>
                                 <td>@result.Value</td>
@@ -105,10 +115,10 @@
                         }
                         else
                         {
-                            <tr>
+                            <tr class="ID_Result" data-id-result="@result.ID">
                                 <th scope="row">@j</th>
                                 <td>@result.Parameter_Name</td>
-                                <td>@result.Parameter_ID</td>
+                                <td class="Parameter_ID">@result.Parameter_ID</td>
                                 <td>@result.Parameter_Unit</td>
                                 <td>@s</td>
                                 <td>@result.Value</td>
@@ -192,6 +202,12 @@
     </div>
 
 </div>
+
+
+
+
+
+
 <script src="./js/table2excel.js"></script>
 <script>
     const table2excel = new Table2Excel();
@@ -201,3 +217,4 @@
 </script>
 <script src="~/js/PrintResult.js"></script>
 <script src="~/js/Pagination.js"></script>
+<script src="~/js/DeleteResult.js"></script>

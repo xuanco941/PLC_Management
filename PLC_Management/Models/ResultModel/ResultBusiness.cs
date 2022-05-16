@@ -159,11 +159,26 @@ namespace PLC_Management.Models.ResultModel
             command.Parameters.AddWithValue("Result_Parameter_Name", result.Parameter_Name);
             command.Parameters.AddWithValue("Result_Parameter_ID", result.Parameter_ID);
             command.Parameters.AddWithValue("Result_Parameter_Unit", result.Parameter_Unit);
-            command.Parameters.AddWithValue("Result_Value", result.Value);
+            command.Parameters.AddWithValue("Result_Value", Math.Round(result.Value, 4, MidpointRounding.AwayFromZero));
             command.Connection = sqlConnection;
 
             command.ExecuteNonQuery();
             sqlConnection.Close();
         }
+
+        public static void DeleteResultByIDAndParameter(int startID,int endID, string pH, string Temp, string TSS, string COD, string NH4)
+        {
+            SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = $"exec DeleteResultByIDAndParameter {startID}, {@endID}, '{pH}', '{Temp}', '{TSS}', '{COD}', '{NH4}'";
+
+            command.Connection = sqlConnection;
+
+            command.ExecuteNonQuery();
+            sqlConnection.Close();
+        }
+
+
     }
 }

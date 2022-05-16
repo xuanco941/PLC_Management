@@ -16,8 +16,6 @@ CREATE TABLE Activity(
 Activity_ID INT IDENTITY(1,1) PRIMARY KEY,
 Activity_Name NVARCHAR(2000),
 Activity_Time DATETIME DEFAULT GETDATE()
---Employee_ID INT,
---FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 )
 GO
 
@@ -37,7 +35,6 @@ Result_Parameter_Unit NVARCHAR(30),
 Result_Value FLOAT ,
 Result_Status BIT DEFAULT 1,
 Result_DateTime DATETIME DEFAULT GETDATE()
---FOREIGN KEY (Result_Parameter_ID) REFERENCES Parameter(Parameter_ID)
 )
 GO
 
@@ -184,7 +181,15 @@ Result_DateTime BETWEEN
  @Time2) AND (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD OR Result.Result_Parameter_ID = @NH4)) as a WHERE a.row > @startfrom and a.row <= @endto  
  end
  GO
- 
+
+
+ -- delete result by ID
+ CREATE proc DeleteResultByIDAndParameter (@startID int, @endID int, @pH varchar(25),@Temp varchar(25), @TSS varchar(25), @COD varchar(25),@NH4 varchar(25))
+ as begin
+ Delete From Result Where (Result.Result_ID >= @startID and Result.Result_ID <= @endID) and (Result_Parameter_ID = @pH OR Result_Parameter_ID = @Temp OR Result_Parameter_ID = @TSS OR Result_Parameter_ID = @COD OR Result_Parameter_ID = @NH4) 
+ end
+ GO
+
 exec AddEmployee N'Đỗ Văn Xuân', 'admin', '123', 1
 GO
 Insert into Parameter values ('pH','pH','5/9',''),('Temp','Temp','40',N'độ C'),('TSS','TSS','100','mg/L'),('COD','COD','150','mg/L'),('NH4','NH4','','');

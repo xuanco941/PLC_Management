@@ -161,8 +161,18 @@ namespace PLC_Management.Controllers
             ViewBag.tungay = tungay;
             ViewBag.toingay = toingay;
             ViewBag.pageCurrent = page;
+            ViewBag.NUMBER_ELM_ON_PAGE = Common.NUMBER_ELM_ON_PAGE;
 
             return View();
         }
+
+
+        [HttpPost]
+        public IActionResult DeleteResult([FromBody] DeleteResultModel deleteResult)
+        {
+            ResultBusiness.DeleteResultByIDAndParameter(deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4);
+            return Json( new { deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4 });
+        }
     }
+
 }

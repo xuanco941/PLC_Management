@@ -167,8 +167,6 @@ function setDisabledButton(status) {
 const updateData = () => {
     fetch('./dashboard/updatedataplc').then(res => res.json()).then(data => {
 
-        console.log(data);
-
         //position current text
         if (data.position_current_batdau != 0) {
             position_current_text_batdau.textContent = `*Đang bắt đầu tại vị trí : ${data.position_current_batdau}`;
