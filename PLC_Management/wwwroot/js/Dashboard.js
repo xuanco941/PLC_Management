@@ -310,7 +310,7 @@ const updateData = () => {
 }
 
 
-const dataInterval = setInterval(updateData, 700);
+const dataInterval = setInterval(updateData, 500);
 
 
 
