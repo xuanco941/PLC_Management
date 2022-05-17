@@ -1,6 +1,4 @@
 ﻿using PROFINET_STEP_7.Profinet;
-using PROFINET_STEP_7.Types;
-using System.Timers;
 
 namespace PLC_Management
 {
@@ -45,8 +43,7 @@ namespace PLC_Management
             }
             catch (Exception ex)
             {
-                CurrentValuePLC.message = "*Gặp lỗi: " + ex.ToString();
-                ReStart();
+                CurrentValuePLC.message = "Không thể kết nối";
             }
         }
 
@@ -63,11 +60,6 @@ namespace PLC_Management
             }
         }
 
-        public static void ReStart()
-        {
-            CurrentValuePLC.messageErrorConnectPLC = "(Đang tự động kết nối lại . . .)";
-            Start();
-        }
 
         public static void GetData()
         {

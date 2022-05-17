@@ -20,7 +20,5 @@ namespace PLC_Management
 
 
         public static string? Message;
-        //[TempData]
-        //public static string Message { get; set; } = "";
     }
 }

@@ -121,6 +121,23 @@ namespace PLC_Management.Controllers
 
 
 
+        [HttpPost]
+        public IActionResult ReConnectPLC([FromBody] bool disconnect)
+        {
+
+            if (disconnect == true)
+            {
+                MainPLC.Start();
+                if (InsertResultInterval.TimerInsertResult.Enabled == true)
+                {
+                    InsertResultInterval.Clear();
+                    InsertResultInterval.Run();
+                }
+            }
+
+            return Json(new {disconnect});
+        }
+
 
 
         //btn bat dau

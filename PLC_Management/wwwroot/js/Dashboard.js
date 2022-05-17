@@ -1,4 +1,5 @@
-﻿//parameter
+﻿
+//parameter
 const pH = document.querySelector("#pH");
 const TSS = document.querySelector("#TSS");
 const COD = document.querySelector("#COD");
@@ -161,6 +162,20 @@ function setDisabledButton(status) {
 
 
 
+function ReportDisconnectPLC() {
+
+    fetch('./dashboard/reconnectPLC', {
+        method: 'post',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(true)
+    }).then(res => res.json()).then(data => {
+        clearInterval(dataInterval);
+        location.reload();
+    })
+}
+
 
 
 // get data
@@ -257,8 +272,8 @@ const updateData = () => {
         setDisabledButton(data.btn_tudong);
 
         //message
-        message_error_parameter.textContent = data.message !== "" ? data.message : "";
-        message_error_connect.textContent = data.messageErrorConnectPLC !== "" ? data.messageErrorConnectPLC : "";
+        //message_error_parameter.textContent = data.message !== "" ? data.message : "";
+        //message_error_connect.textContent = data.messageErrorConnectPLC !== "" ? data.messageErrorConnectPLC : "";
 
 
         //xoa
@@ -288,11 +303,14 @@ const updateData = () => {
 
 
 
+    }).catch((data) => {
+        message_error_connect.textContent = "Mất kết nối tới PLC, đang tự động kết nối lại . . .";
+        ReportDisconnectPLC();
     })
 }
 
 
-const dataInterval = setInterval(updateData, 500);
+const dataInterval = setInterval(updateData, 700);
 
 
 
@@ -320,11 +338,11 @@ btn_batdau.addEventListener('click', () => {
 
 //laymau
 btn_laymau.addEventListener('click', () => {
- 
-        fetch(`./dashboard/btn_laymau`).then(res => res.json()).then(
-            (resData) => {
-                console.log(resData.status);
-            })
+
+    fetch(`./dashboard/btn_laymau`).then(res => res.json()).then(
+        (resData) => {
+            console.log(resData.status);
+        })
 
 });
 
