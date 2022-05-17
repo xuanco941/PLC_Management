@@ -170,7 +170,15 @@ namespace PLC_Management.Controllers
         [HttpPost]
         public IActionResult DeleteResult([FromBody] DeleteResultModel deleteResult)
         {
-            ResultBusiness.DeleteResultByIDAndParameter(deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4);
+            try
+            {
+                ResultBusiness.DeleteResultByIDAndParameter(deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4);
+
+            }
+            catch
+            {
+                //loi xoa
+            }
             return Json( new { deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4 });
         }
     }

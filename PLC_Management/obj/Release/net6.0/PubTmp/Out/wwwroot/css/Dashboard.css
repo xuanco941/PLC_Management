@@ -10,6 +10,7 @@ h2{
     width: 100%;
     margin-top: 25px;
     background-color: #f9f9c5;
+    margin-bottom:25px;
 }
 .tabLeft{
     padding: 5px;
@@ -108,7 +109,7 @@ input{
     text-align:center;
 }
 
-#pH,#Temp,#COD,#TSS {
+#pH,#Temp,#COD,#TSS,#NH4 {
     font-size:17px;
     font-weight:600;
 }

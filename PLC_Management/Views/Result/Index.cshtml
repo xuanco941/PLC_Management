@@ -1,4 +1,5 @@
 ﻿@using PLC_Management.Models.ResultModel
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
     Layout = "_Layout";
@@ -50,12 +51,15 @@
             </div>
         </form>
 
+        @if (@HttpContextAccessor.HttpContext.Session.GetInt32(Common.SESSION_ISADMIN) == 1)
+        {
+            <div class="col-12" style="display:flex; justify-content:end;">
+                <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger">
+                    Xóa bản ghi trang hiện tại
+                </button>
+            </div>
+        }
 
-        <div class="col-12" style="display:flex; justify-content:end;">
-            <button id="btn_xoa_ban_ghi" type="button" class="btn btn-danger">
-                Xóa bản ghi trang hiện tại
-            </button>
-        </div>
 
 
 
