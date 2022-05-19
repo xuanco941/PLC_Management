@@ -124,7 +124,7 @@ namespace PLC_Management.Controllers
         [HttpPost]
         public IActionResult ReConnectPLC([FromBody] bool disconnect)
         {
-
+            ActivityBusiness.AddActivity("Mất kết nối tới PLC.");
             if (disconnect == true)
             {
                 MainPLC.Start();

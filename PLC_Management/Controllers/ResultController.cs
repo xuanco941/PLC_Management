@@ -12,6 +12,10 @@ namespace PLC_Management.Controllers
             if (numberResult>0)
             {
                 Common.NUMBER_ELM_ON_PAGE = numberResult;
+                if (numberResult > 5000)
+                {
+                    Common.NUMBER_ELM_ON_PAGE = 5000;
+                }
             }
 
             ResultBusiness resultBusiness = new ResultBusiness();

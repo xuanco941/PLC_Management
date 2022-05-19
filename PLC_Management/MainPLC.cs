@@ -1,4 +1,5 @@
 ﻿using PROFINET_STEP_7.Profinet;
+using PLC_Management.Models.ActivityModel;
 
 namespace PLC_Management
 {
@@ -40,6 +41,7 @@ namespace PLC_Management
                 // success
                 CurrentValuePLC.message = null;
                 CurrentValuePLC.messageErrorConnectPLC = null;
+                ActivityBusiness.AddActivity("Kết nối máy PLC thành công.");
             }
             catch (Exception ex)
             {
