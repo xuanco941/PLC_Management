@@ -50,7 +50,15 @@ window.addEventListener('load', () => {
     })
 
 
+    var xoa_tat_ca = document.getElementById('xoa_tat_ca');
+    xoa_tat_ca.onsubmit = (e) => {
+        if (confirm("Bạn có chắc muốn xóa tất cả bản ghi?")) {
 
+        }
+        else {
+            e.preventDefault();
+        }
+    }
 
 
 

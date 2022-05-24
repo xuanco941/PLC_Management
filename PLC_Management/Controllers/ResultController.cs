@@ -185,6 +185,22 @@ namespace PLC_Management.Controllers
             }
             return Json( new { deleteResult.start_id, deleteResult.end_id, deleteResult.pH, deleteResult.Temp, deleteResult.TSS, deleteResult.COD, deleteResult.NH4 });
         }
+
+        [HttpPost]
+        public IActionResult DeleteAllResults()
+        {
+
+            try
+            {
+                ResultBusiness.DeleteAllResults();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return NotFound();
+            }
+
+        }
     }
 
 }

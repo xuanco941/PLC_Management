@@ -179,6 +179,18 @@ namespace PLC_Management.Models.ResultModel
             sqlConnection.Close();
         }
 
+        public static void DeleteAllResults()
+        {
+            SqlConnection sqlConnection = new SqlConnection(Common.ConnectionString);
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "Delete from Result";
+
+            command.Connection = sqlConnection;
+
+            command.ExecuteNonQuery();
+            sqlConnection.Close();
+        }
 
     }
 }

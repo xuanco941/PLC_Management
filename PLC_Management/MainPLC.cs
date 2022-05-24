@@ -43,7 +43,7 @@ namespace PLC_Management
                 CurrentValuePLC.messageErrorConnectPLC = null;
                 ActivityBusiness.AddActivity("Kết nối máy PLC thành công.");
             }
-            catch (Exception ex)
+            catch
             {
                 CurrentValuePLC.message = "Không thể kết nối";
             }

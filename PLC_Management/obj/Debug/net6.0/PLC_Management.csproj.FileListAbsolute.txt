@@ -32,3 +32,4 @@ D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Debug\net6.0\refi
 D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Debug\net6.0\PLC_Management.pdb
 D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Debug\net6.0\PLC_Management.genruntimeconfig.cache
 D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\obj\Debug\net6.0\ref\PLC_Management.dll
+D:\WorkPlace\C-Sharp\Working\PLC_Management\PLC_Management\bin\Debug\net6.0\System.Security.Permissions.dll
