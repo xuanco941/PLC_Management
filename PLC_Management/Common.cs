@@ -4,9 +4,7 @@ namespace PLC_Management
     public class Common
     {
 
-        //public const string ConnectionString = @"Data Source=DESKTOP-P4IC2M8\SQLEXPRESS;Initial Catalog=PLC_MANAGEMENT;User ID=sa;Password=942001xX";
-        public const string ConnectionString = @"Data Source=DESKTOP-TR4IQ1A;Initial Catalog=PLC_MANAGEMENT;User ID=admin;Password=123";
-
+        public const string ConnectionString = @"Data Source=DESKTOP-NU3N490\SQLEXPRESS;Initial Catalog=PLC_MANAGEMENT;User ID=sa;Password=123";
 
         public const string SESSION_USER_LOGIN = "SESSION_USER_LOGIN";
 

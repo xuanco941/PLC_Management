@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ecuYNXNEeCBO2RiU33nqhGGVbR2rZfB2/AJ6efj3o84wkoWSxYRFQBjnJIjkvLe0NXi9h62jnEt1hRzFs5aI5w==",
+  "dgSpecHash": "zfSsXT4rmnlbqRKu6SY0uZ7mdOP9zTe1HGvejlYHAZncwhHMkVve3F1nqD6GBZdVk8Ypu79zHmaslbVraSuMmA==",
   "success": true,
-  "projectFilePath": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\PLC_Management.csproj",
+  "projectFilePath": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\PLC_Management.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xuanc\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\2.2.0\\microsoft.aspnetcore.cryptography.internal.2.2.0.nupkg.sha512",
     "C:\\Users\\xuanc\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",

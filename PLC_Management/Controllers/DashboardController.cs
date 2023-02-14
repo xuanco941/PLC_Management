@@ -23,7 +23,7 @@ namespace PLC_Management.Controllers
 
         public IActionResult UpdateDataPLC()
         {
-            MainPLC.GetData();
+            //MainPLC.GetData();
             return Json(new
             {
                 //btn

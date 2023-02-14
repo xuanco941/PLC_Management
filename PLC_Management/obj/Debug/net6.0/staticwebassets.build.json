@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HV0zGgZseO14GJGun2Dadax6iNyttJHx62+mfCP69xA=",
+  "Hash": "LD/Ip3OvIldMNQJGV+ZPFLUGkwZMBmnCoZj/vOSBDLY=",
   "Source": "PLC_Management",
   "BasePath": "_content/PLC_Management",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "PLC_Management\\wwwroot",
       "Source": "PLC_Management",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\bundle\\PLC_Management.styles.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\bundle\\PLC_Management.styles.css",
       "SourceId": "PLC_Management",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "PLC_Management.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\bundle\\PLC_Management.styles.css"
+      "OriginalItemSpec": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\bundle\\PLC_Management.styles.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PLC_Management.bundle.scp.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PLC_Management.bundle.scp.css",
       "SourceId": "PLC_Management",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "PLC_Management.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PLC_Management.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PLC_Management.bundle.scp.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\Dashboard.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Dashboard.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "css/Dashboard.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Dashboard.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\Employee.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Employee.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "css/Employee.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Employee.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\Login.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Login.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "css/Login.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\Main.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Main.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "css/Main.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Main.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\Record.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Record.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "css/Record.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Record.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\css\\SideNav.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\SideNav.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "css/SideNav.css",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\SideNav.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\favicon.ico",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\img\\users.svg",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\img\\users.svg",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "img/users.svg",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\img\\users.svg"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\Dashboard.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\Dashboard.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "js/Dashboard.js",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Dashboard.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\DeleteResult.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\DeleteResult.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "js/DeleteResult.js",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\js\\DeleteResult.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\Employee.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\Employee.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "js/Employee.js",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Employee.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\Pagination.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\Pagination.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "js/Pagination.js",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Pagination.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\PrintResult.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\PrintResult.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "js/PrintResult.js",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\js\\PrintResult.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\js\\table2excel.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\table2excel.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "js/table2excel.js",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\js\\table2excel.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_bundle_min.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_bundle_min.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "lib/lib_new_version/bootstrap_bundle_min.js",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\bootstrap_bundle_min.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.css",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.css",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "lib/lib_new_version/bootstrap_min.css",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\bootstrap_min.css"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "lib/lib_new_version/bootstrap_min.js",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\bootstrap_min.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\jquery3_2_1.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\jquery3_2_1.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "lib/lib_new_version/jquery3_2_1.js",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\lib_new_version\\jquery3_2_1.js"
     },
     {
-      "Identity": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\popper.js",
+      "Identity": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\popper.js",
       "SourceId": "PLC_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\",
       "BasePath": "_content/PLC_Management",
       "RelativePath": "lib/lib_new_version/popper.js",
       "AssetKind": "All",

@@ -1,0 +1,101 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PLC_Management.bundle.scp.css",
+      "PackagePath": "staticwebassets\\PLC_Management.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Dashboard.css",
+      "PackagePath": "staticwebassets\\css\\Dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Employee.css",
+      "PackagePath": "staticwebassets\\css\\Employee.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Main.css",
+      "PackagePath": "staticwebassets\\css\\Main.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\Record.css",
+      "PackagePath": "staticwebassets\\css\\Record.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\css\\SideNav.css",
+      "PackagePath": "staticwebassets\\css\\SideNav.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\img\\users.svg",
+      "PackagePath": "staticwebassets\\img\\users.svg"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\Dashboard.js",
+      "PackagePath": "staticwebassets\\js\\Dashboard.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\DeleteResult.js",
+      "PackagePath": "staticwebassets\\js\\DeleteResult.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\Employee.js",
+      "PackagePath": "staticwebassets\\js\\Employee.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\Pagination.js",
+      "PackagePath": "staticwebassets\\js\\Pagination.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\PrintResult.js",
+      "PackagePath": "staticwebassets\\js\\PrintResult.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\js\\table2excel.js",
+      "PackagePath": "staticwebassets\\js\\table2excel.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_bundle_min.js",
+      "PackagePath": "staticwebassets\\lib\\lib_new_version\\bootstrap_bundle_min.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.css",
+      "PackagePath": "staticwebassets\\lib\\lib_new_version\\bootstrap_min.css"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\bootstrap_min.js",
+      "PackagePath": "staticwebassets\\lib\\lib_new_version\\bootstrap_min.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\jquery3_2_1.js",
+      "PackagePath": "staticwebassets\\lib\\lib_new_version\\jquery3_2_1.js"
+    },
+    {
+      "Id": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\wwwroot\\lib\\lib_new_version\\popper.js",
+      "PackagePath": "staticwebassets\\lib\\lib_new_version\\popper.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.PLC_Management.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.PLC_Management.props",
+      "PackagePath": "build\\PLC_Management.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.PLC_Management.props",
+      "PackagePath": "buildMultiTargeting\\PLC_Management.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.PLC_Management.props",
+      "PackagePath": "buildTransitive\\PLC_Management.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

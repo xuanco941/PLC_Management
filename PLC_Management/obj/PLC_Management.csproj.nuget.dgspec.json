@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\PLC_Management.csproj": {}
+    "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\PLC_Management.csproj": {}
   },
   "projects": {
-    "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\PLC_Management.csproj": {
+    "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\PLC_Management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\PLC_Management.csproj",
+        "projectUniqueName": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\PLC_Management.csproj",
         "projectName": "PLC_Management",
-        "projectPath": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\PLC_Management.csproj",
+        "projectPath": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\PLC_Management.csproj",
         "packagesPath": "C:\\Users\\xuanc\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkPlace\\C-Sharp\\Working\\PLC_Management\\PLC_Management\\obj\\",
+        "outputPath": "C:\\Users\\xuanc\\OneDrive\\Desktop\\WorkPlace\\C-Sharp\\Working\\WEB\\PLC_Management\\PLC_Management\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\xuanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,7 +59,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
